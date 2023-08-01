@@ -106,131 +106,91 @@
     </div> 
     <!-- Checkout Container -->
     <div class="container checkout-container py-5">
-        <!-- Checkout Form -->
         <div class="checkout-form">
             <h1 class="display-4">Checkout</h1>
 
             <form id="checkout-form" method="post" data-netlify="true">
                 <input type="hidden" name="form-name" value="checkout-form">
 
- <!-- Shipping Information -->
-                  <h2 class="mb-3">Shipping Information</h2>
-                  <div class="form-group">
-                      <label for="fullName">Full Name</label>
-                      <input type="text" class="form-control" id="fullName" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="email">Email Address</label>
-                      <input type="email" class="form-control" id="email" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="phone" class="form-control" id="phone" required>
+                <!-- Shipping Information -->
+                <h2 class="mb-3">Shipping Information</h2>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" required>
                 </div>
-                  <div class="form-group">
-                      <label for="address">Address</label>
-                      <input type="text" class="form-control" id="address" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="city">City</label>
-                      <input type="text" class="form-control" id="city" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="zip">ZIP</label>
-                      <input type="text" class="form-control" id="zip" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="country">Country</label>
-                      <input type="text" class="form-control" id="country" required>
-                  </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="phone" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP</label>
+                    <input type="text" class="form-control" id="zip" name="zip" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" required>
+                </div>
 
-                  <!-- Shipping Method -->
-<h2 class="my-3">Shipping Method</h2>
-<div class="d-flex justify-content-between align-items-center mb-2">
-  <div class="form-check">
-      <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
-      <label class="form-check-label" for="standardShipping">
-          FREE Standard Shipping
-      </label>
-  </div>
-  <p class="mb-0">$0.00</p>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-  <div class="form-check">
-      <input class="form-check-input" type="radio" name="shippingMethod" id="priorityShipping" value="priority">
-      <label class="form-check-label" for="priorityShipping">
-          Priority Shipping and Handling
-      </label>
-  </div>
-  <p class="mb-0">$10.00</p>
-</div>
+                <!-- Shipping Method -->
+                <h2 class="my-3">Shipping Method</h2>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
+                        <label class="form-check-label" for="standardShipping">
+                            FREE Standard Shipping
+                        </label>
+                    </div>
+                    <p class="mb-0">$0.00</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="priorityShipping" value="priority">
+                        <label class="form-check-label" for="priorityShipping">
+                            Priority Shipping and Handling
+                        </label>
+                    </div>
+                    <p class="mb-0">$10.00</p>
+                </div>
 
-
-                  <!-- Payment Section -->
-                  <h2 class="my-3">Payment</h2>
-                  <div class="payment-method">
+                <!-- Payment Section -->
+                <h2 class="my-3">Payment</h2>
+                <div class="payment-method">
                     <div class="d-flex justify-content-between align-items-center">
                         <p class="mb-0"><strong>Credit/Debit Card</strong></p>
                         <div id="card-icons">
-                            <img id="visa-icon" src="images/visa.png" alt="Visa" width="40">
-                            <img id="mastercard-icon" src="images/mastercard.png" alt="MasterCard" width="40">
-                            <img id="amex-icon" src="images/amex.png" alt="American Express" width="40">
+                            <!-- Your card icons -->
                         </div>
                     </div>
-      <div class="form-group">
-          <label for="nameOnCard">Name on Card</label>
-          <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" required>
-      </div>
-      <div class="form-group">
-          <label for="cardNumber">Card Number</label>
-          <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" required>
-          <p id="cardIssuer"></p>
-      </div>
-      <div class="form-group">
-          <label for="expiry">Expiry (MM/YY)</label>
-          <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" required>
-      </div>
-      <div class="form-group">
-          <label for="cvv">CVV</label>
-          <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" required>
-        </div>
-    </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
-            </form>
-        </div>
-
-        <!-- Order Summary -->
-        <div class="order-summary">
-            <h2 class="mb-3">Order Summary</h2>
-            <!-- Product Details (This should be dynamically generated) -->
-            <div class="row product-details">
-                <div class="col-3">
-                    <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
+                    <div class="form-group">
+                        <label for="nameOnCard">Name on Card</label>
+                        <input type="text" class="form-control" id="nameOnCard" name="nameOnCard" autocomplete="cc-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" autocomplete="cc-number" required>
+                        <p id="cardIssuer"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry">Expiry (MM/YY)</label>
+                        <input type="text" class="form-control" id="expiry" name="expiry" autocomplete="cc-exp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" name="cvv" autocomplete="cc-csc" required>
+                    </div>
                 </div>
-                <div class="col-9">
-                    <p>PSmileactives Pro</p>
-                    <p>Quantity: 1</p>
-                    <p>Price: <span class="float-right">$25</span></p>
-                </div>
-            </div>
-            <!-- Subtotal -->
-            <div class="subtotal">
-                <h4>Subtotal: <span class="float-right">$25</span></h4>
-            </div>
-            <!-- Shipping -->
-            <div class="shipping">
-                <h4>Shipping: <span class="float-right">FREE</span></h4>
-            </div>
-            <!-- Total -->
-            <div class="total">
-                <h4>Total: <span class="float-right">$25</span></h4>
-            </div>
-        </div>
-        
-
-            <!-- All your order details go here -->
-        </div>
-    </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
             </form>
         </div>
