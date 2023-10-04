@@ -1,11 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Simulate a 3 second delay before showing the OTP form
+window.onload = function() {
     setTimeout(function() {
-        hideElement('.spinner-container');
-        showElement('.otp-container');
+        document.querySelector('.spinner-container').style.display = 'none';
+        document.querySelector('.otp-container').style.display = 'flex';
     }, 3000);
 
-    // Attach input event listeners to the OTP inputs
+    // Listen to input events on OTP fields
     const otpInputs = document.querySelectorAll('.otp-inputs input');
     otpInputs.forEach((input, index) => {
         input.addEventListener('input', function() {
@@ -14,24 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
+};
 
 function submitOTP() {
-    hideElement('.otp-container');
-    showElement('.spinner-container');
-    
-    // Simulate a 3 second delay for OTP verification
-    // In a real-world scenario, this is where you'd call your backend to verify the OTP
+    // Here you can add logic to validate the OTP if needed
+    // For this example, I'm directly showing the thank-you screen.
+
+    document.querySelector('.otp-container').style.display = 'none';
+    document.querySelector('.spinner-container').style.display = 'flex';
+
     setTimeout(function() {
-        hideElement('.spinner-container');
-        showElement('.thanks-container');
+        document.querySelector('.spinner-container').style.display = 'none';
+        document.querySelector('.thanks-container').style.display = 'flex';
     }, 3000);
-}
-
-function hideElement(selector) {
-    document.querySelector(selector).style.display = 'none';
-}
-
-function showElement(selector) {
-    document.querySelector(selector).style.display = 'flex';
 }
