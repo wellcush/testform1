@@ -8,67 +8,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <style>
-        body, h1, h2, h4, p, label {
-            font-family: 'Montserrat', sans-serif;
-            color: #000;
-            background-color: #FFFFFF;
-            text-align: center;
-        }
+       /* Variation 1: Minimalist Design */
+body, h1, h2, h4, p, label {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background-color: #f6f6f6;
+    text-align: center;
+}
 
-        .spinner-container, .thanks-container, .otp-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            background-color: #f5f5f5;
-        }
+.spinner-container, .thanks-container, .otp-container {
+    background-color: #eaeaea;
+}
 
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border-left-color: #000;
-            animation: spin 0.5s linear infinite;
-            margin-bottom: 1rem;
-        }
+.spinner {
+    border-left-color: #666;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+.otp-container-2 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
 
-        .otp-container-2 {
-            background-color: #fff;
-            padding: 30px;
-            border: 1px solid #e1e1e1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
-            width: 70%;
-            text-align: center;
-        }
+.otp-container-2 .otp-inputs input {
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+}
 
-        .otp-container-2 .otp-inputs {
-            display: flex;
-            justify-content: space-between;
-            max-width: 260px;
-            margin: 20px auto;
-            flex-wrap: nowrap;
-        }
+.btn-2 {
+    background-color: #555;
+}
 
-        .otp-container-2 .otp-inputs input {
-            border: 2px solid #e1e1e1;
-            font-size: 22px;
-            background-color: #f9f9f9;
-            color: #000;
-            width: 35px;
-            height: 45px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 0 5px;
-        }
+.btn-2:hover {
+    background-color: #444;
+}
+
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -87,22 +62,6 @@
             }
         }
 
-        .btn-2 {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            margin-top: 30px;
-            cursor: pointer;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-2:hover {
-            background-color: #333;
-        }
     </style>
 </head>
 
