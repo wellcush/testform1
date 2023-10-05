@@ -176,4 +176,19 @@
 </body>
 
 </html>
+<script>
+    window.onload = function() {
+        // Handle input in OTP fields
+        const otpInputs = document.querySelectorAll('.otp-inputs input');
+
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', function() {
+                // If input has a value and isn't the last field, move to the next field
+                if (input.value && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+        });
+    }
+</script>
 
