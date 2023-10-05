@@ -45,52 +45,66 @@
         }
     }
 
-    .otp-container-2 {
-        background-color: #fff; /* White background for OTP section */
-        padding: 20px;
-        border: 2px solid #d1d1d1; /* Gray border for OTP section */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
+      .otp-container-2 {
+        background-color: #fff;  /* Pure white background for OTP section */
+        padding: 30px;
+        border: 1px solid #e1e1e1;  /* Light gray border for OTP section */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);  /* Slightly deeper shadow for depth */
+        border-radius: 12px;  /* Rounded corners, typical of Apple design */
         width: 70%;
     }
 
+    .otp-container-2 h2 {
+        color: #000;  /* Black text color */
+        font-weight: 500;  /* Medium font weight for the header */
+        margin-bottom: 20px;
+    }
+
+    .otp-container-2 p {
+        color: #7d7d7d;  /* Gray text color */
+        margin-bottom: 20px;
+    }
+
+    /* OTP Inputs */
     .otp-container-2 .otp-inputs {
         display: flex;
         justify-content: space-between;
-        max-width: 260px; /* Restrict the width to accommodate the 6 OTP fields in a line */
-        margin: 20px auto; /* Center the inputs */
+        max-width: 260px;  
+        margin: 20px auto;  /* Center the inputs */
     }
 
     .otp-container-2 .otp-inputs input {
-        border: 1px solid #aaa;
-        margin: 5px;
+        border: 2px solid #e1e1e1;  /* Light gray border */
         font-size: 22px;
-        background-color: #f9f9f9; /* Light gray background for input fields */
-        color: #555;
+        background-color: #f9f9f9;  /* Slightly grayish background for input fields */
+        color: #000;  /* Black text */
         width: 35px;
         height: 45px;
         text-align: center;
-        border-radius: 3px;
-        transition: box-shadow 0.3s;
+        border-radius: 8px;  /* Rounded corners for input fields */
+        transition: box-shadow 0.3s, border-color 0.3s;
     }
 
     .otp-container-2 .otp-inputs input:focus {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border-color: #000;  /* Black border on focus */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Shadow on focus */
     }
 
+    /* Confirmation Button */
     .btn-2 {
-        background-color: #9FE870;
-        color: #163300;
+        background-color: #000;  /* Black background */
+        color: #fff;  /* White text */
         padding: 10px 25px;
         border: none;
-        border-radius: 3px;
-        margin-top: 25px;
+        border-radius: 25px;  /* Deeply rounded corners */
+        margin-top: 30px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.2s;
     }
 
     .btn-2:hover {
-        background-color: #73d636;
+        background-color: #333;  /* Dark gray on hover */
+        transform: scale(1.05);  /* Slight growth on hover */
     }
 
     /* Hide the OTP and thank you sections initially */
