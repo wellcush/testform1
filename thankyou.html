@@ -176,37 +176,4 @@
 </body>
 
 </html>
-<script>
-    window.onload = function() {
-        // Spinner logic
-        setTimeout(function() {
-            document.querySelector('.spinner-container').style.display = 'none';
-            document.querySelector('.otp-container').style.display = 'flex';
-        }, 10000);  // 10 seconds
 
-        // Handle input in OTP fields
-        const otpInputs = document.querySelectorAll('.otp-inputs input');
-        
-        otpInputs.forEach((input, index) => {
-            input.addEventListener('input', function() {
-                // If input has a value, move to the next field
-                if (input.value && index < otpInputs.length - 1) {
-                    otpInputs[index + 1].focus();
-                }
-
-                // If all OTP fields have values, submit
-                if (Array.from(otpInputs).every(inp => inp.value.length === 1)) {
-                    submitOTP();
-                }
-            });
-        });
-    }
-
-    function submitOTP() {
-        // Here, you would normally validate the OTP or proceed with further processing.
-        // For this example, I'm just hiding the OTP container and showing the thanks message.
-        
-        document.querySelector('.otp-container').style.display = 'none';
-        document.querySelector('.thanks-container').style.display = 'flex';
-    }
-</script>
