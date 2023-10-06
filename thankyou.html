@@ -9,12 +9,14 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <style>
      <style>
-        body, h1, h2, h4, p, label {
+       body {
+            overflow: hidden;
             font-family: 'Montserrat', sans-serif;
             color: #000;
             background-color: #FFFFFF;
             text-align: center;
         }
+
 
         .spinner-container, .thanks-container, .otp-container {
             display: flex;
@@ -107,6 +109,7 @@
     </style>
 </head>
 
+
 <body>
     <!-- Spinner Container -->
     <div class="spinner-container">
@@ -122,12 +125,13 @@
                 <h2>Please Confirm</h2>
                 <p>Enter the code sent to your mobile to confirm the transaction:</p>
                 <div class="otp-inputs">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
-                    <input type="text" maxlength="1">
+                    <!-- Added autocomplete attribute for one-time-code for each input field -->
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                    <input type="text" maxlength="1" autocomplete="one-time-code">
                 </div>
                 <button class="btn-2" onclick="submitOTP()">Confirm</button>
             </div>
