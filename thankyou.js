@@ -12,20 +12,24 @@ document.addEventListener("DOMContentLoaded", function() {
         otpContainer.style.display = 'flex';
     }, 15000);
 
-    // 3. Auto-navigate to the next input
+    // Handling input focus, blur, auto-navigate to next input, and ensure only numeric values
     otpInputs.forEach((input, index) => {
         input.addEventListener('input', () => {
+            // Ensure only numeric values
+            input.value = input.value.replace(/[^0-9]/g, '');
+
+            // Auto-navigate to the next input
             if (input.value.length >= 1 && index < otpInputs.length - 1) {
                 otpInputs[index + 1].focus();
             }
 
-            // 4. Auto submit if all inputs are filled
+            // Auto submit if all inputs are filled
             if (Array.from(otpInputs).every(i => i.value.length === 1)) {
                 btnConfirm.click();
             }
         });
 
-        // 1. Visual feedback on input
+        // Visual feedback on input
         input.addEventListener('focus', () => {
             input.style.boxShadow = '0 0 5px #666';
         });
@@ -33,18 +37,19 @@ document.addEventListener("DOMContentLoaded", function() {
             input.style.boxShadow = '';
         });
     });
-otpInputs.forEach((input) => {
-    input.addEventListener('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, '');
-    });
-});
 
     // Event for the Confirm button click
     btnConfirm.addEventListener('click', () => {
+        // Ensure all fields are not empty
+        if (!Array.from(otpInputs).every(i => i.value.length === 1)) {
+            alert("All fields are mandatory. Please fill all the OTP fields.");
+            return;
+        }
+
         otpContainer.style.display = 'none';
         spinnerContainer.style.display = 'flex';
 
-        // 5. Transition from spinner to thank you after a short duration
+        // Transition from spinner to thank you after a short duration
         setTimeout(() => {
             spinnerContainer.style.opacity = 0;  // Begin fade-out effect
             setTimeout(() => {
@@ -58,4 +63,3 @@ otpInputs.forEach((input) => {
         }, 3000);  // 3 seconds duration for spinner before transitioning to thank you
     });
 });
-
