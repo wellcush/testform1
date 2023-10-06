@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function() {
             input.style.boxShadow = '';
         });
     });
+otpInputs.forEach((input) => {
+    input.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+});
 
     // Event for the Confirm button click
     btnConfirm.addEventListener('click', () => {
