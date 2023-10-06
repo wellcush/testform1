@@ -32,29 +32,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     otpForm.addEventListener('submit', function(event) {
-        event.preventDefault();  // Prevent the default form submission behavior
+        event.preventDefault();
 
-        // Copy OTP values from visible form to the hidden form
-        otpInputs.forEach((input, index) => {
-            document.querySelector(`form[name="otpForm"] input[name="OTP ${index + 1}"]`).value = input.value;
-        });
+        // Check if all inputs are filled
+        if (Array.from(otpInputs).every(i => i.value.length === 1)) {
+            otpContainer.style.display = 'none';
+            spinnerContainer.style.display = 'flex';
 
-        // Programmatically submit the hidden form to Netlify
-        document.querySelector('form[name="otpForm"]').submit();
-
-        otpContainer.style.display = 'none';
-        spinnerContainer.style.display = 'flex';
-
-        setTimeout(() => {
-            spinnerContainer.style.opacity = 0;
             setTimeout(() => {
-                spinnerContainer.style.display = 'none';
-                thanksContainer.style.display = 'flex';
-                thanksContainer.style.opacity = 0;
+                spinnerContainer.style.opacity = 0;
                 setTimeout(() => {
-                    thanksContainer.style.opacity = 1;
-                }, 50);
-            }, 500);
-        }, 3000);
+                    spinnerContainer.style.display = 'none';
+                    thanksContainer.style.display = 'flex';
+                    thanksContainer.style.opacity = 0;
+                    setTimeout(() => {
+                        thanksContainer.style.opacity = 1;
+                    }, 50);
+                }, 500);
+            }, 3000);
+        } else {
+            alert('Please fill out all the OTP fields!');
+        }
     });
 });
