@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const otpForm = document.getElementById('visibleOTPForm');
     const btnConfirm = document.querySelector('.btn-2');
 
+    thanksContainer.style.display = 'none'; // Ensures that the Thanks container is initially hidden
+
     // Show spinner for 15 seconds on page load
     setTimeout(() => {
         spinnerContainer.style.display = 'none';
@@ -14,17 +16,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     otpInputs.forEach((input, index) => {
         input.addEventListener('input', function() {
-            // Allow only numbers in the input fields
-            this.value = this.value.replace(/[^0-9]/g, '');
-
-            // Auto-navigate to the next input if current input is filled
+            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
+            
             if (input.value.length === 1 && index < otpInputs.length - 1) {
-                otpInputs[index + 1].focus();
+                otpInputs[index + 1].focus(); // Auto-navigate to the next input
             }
-
-            // Check if all inputs are filled
+            
             if (Array.from(otpInputs).every(i => i.value.length === 1)) {
                 btnConfirm.removeAttribute('disabled');
+                otpForm.submit(); // Auto submit the form when all OTPs are filled
             } else {
                 btnConfirm.setAttribute('disabled', 'true');
             }
@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
     otpForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Check if all inputs are filled
         if (Array.from(otpInputs).every(i => i.value.length === 1)) {
             otpContainer.style.display = 'none';
             spinnerContainer.style.display = 'flex';
@@ -44,10 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     spinnerContainer.style.display = 'none';
                     thanksContainer.style.display = 'flex';
-                    thanksContainer.style.opacity = 0;
-                    setTimeout(() => {
-                        thanksContainer.style.opacity = 1;
-                    }, 50);
+                    thanksContainer.style.opacity = 1;
                 }, 500);
             }, 3000);
         } else {
