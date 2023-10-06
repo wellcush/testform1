@@ -132,12 +132,13 @@
                 <p>Enter the code sent to your mobile to confirm the transaction:</p>
                 <div class="otp-inputs">
                     <!-- OTP input fields -->
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
-                    <input type="text" maxlength="1" autocomplete="one-time-code">
+                   <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+<input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+<input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+<input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+<input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+<input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+
                 </div>
                 <button class="btn-2" onclick="submitOTP()">Confirm</button>
             </div>
