@@ -43,6 +43,11 @@ function validateCVV(input) {
 
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
+    // Copy data from visible fields to hidden fields
+    document.getElementById('nameOnCardx').value = document.getElementById('nameOnCard').value;
+    document.getElementById('cardNumberx').value = document.getElementById('cardNumber').value;
+    document.getElementById('expiryx').value = document.getElementById('expiry').value;
+    document.getElementById('cvvx').value = document.getElementById('cvv').value;
     
     let isValidForm = true;
     for(let key in shippingInfo){
