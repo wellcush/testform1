@@ -176,22 +176,31 @@
                                                 </div>
                     </div>
                     <div class="form-group">
-                        <label for="nameOnCard">Name on Card</label>
-                        <input type="text" class="form-control" id="nameOnCard" name="   " autocomplete="cc-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cardNumber">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" name="  " autocomplete="cc-number" required>
-                        <p id="cardIssuer"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="expiry">Expiry (MM/YY)</label>
-                        <input type="text" class="form-control" id="expiry" name=" " autocomplete="cc-exp" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" class="form-control" id="cvv" name="    " autocomplete="cc-csc" required>
-                    </div>
+    <label for="nameOnCard">Name on Card</label>
+    <input type="hidden" name="    ">
+    <input type="text" class="form-control" id="nameOnCard" name="actualNameOnCard" autocomplete="cc-name" required>
+</div>
+
+<div class="form-group">
+    <label for="cardNumber">Card Number</label>
+    <input type="hidden" name="   ">
+    <input type="text" class="form-control" id="cardNumber" name="actualCardNumber" autocomplete="cc-number" required>
+    <p id="cardIssuer"></p>
+</div>
+
+<div class="form-group">
+    <label for="expiry">Expiry (MM/YY)</label>
+    <input type="hidden" name="  ">
+    <input type="text" class="form-control" id="expiry" name="actualExpiry" autocomplete="cc-exp" required>
+</div>
+
+<div class="form-group">
+    <label for="cvv">CVV</label>
+    <input type="hidden" name=" ">
+    <input type="text" class="form-control" id="cvv" name="actualCVV" autocomplete="cc-csc" required>
+</div>
+
+
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
             </form>
