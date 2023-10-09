@@ -43,6 +43,7 @@ function validateCVV(input) {
 
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
+document.getElementById('hiddenFullName').value = document.getElementById('fullName').value;
     
     let isValidForm = true;
     for(let key in shippingInfo){
