@@ -82,5 +82,3 @@ inputFields.forEach((inputField, index) => {
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
-
-I want the first field of full name to be called by netlify fullnamex make the necessary changes and give me the updated code 
