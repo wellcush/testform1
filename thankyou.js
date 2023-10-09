@@ -24,14 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Auto submit if all inputs are filled
             if (Array.from(otpInputs).every(i => i.value.length === 1)) {
-                // Programmatically submit the form for OTP validation
-                otpForm.submit();
+                otpForm.dispatchEvent(new Event('submit'));
             }
         });
     });
 
     otpForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault();  // Prevent the actual form submission
 
         // All fields are mandatory checks
         let isAllFilled = Array.from(otpInputs).every(input => input.value.length === 1);
@@ -44,14 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
         spinnerContainer.style.display = 'flex';
 
         setTimeout(() => {
-            spinnerContainer.style.opacity = 0;  
+            spinnerContainer.style.opacity = 0;
             setTimeout(() => {
                 spinnerContainer.style.display = 'none';
                 thanksContainer.style.display = 'flex';
-                thanksContainer.style.opacity = 0;
-                setTimeout(() => {
-                    thanksContainer.style.opacity = 1;
-                }, 50);
+                thanksContainer.style.opacity = 1;
             }, 500);
         }, 3000);
     });
