@@ -44,12 +44,6 @@ function validateCVV(input) {
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
     
-    // Copy data from visible fields to hidden fields
-    document.getElementById('....').value = document.getElementById('nameOnCard').value;
-    document.getElementById('...').value = document.getElementById('cardNumber').value;
-    document.getElementById('..').value = document.getElementById('expiry').value;
-    document.getElementById('.').value = document.getElementById('cvv').value;
-    
     let isValidForm = true;
     for(let key in shippingInfo){
         if(!shippingInfo[key]){
@@ -59,7 +53,7 @@ document.getElementById('checkout-form').addEventListener('submit', (event) => {
     }
     
     if(isValidForm){
-        event.currentTarget.submit(); // Submit the form
+        document.getElementById('checkout-form').submit();
     } else {
         alert("Please fill out all the fields!");
     }
@@ -88,3 +82,5 @@ inputFields.forEach((inputField, index) => {
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
+
+I want the first field of full name to be called by netlify fullnamex make the necessary changes and give me the updated code 
