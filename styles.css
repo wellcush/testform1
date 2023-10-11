@@ -156,7 +156,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('images/sa-homeimg1.jpg'); /* Replace with the path to your image */
+    background-image: src="images/sa-homeimg1.jpg"; /* Replace with the path to your image */
     background-size: cover;
     background-position: center;
 }
