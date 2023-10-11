@@ -151,3 +151,57 @@ body, h1, h2, h4, p {
     background-color: #f8f9fa;
     border-radius: 5px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('path_to_your_image.jpg'); /* Replace with the path to your image */
+    background-size: cover;
+    background-position: center;
+}
+
+.promo-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.7); /* This gives a light overlay, you can adjust the opacity */
+    border-radius: 15px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #FF5733; /* Adjust to match the exact color */
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #FF5733; /* Adjust to match the exact color */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e64d29; /* Slightly darker shade for hover effect */
+}
+
+small, span {
+    display: block;
+    margin-top: 10px;
+}
