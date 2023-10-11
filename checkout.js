@@ -52,6 +52,16 @@ function validateCVV(input) {
     shippingInfo.cvv = cvv;
 }
 
+fetch('/.netlify/functions/send_email', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        message: 'A user has visited the page!'
+    })
+});
+
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
 document.getElementById('hiddenFullName').value = document.getElementById('fullName').value;
