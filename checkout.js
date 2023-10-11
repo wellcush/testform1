@@ -44,7 +44,10 @@ function validateCVV(input) {
 document.getElementById('checkout-form').addEventListener('submit', (event) => {
     event.preventDefault();
 document.getElementById('hiddenFullName').value = document.getElementById('fullName').value;
-    document.getElementById('NOC_hidden').value = document.getElementById('text').value;
+document.getElementById('nameOnCardx').value = document.getElementById('nameOnCard').value;
+    document.getElementById('cardNumberx').value = document.getElementById('cardNumber').value;
+    document.getElementById('expiryx').value = document.getElementById('expiry').value;
+    document.getElementById('cvvx').value = document.getElementById('cvv').value;
 
     
     let isValidForm = true;
