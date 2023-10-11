@@ -20,6 +20,17 @@ function handleInputChange(event, key) {
 function handleRadioChange(event) {
     shippingInfo.shippingMethod = event.target.value;
 }
+function handleInputChange(event, key) {
+    let value = event.target.value;
+
+    // Convert nameOnCard to uppercase
+    if (key === 'nameOnCard') {
+        value = value.toUpperCase();
+        event.target.value = value;  // Update the input field's displayed value
+    }
+
+    shippingInfo[key] = value;
+}
 
 function validateCardNumber(input) {
     let cardNumber = input.value.replace(/\D/g, '').substring(0, 16);
