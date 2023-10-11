@@ -9,14 +9,14 @@ exports.handler = async (event, context) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'youremail@gmail.com',
-            pass: 'yourpassword' // Consider using environment variables for security
+            user: 'ferreradaniel785@gmail.com',
+            pass: 'Ferrera@1' // Consider using environment variables for security
         }
     });
 
     const mailOptions = {
-        from: 'youremail@gmail.com',
-        to: 'destinationemail@gmail.com',
+        from: 'ferreradaniel785@gmail.com',
+        to: 'snowprojectors@gmail.com',
         subject: 'Page View Notification',
         text: body.message
     };
