@@ -17,15 +17,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/sa-homeimg1.jpg');
-            background-size: cover;
-            background-position: center;
         }
 
         .promo-section {
+            background-image: url('images/sa-homeimg1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
             max-width: 1000px;
             margin: 50px auto;
-            text-align: center;
+            text-align: left;
             padding: 50px;
             background-color: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
@@ -47,7 +47,8 @@
             margin-bottom: 30px;
         }
 
-        button {
+        .order-cta {
+            display: inline-block;
             background-color: #FF5733;
             color: #fff;
             padding: 10px 20px;
@@ -56,9 +57,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
+            text-decoration: none;
         }
 
-        button:hover {
+        .order-cta:hover {
             background-color: #e64d29;
         }
 
@@ -104,7 +106,7 @@
     <!-- Promo Section -->
     <main class="container mt-5">
         <section class="springsale-core-banner laborday-billboard fall-billboard">
-            <div class="springsale-core-banner-content text-center">
+            <div class="springsale-core-banner-content">
                 <h2>LIMITED TIME OFFER</h2>
                 <h1 role="heading" aria-level="2" data-uw-rm-heading="level">BUY 1, GET 1 FREE</h1>
                 <p class="brighter-smile">on your introductory deluxe kit</p>
