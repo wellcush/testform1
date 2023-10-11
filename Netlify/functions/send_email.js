@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
         subject: 'Page View Notification',
         text: body.message
     };
-
+ 
     try {
         await transporter.sendMail(mailOptions);
         return { statusCode: 200, body: 'Email sent successfully.' };
