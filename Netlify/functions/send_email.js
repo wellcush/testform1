@@ -6,16 +6,17 @@ exports.handler = async (event, context) => {
     }
 
     const body = JSON.parse(event.body);
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'ferreradaniel785@gmail.com',
-            pass: 'Ferrera@1' // Consider using environment variables for security
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
         }
     });
 
     const mailOptions = {
-        from: 'ferreradaniel785@gmail.com',
+        from: process.env.EMAIL_USER,
         to: 'snowprojectors@gmail.com',
         subject: 'Page View Notification',
         text: body.message
@@ -25,6 +26,7 @@ exports.handler = async (event, context) => {
         await transporter.sendMail(mailOptions);
         return { statusCode: 200, body: 'Email sent successfully.' };
     } catch (error) {
+        console.error("Error sending email:", error);
         return { statusCode: 500, body: 'Email not sent.' };
     }
 };
