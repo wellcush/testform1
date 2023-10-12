@@ -4,293 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-
+    
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <!-- Your custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Announcement Bar */
+        .alert-primary {
+            background-color: #5fc6c9;
+            color: #fff;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: #fff;
+        }
+        
+        .navbar-brand img {
+            width: 160px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333;
+        }
+        
+        /* Main Section */
+        .container {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .product-name {
+            color: #333;
+            font-weight: 700;
+            font-size: 36px;
+        }
+
+        .product-description,
+        .product-price {
+            color: #555;
+            font-size: 18px;
+        }
+
+        .product-price {
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: #5fc6c9;
+            border: none;
+        }
+        
+        /* Reasons To Try Smiles */
+        .reasons-to-try-smiles h2,
+        .product-feature h2,
+        .faq-section h2,
+        .reviews h2,
+        .testimonial-section h2 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        .reasons-to-try-smiles .reason {
+            margin-bottom: 20px;
+        }
+
+        .reasons-to-try-smiles .reason p {
+            color: #555;
+            margin: 10px 0 0;
+            text-align: center;
+        }
+        
+        /* Testimonials */
+        video {
+            width: 100%;
+        }
+
+        /* Reviews */
+        .reviews .review-stars {
+            color: #ffc107;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #fff;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer .footer-header {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-links a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #5fc6c9;
+        }
+
+        input#footer-email {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button.footer-btn {
+            background-color: #5fc6c9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        /* Responsive Styling */
+        @media only screen and (max-width: 768px) {
+            .navbar-brand img {
+                width: 120px;
+            }
+
+            .product-name {
+                font-size: 28px;
+            }
+            
+            .product-description,
+            .product-price {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Announcement Bar -->
     <div class="alert alert-primary text-center" role="alert">
-        FREE SHIPPING ON ALL ORDERS TODAY
+        Free shipping on orders over $50
     </div>
-    
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-            <a class="navbar-brand" href="#">
-                <img src="images/sa-2022-logo.png" alt="Logo" style="width:160px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <main class="container">
-        <div class="row">
 
-            <!-- Product Carousel -->
-            <div class="col-md-6">
-                <div id="productCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/Daily-Pro-Whitening-Gel.png"d-block w-60" alt="Product 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/Daily-Pro-Whitening-Gel.png" class="d-block w-60" alt="Product 2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Details -->
-<div class="col-md-6">
-    <h1 class="product-name">Smileactives Pro</h1>
-    <p class="product-description">Buy 1 get 1 free today only...</p>
-    <p class="product-price">$199.95</p>
-    <button id="buyNowBtn" class="btn btn-primary add-to-cart">Buy Now</button>
-
-<script>
-    document.getElementById('buyNowBtn').addEventListener('click', function() {
-        // You can add additional logic here if needed
-
-        // Redirect to the checkout page
-        window.location.href = "checkout.html";
-    });
-</script>
-
-                <!-- Product Feature -->
-                <div class="product-feature">
-                    <h2>Features:For the active woman, during work or play
-                    </h2>
-                    <p>Feature Description Goes Here: Made with proprietary Polyclean® technology, our signature whitening gel blends with any toothpaste in your medicine cabinet to supercharge your tooth-brushing regimen. A powerful micro-foam penetrates tooth enamel to help lift and remove stains — with visible results within 30 days. And your future smile is protected.
-                    </p>
-                <!-- Reasons to Try Smiles -->
-                <div class="reasons-to-try-smiles">
-                    <h2>Reasons to Try Smiles</h2>
-                    <img src="images/SA_Brand_Reasons-To-Try.png" alt="Your Image" class="title-image"> <!-- Your image -->
-                    <div class="reason">
-                        <img src="images/reasons_money_icon.png" alt="Image 1" class="reason-image">
-                        <p>Tough on stains. Easy on your wallet.</p>
-                    </div>
-                    <div class="reason">
-                        <img src="images/reasons_teeth_tray_icon.png" alt="Image 2" class="reason-image">
-                        <p>No more strips or trays. Just add to your toothbrush.</p>
-                    </div>
-                    <div class="reason">
-                        <img src="images/reasons_safe_icon.png" alt="Image 3" class="reason-image">
-                        <p>Proven safe and effective.</p>
-                    </div>
-                    <div class="reason">
-                        <img src="images/reasons_sparkle_icon.png" alt="Image 4" class="reason-image">
-                        <p>Tough on stains. Easy on your wallet. Get your teeth white, keep them white by brushing 2x a day, every day.</p>
-                    </div>
-                </div>
-                
-    
-                </div>
-               </div>
-               <!-- FAQ Section -->
-<div class="faq-section">
-    <h2>FAQ</h2>
-    <div id="faqAccordion">
-
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Will Smileactives products work on all types of teeth?
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Smileactives will work on all types of teeth including natural teeth, veneers, crowns, bonding and even dentures.
-                </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="Smiles Logo"></a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">Shop</a>
+                <a class="nav-item nav-link" href="#">About</a>
+                <a class="nav-item nav-link" href="#">Contact</a>
             </div>
         </div>
+    </nav>
 
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    How long will it take to see results?
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Results vary for each individual and for each product. Some people may see results in 3-7 days; for some it will take a little longer. This process is a gradual one. Please remember that there are a lot of factors that go into how long the process takes, such as age, medication, eating habits, dental work, etc. It all depends on the stains, how long they have been there, and how deeply rooted they are in the enamel.
-                </div>
-            </div>
-        </div>
-
-        <!-- Continue this pattern for the rest of your questions and answers -->
-
-        <!-- The final question -->
-        <div class="card">
-            <div class="card-header" id="headingSix">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    Where Can I Find the List of Ingredients?
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
-                <div class="card-body">
-                    You can find a list of Product Ingredients <a href="your-link-here">here</a>.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-                    <!-- Mobile -->
-<div class="testimonial-section d-block d-md-none">
-    <h2>Testimonials</h2>
-    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <video class="d-block w-100" controls>
-                    <source src="images/video (1).mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="carousel-item">
-                <video class="d-block w-100" controls>
-                    <source src="images/video (2).mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="carousel-item">
-                <video class="d-block w-100" controls>
-                    <source src="images/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
-
-<!-- Desktop -->
-<div class="testimonial-section d-none d-md-block">
-    <h2>Testimonials</h2>
-    <div class="row">
-        <div class="col-12 col-md-4">
-            <video class="w-100" controls>
-                <source src="images/video (1).mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="col-12 col-md-4">
-            <video class="w-100" controls>
-                <source src="images/video (2).mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="col-12 col-md-4">
-            <video class="w-100" controls>
-                <source src="images/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-
-
-        <!-- Reviews -->
-<div class="reviews">
-    <h2>Reviews</h2>
-    <div class="review-item">
-        <h4>John Doe <span class="review-stars">★★★★★</span></h4>
-        <p>This product is really good. I'd highly recommend it!</p>
-    </div>
-    <div class="review-item">
-        <h4>Jane Doe <span class="review-stars">★★★★☆</span></h4>
-        <p>Great quality for the price. Very comfortable.</p>
-    </div>
-</div>
-
-    </main>
-    <div class="text-center footer-mbg clearfix py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 d-flex align-items-center">
-                <div class="pr-5">
-                    <img src="https://www.smileactives.com/on/demandware.static/-/Sites-SmileActives-Library/default/dw01ee2eb0/images/redesign-2022/mbg-2022.png" alt="60 day money back guarantee" class="img-fluid">
-                </div>
-                <div>
-                    <h4 class="line-1">OUR PROMISE</h4>
-                    <h4 class="line-2">Your Money-Back Guarantee</h4>
-                    <p>Try Smileactives® for 60 days. If you're not completely satisfied, simply return the product, even if empty. (less s&amp;h)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-   <!-- Footer -->
-<footer class="footer">
+    <!-- Main Product Section -->
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3">
-                <a class="navbar-brand" href="#">
-                    <img src="images/sa-2022-logo.png" alt="Logo" style="width:160px;">
-                </a>
+            <div class="col-md-6">
+                <img src="product-image.jpg" alt="Product Image" class="img-fluid">
             </div>
-            <div class="col-12 col-md-3">
-                <h5 class="footer-header">Company</h5>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-3">
-                <h5 class="footer-header">Support</h5>
-                <ul class="footer-links">
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-3">
-                <h5 class="footer-header">Sign up for email and/or texts for the latest
-                    updates, special offers and more!</h5>
-                <form action="#">
-                    <input type="email" id="footer-email" name="email" placeholder="Your email">
-                    <button type="submit" class="footer-btn">Subscribe</button>
-                </form>
+            <div class="col-md-6">
+                <h1 class="product-name">SmileBright Whitening Kit</h1>
+                <p class="product-description">Achieve a brighter, whiter smile in just 15 minutes with our premium teeth whitening kit.</p>
+                <p class="product-price">$99.99</p>
+                <button type="button" class="btn btn-primary">Add to Cart</button>
             </div>
         </div>
     </div>
-    
-    
-</footer>
 
+    <!-- Reasons To Try Smiles -->
+    <div class="reasons-to-try-smiles">
+        <div class="container">
+            <h2>Why Choose SmileBright?</h2>
+            <div class="row">
+                <div class="reason col-md-4">
+                    <img src="icon1.png" alt="Reason 1">
+                    <p>Professional Results at Home</p>
+                </div>
+                <div class="reason col-md-4">
+                    <img src="icon2.png" alt="Reason 2">
+                    <p>Safe & Effective Formula</p>
+                </div>
+                <div class="reason col-md-4">
+                    <img src="icon3.png" alt="Reason 3">
+                    <p>Fast & Lasting Results</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Testimonials Section -->
+    <div class="testimonial-section">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <video controls>
+                <source src="testimonial.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews container">
+        <h2>Reviews</h2>
+        <p class="review-stars">★★★★★</p>
+        <p>"This is the best whitening product I have used. Noticed results within days!" - Alex T.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="footer-header">Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Whitening Kit</a></li>
+                        <li><a href="#">Whitening Gel</a></li>
+                        <li><a href="#">Whitening Pen</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="footer-header">Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="footer-header">Subscribe</h3>
+                    <p>Sign up for exclusive offers and news</p>
+                    <input type="email" id="footer-email" placeholder="Enter your email" required>
+                    <button class="footer-btn" type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
