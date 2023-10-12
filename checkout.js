@@ -107,9 +107,19 @@ inputFields.forEach((inputField, index) => {
     });
 });
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('form[name="pageview"]');
-    form.submit();
+    const form = document.querySelector('#hiddenForm');
+    
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+    }).then(response => {
+        // Form successfully submitted
+    }).catch(error => {
+        // Error occurred during submission
+    });
 });
+
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
