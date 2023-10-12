@@ -106,6 +106,10 @@ inputFields.forEach((inputField, index) => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form[name="pageview"]');
+    form.submit();
+});
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
