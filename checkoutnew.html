@@ -8,99 +8,86 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 
-    <style>
+   <style>
     /* General Styles */
     body, h1, h2, h4, p, label {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-family: 'Karla', sans-serif;
         color: #000;
         font-weight: 600;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #f8f9fa;
+        padding: 10px 20px;
+        text-align: center;
     }
 
     /* Form Input Styles */
     .form-control {
         border-radius: 8px;
         border: 2px solid #ddd;
+        padding: 10px;
         font-size: 16px;
-    }
-
-    .form-control:hover, .form-control:focus {
-        border-color: #000;
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+        width: 100%; /* Ensures full-width on mobile */
+        box-sizing: border-box; /* Prevents width overflow with padding */
     }
 
     /* Button Styles */
     .btn-primary {
-        background-color: #000;
-        border: none;
+        background-color: #6c757d;
         color: #fff;
-        transition: background-color 0.3s ease-in-out;
+        padding: 12px 20px; /* Ensures larger click/tap area */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
     }
 
-    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-        background-color: #333;
-        box-shadow: none;
+    .btn-primary:hover {
+        background-color: #5a6268;
     }
 
-    /* Banner Styles */
-    .banner .banner-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    /* Payment Method Box */
-    .payment-method {
-        background-color: #f9f9f9;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Credit Card Icon Highlight */
-    @keyframes highlight {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-
-    #card-icons img {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    #card-icons img.highlight {
-        animation: highlight 1s infinite;
-    }
-
-    /* Order and Checkout Container */
-    .checkout-form {
-        padding: 2rem;
-        margin-bottom: 2rem;
-        background-color: #fff;
-        border-radius: 5px;
-    }
-
-    .order-summary {
-        max-width: 540px;
-        background-color: #f8f9fa;
-        padding: 2rem;
-        border-radius: 5px;
-    }
-
-    /* Additional Styles based on new requirements */
-    .credit-card-info {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    /* Responsive Handling (Mobile-first) */
+    /* Checkout Container Styles */
     .checkout-container {
+        display: flex;
         flex-direction: column-reverse;
+        gap: 20px;
     }
-    
+
+    /* Form and Summary Section Styles */
     .checkout-form, .order-summary {
         flex: 0 0 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Responsive Image */
+    .product-details img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Responsive Text Sizes */
+    h1, h2 {
+        font-size: 1.5rem; /* Adjusted size for headers */
+    }
+
+    p, label {
+        font-size: 0.9rem; /* Adjusted size for text and labels */
+    }
+
+    /* Media Queries */
+    @media(min-width: 480px) {
+        h1, h2 {
+            font-size: 1.8rem;
+        }
+
+        p, label {
+            font-size: 1rem;
+        }
     }
 
     @media(min-width: 768px) {
@@ -118,8 +105,13 @@
         .checkout-form, .order-summary {
             flex: 0 0 49%;
         }
+
+        h1, h2 {
+            font-size: 2rem;
+        }
     }
 </style>
+
 
 
 </head>
