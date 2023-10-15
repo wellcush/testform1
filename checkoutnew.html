@@ -87,8 +87,37 @@
        .order-summary {
     background-color: #FAFAFA;
     border: 1px solid #000;
-    padding: 0px; /* Added padding inside the order-summary section */
+    padding: 20px; /* Updated padding */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between child elements */
 }
+       .order-summary h2 {
+    margin-bottom: 15px;
+}
+       .product-details {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+       .img-thumbnail {
+    width: 70px; /* Adjusted thumbnail size */
+    border: none;
+    padding: 0;
+}
+       
+.price-details {
+    width: 100%;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Spacing between price rows */
+}
+       
+       
        h4 span, p span {
     float: right;
 }
@@ -225,7 +254,6 @@
             <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" alt="Payment Method 1" width="40">
             <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/ae9ceec48b1dc489596c.svg" alt="Payment Method 2" width="40">
             <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/37fc65d0d7ac30da3b0c.svg" alt="Payment Method 3" width="40">
-            <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/f11b90c2972f3811f2d5.svg" alt="Payment Method 4" width="40">
         </div>
     </div>
     <!-- Adding placeholder, ARIA roles, and real-time validation pattern -->
@@ -258,34 +286,28 @@
 
         <!-- Order Summary -->
         <aside class="order-summary">
-            <h2 class="mb-3">Order Summary</h2>
-            <!-- Product Details (This should be dynamically generated) -->
-            <div class="row product-details">
-                <div class="col-3">
-                    <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
-                </div>
-                <div class="col-9">
-                    <p>PSmileactives Pro</p>
-                    <p>Quantity: 1</p>
-                    <p>Price: <span class="float-right">£25</span></p>
-                </div>
-            </div>
-            <!-- Subtotal -->
-            <div class="subtotal d-flex justify-content-between">
-                <h4>Subtotal:</h4> 
-                <h4>£25</h4>
-            </div>
-            <!-- Shipping -->
-            <div class="shipping d-flex justify-content-between">
-                <h4>Shipping:</h4>
-                <h4>FREE</h4>
-            </div>
-            <!-- Total -->
-            <div class="total d-flex justify-content-between">
-                <h4>Total:</h4>
-                <h4>£25</h4>
-            </div>
-        </aside>
+    <h2 class="mb-3">Order Summary</h2>
+    <div class="product-details">
+        <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
+        <p>PSmileactives Pro</p>
+        <p>Quantity: 1</p>
+        <p>Price: <span>£25</span></p>
+    </div>
+    <div class="price-details">
+        <div class="price-row">
+            <h4>Subtotal:</h4> 
+            <h4>£25</h4>
+        </div>
+        <div class="price-row">
+            <h4>Shipping:</h4>
+            <h4>FREE</h4>
+        </div>
+        <div class="price-row">
+            <h4>Total:</h4>
+            <h4>£25</h4>
+        </div>
+    </div>
+</aside>
 
     
     </section>
