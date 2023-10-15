@@ -10,92 +10,94 @@
 
    <style>
     /* General Styles */
-    body, h1, h2, h4, p, label {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-        margin: 0;
-        padding: 0;
-    }
+body, h1, h2, h4, p, label {
+    font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
 
-    body, h1, h2 {
-        color: #000;
-        font-weight: 600;
-    }
-    
-    h4, p, label {
-        color: #555;  /* Gray text color for lighter elements */
-        font-weight: 400;
-    }
+h1, h2 {
+    color: #000;
+    font-weight: 600;
+}
 
-    /* Header Styles */
-    header {
-        background-color: #f8f9fa;
-        padding: 10px 20px;
-        text-align: center;
-    }
+h4, p, label {
+    color: #555;
+    font-weight: 400;
+}
 
-    /* Banner Image Style */
-    .banner .banner-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
 
-    /* Form Input Styles */
-    .form-control {
-        border-radius: 8px;
-        border: 2px solid #ddd;
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+/* Banner Image Style */
+.banner .banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
-    /* Button Styles */
-    .btn-primary {
-        background-color: #6c757d;
-        color: #fff;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 100%; /* Adjusted to full width of its container */
-        margin-top: 20px;  /* Added space above the button */
-        order: 3;  /* Ensure button is always below the payment section */
-    }
+/* Form Input Styles */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #eee;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-    .btn-primary:hover {
-        background-color: #5a6268;
-    }
+/* Button Styles */
+.btn-primary {
+    background-color: #007aff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    order: 3;
+    transition: background-color 0.3s;
+}
 
-    /* Checkout Container Styles */
-    .checkout-container {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 20px;
-    }
+.btn-primary:hover {
+    background-color: #0051a8;
+}
 
-    /* Form and Summary Section Styles */
-    .checkout-form, .order-summary {
-        flex: 0 0 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;  /* Align elements to the start */
-    }
-       .order-summary {
+/* Checkout Container Styles */
+.checkout-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.checkout-form, .order-summary {
+    flex: 0 0 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.order-summary {
     background-color: #FAFAFA;
-    border: 1px solid #000;  /* This applies the border to the entire section */
+    border: 1px solid #e0e0e0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-       .order-summary h2 {
-    margin-bottom: 15px;
-    border-left: none;  /* Removing the border */
-    padding-left: 0;  /* Reset padding */
+
+.order-summary h2, .order-summary h4, .order-summary p {
+    border-left: none;
+    padding-left: 0;
 }
 
 .product-details {
@@ -120,67 +122,61 @@
     align-items: center;
     margin-bottom: 5px;
 }
-       
-       
-       h4 span, p span {
-    float: right;
-}
-       .order-summary h4, .order-summary p {
-    border-left: none;  /* Removing the border */
-    padding-left: 0;  /* Reset padding */
-}
-       .payment-method {
+
+.payment-method {
     background-color: #F4F4F4;
-    padding: 15px;  /* Add padding to create space around elements inside */
+    padding: 15px;
 }
-       .payment-method .form-control {
+
+.payment-method .form-control {
     background-color: #FFF;
 }
 
-    /* Responsive Text Sizes */
+/* Responsive Text Sizes */
+h1, h2 {
+    font-size: 1.5rem;
+}
+
+p, label {
+    font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media(min-width: 480px) {
     h1, h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     p, label {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .banner .banner-image {
+        height: 50vh;
+    }
+}
+
+@media(min-width: 992px) {
+    .checkout-container {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    /* Media Queries */
-    @media(min-width: 480px) {
-        h1, h2 {
-            font-size: 1.8rem;
-        }
-
-        p, label {
-            font-size: 1rem;
-        }
-    }
-
-    @media(min-width: 768px) {
-        .banner .banner-image {
-            height: 50vh;
-        }
-    }
-
-    @media(min-width: 992px) {
-        .checkout-container {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        .checkout-form {
-        flex: 0 0 60%;  /* Adjust this value as per your design needs (55% or 60%) */
+    .checkout-form {
+        flex: 0 0 60%;
     }
 
     .order-summary {
-        flex: 0 0 40%;  /* Adjust this value accordingly if you change the above value */
+        flex: 0 0 40%;
     }
 
     h1, h2 {
         font-size: 2rem;
     }
 }
+
 </style>
 
 
