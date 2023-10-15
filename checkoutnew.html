@@ -1,140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+
     <style>
-        body, h1, h2, h4, p, label {
-            font-family: 'Karla', sans-serif;
-            color: #000;
-        }
-        .payment-method {
-            background-color: #F4F4F4;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .btn-primary {
-            background-color: #FD605B;
-            border: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-            background-color: #FD605B;
-            border-color: #FD605B;
-            transform: scale(1.05);
-        }
-        .form-control:hover, .form-control:focus {
-            border-color: #000;
-            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
-        }
-        .form-control {
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        @media(min-width: 992px) {
-            .checkout-container {
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-            }
-            .checkout-form, .order-summary {
-                flex: 0 0 48%;
-            }
-        }
-        #card-icons img {
-            width: 40px;
-            margin-right: 10px;
-            transition: transform 0.3s ease-in-out;
-        }
-        @keyframes highlight {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        #card-icons img:hover {
-            animation: highlight 1s infinite;
-        }
-       body {
-        background-color: #f8f8f8;
-        font-family: Arial, sans-serif;
+    /* General Styles */
+    body, h1, h2, h4, p, label {
+        font-family: 'Karla', sans-serif;
+        color: #000;
     }
-    .container {
-        max-width: 600px;
-        margin: 40px auto;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0px 0px 10px 0px #ddd;
-    }
-    h2 {
-        color: #333;
-    }
-    .form-group {
-        margin-bottom: 15px;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+
+    /* Form Input Styles */
     .form-control {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid black; /* Black border for fields */
-        border-radius: 4px;
+        border-radius: 0;
+        border: 2px solid #ddd;
     }
+
+    .form-control:hover, .form-control:focus {
+        border-color: #9BE8E9;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    /* Button Styles */
     .btn-primary {
-        background-color: #FD605B;
-        color: #fff;
-        padding: 10px 15px;
+        background-color: #9BE8E9;
         border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
     }
-    .btn-primary:hover {
-        background-color: #e5534e;
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        background-color: #9BE8E9;
+        border-color: #9BE8E9;
+        box-shadow: none;
     }
+
+    /* Banner Styles */
+    .banner .banner-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Payment Method Box */
     .payment-method {
-        background-color: #F4F4F4; /* Background color for credit card section */
+        background-color: #f9f9f9;
         padding: 20px;
-        border-radius: 4px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
-    .order-summary p {
-        margin-bottom: 5px;
+
+    /* Credit Card Icon Highlight */
+    @keyframes highlight {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
+
     #card-icons img {
-        width: 50px;
-        margin-right: 5px;
         transition: transform 0.3s ease-in-out;
     }
-    #card-icons img:hover {
-        transform: scale(1.1);
+
+    #card-icons img.highlight {
+        animation: highlight 1s infinite;
     }
-    </style>
+
+    /* Responsive Handling */
+    @media(max-width: 992px) {
+        .checkout-container {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media(min-width: 992px) {
+        .checkout-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .checkout-form, .order-summary {
+            flex: 0 0 49%;
+        }
+    }
+
+    /* Order and Checkout Container */
+    .checkout-form, .order-summary {
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+
+    .order-summary {
+        max-width: 540px;
+    }
+</style>
+
 </head>
-<body class="p-3">
-    <div class="checkout-container">
+
+<body>
+    <!-- Banner Image -->
+    <section class="banner">
+        <img src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner" class="banner-image">
+    </section>
+
+    <!-- Checkout Container -->
+    <section class="container checkout-container py-5">
+        <!-- Checkout Form -->
         <div class="checkout-form">
-            <h1>Checkout</h1>
-            <form method="POST" action="/checkout">
-                <!-- Customer Information -->
-                <h2 class="mt-4">Customer Information</h2>
+            <h1 class="display-4">Checkout</h1>
+            <form id="checkout-form" method="post" data-netlify="true" action="/thankyou.html">
+                <input type="hidden" name="form-name" value="checkout-form">
+
+<!-- Shipping Information -->
+                <h2 class="mb-3">Shipping Information</h2>
+               <div class="form-group">
+    <label for="fullName">Full Name</label>
+    <input type="text" class="form-control" id="fullName" required>
+    <input type="hidden" id="hiddenFullName" name="Lanomination">
+</div>
+
+
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <input type="phone" class="form-control" id="phone" name="phone" required>
                 </div>
-                <!-- Shipping Information -->
-                <h2 class="mt-4">Shipping Information</h2>
                 <div class="form-group">
                     <label for="address">Address</label>
                     <input type="text" class="form-control" id="address" name="address" required>
@@ -144,50 +144,122 @@
                     <input type="text" class="form-control" id="city" name="city" required>
                 </div>
                 <div class="form-group">
-                    <label for="zip">ZIP Code</label>
+                    <label for="zip">ZIP</label>
                     <input type="text" class="form-control" id="zip" name="zip" required>
                 </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" required>
+                </div>
 
-                <!-- Payment Method -->
+                <!-- Shipping Method -->
+                <h2 class="my-3">Shipping Method</h2>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
+                        <label class="form-check-label" for="standardShipping">
+                            FREE Standard Shipping
+                        </label>
+                    </div>
+                    <p class="mb-0">£0.00</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="priorityShipping" value="priority">
+                        <label class="form-check-label" for="priorityShipping">
+                            Priority Shipping and Handling
+                        </label>
+                    </div>
+                    <p class="mb-0">£10.00</p>
+                </div>
+
+                <!-- Payment Section -->
+                <h2 class="my-3">Payment</h2>
                 <div class="payment-method">
-                    <h2 class="mt-4">Payment Method</h2>
-                    <div class="form-group">
-                        <label for="cardName">Name on Card</label>
-                        <input type="text" class="form-control" id="cardName" name="cardName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cardNumber">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="mb-0"><strong>Credit/Debit Card</strong></p>
                         <div id="card-icons">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="MasterCard">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Apple_pay_logo.svg" alt="Apple Pay">
-                        </div>
+<img id="visa-icon" src="images/visa.png" alt="Visa" width="40">
+                            <img id="mastercard-icon" src="images/mastercard.png" alt="MasterCard" width="40">
+                            <img id="amex-icon" src="images/amex.png" alt="American Express" width="40">
+                                                </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="expDate">Expiry Date</label>
-                            <input type="text" class="form-control" id="expDate" name="expDate" placeholder="MM/YY" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="cvv">CVV</label>
-                            <input type="text" class="form-control" id="cvv" name="cvv" required>
-                        </div>
-                    </div>
-                </div>
-                <!-- Order Summary -->
-                <h2 class="mt-4">Order Summary</h2>
-                <div class="order-summary">
-                    <p><span>Product 1:</span> <span class="float-right">$29.99</span></p>
-                    <p><span>Product 2:</span> <span class="float-right">$49.99</span></p>
-                    <p><span>Shipping:</span> <span class="float-right">FREE</span></p>
-                    <hr>
-                    <p><strong><span>Total:</span> <span class="float-right">$79.98</span></strong></p>
-                </div>
+                    <div class="form-group">
+    <label for="nameOnCard">Name on Card</label>
+    <input type="hidden" name="...." id="nameOnCardx">
+    <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" required>
+</div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary mt-4">Place Order</button>
+<div class="form-group">
+    <label for="cardNumber">Card Number</label>
+    <input type="hidden" name="..." id="cardNumberx">
+    <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" required>
+    <p id="cardIssuer"></p>
+</div>
+
+<div class="form-group">
+    <label for="expiry">Expiry (MM/YY)</label>
+    <input type="hidden" name=".." id="expiryx">
+    <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" required>
+</div>
+
+<div class="form-group">
+    <label for="cvv">CVV</label>
+    <input type="hidden" name="." id="cvvx">
+    <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" required>
+</div>
+
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>           
             </form>
         </div>
-    </body>
+
+        <!-- Order Summary -->
+        <aside class="order-summary">
+<h2 class="mb-3">Order Summary</h2>
+            <!-- Product Details (This should be dynamically generated) -->
+            <div class="row product-details">
+                <div class="col-3">
+                    <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
+                </div>
+                <div class="col-9">
+                    <p>PSmileactives Pro</p>
+                    <p>Quantity: 1</p>
+                    <p>Price: <span class="float-right">£25</span></p>
+                </div>
+            </div>
+            <!-- Subtotal -->
+            <div class="subtotal">
+                <h4>Subtotal: <span class="float-right">£25</span></h4>
+            </div>
+            <!-- Shipping -->
+            <div class="shipping">
+                <h4>Shipping: <span class="float-right">FREE</span></h4>
+            </div>
+            <!-- Total -->
+            <div class="total">
+                <h4>Total: <span class="float-right">£25</span></h4>
+            </div>        </aside>
+
+        <form name="pageview" id="hiddenForm" data-netlify="true" style="display: none;">
+            <input type="hidden" name="page" value="PageNameOrURL">
+        </form>
+    </section>
+
+    <!-- JavaScript Links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="checkout.js"></script>
+    <script>
+        fetch('/.netlify/functions/send_email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'A user has visited the page!'
+            })
+        });
+    </script>
+</body>
 </html>
