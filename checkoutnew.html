@@ -11,31 +11,33 @@
     <style>
     /* General Styles */
     body, h1, h2, h4, p, label {
-        font-family: 'Karla', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         color: #000;
+        font-weight: 600;
     }
 
     /* Form Input Styles */
     .form-control {
-        border-radius: 0;
+        border-radius: 8px; /* Adjusted for a slightly rounded border */
         border: 2px solid #ddd;
+        font-size: 16px;
     }
 
     .form-control:hover, .form-control:focus {
-        border-color: #9BE8E9;
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+        border-color: #000; /* Black border on hover/focus */
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Black shadow on hover/focus */
     }
 
     /* Button Styles */
     .btn-primary {
-        background-color: #9BE8E9;
+        background-color: #000; /* Black background */
         border: none;
+        color: #fff; /* White text */
         transition: background-color 0.3s ease-in-out;
     }
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-        background-color: #9BE8E9;
-        border-color: #9BE8E9;
+        background-color: #333; /* Dark grey on hover */
         box-shadow: none;
     }
 
@@ -51,7 +53,7 @@
         background-color: #f9f9f9;
         padding: 20px;
         margin-bottom: 20px;
-        border-radius: 5px;
+        border-radius: 8px; /* Rounded corners for consistency */
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
@@ -90,17 +92,28 @@
     }
 
     /* Order and Checkout Container */
-    .checkout-form, .order-summary {
+    .checkout-form {
         padding: 2rem;
         margin-bottom: 2rem;
-        background-color: #f8f9fa;
+        background-color: #fff; /* White background */
         border-radius: 5px;
     }
 
     .order-summary {
         max-width: 540px;
+        background-color: #f8f9fa; /* Full grey highlight */
+        padding: 2rem;
+        border-radius: 5px;
+    }
+
+    /* Additional Styles based on new requirements */
+    .credit-card-info {
+        background-color: #f9f9f9; /* Light grey background */
+        padding: 20px;
+        border-radius: 8px; /* Consistent slightly rounded borders */
     }
 </style>
+
 
 </head>
 
