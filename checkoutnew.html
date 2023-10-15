@@ -11,7 +11,7 @@
    <style>
     /* General Styles */
     body, h1, h2, h4, p, label {
-        font-family: 'Karla', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         color: #000;
         font-weight: 600;
         margin: 0;
@@ -25,25 +25,33 @@
         text-align: center;
     }
 
+    /* Banner Image Style */
+    .banner .banner-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Ensures the aspect ratio is maintained */
+    }
+
     /* Form Input Styles */
     .form-control {
         border-radius: 8px;
         border: 2px solid #ddd;
         padding: 10px;
         font-size: 16px;
-        width: 100%; /* Ensures full-width on mobile */
-        box-sizing: border-box; /* Prevents width overflow with padding */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     /* Button Styles */
     .btn-primary {
         background-color: #6c757d;
         color: #fff;
-        padding: 12px 20px; /* Ensures larger click/tap area */
+        padding: 12px 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+        align-self: flex-end; /* Aligns the button to the end of the flex container */
     }
 
     .btn-primary:hover {
@@ -64,19 +72,13 @@
         box-sizing: border-box;
     }
 
-    /* Responsive Image */
-    .product-details img {
-        width: 100%;
-        height: auto;
-    }
-
     /* Responsive Text Sizes */
     h1, h2 {
-        font-size: 1.5rem; /* Adjusted size for headers */
+        font-size: 1.5rem;
     }
 
     p, label {
-        font-size: 0.9rem; /* Adjusted size for text and labels */
+        font-size: 0.9rem;
     }
 
     /* Media Queries */
@@ -92,7 +94,7 @@
 
     @media(min-width: 768px) {
         .banner .banner-image {
-            height: 200px;
+            height: 50vh; /* Adjusted banner image size */
         }
     }
 
@@ -109,8 +111,19 @@
         h1, h2 {
             font-size: 2rem;
         }
+
+        /* Ensuring button is below payment section in larger screens */
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-primary {
+            margin-top: auto;
+        }
     }
 </style>
+
 
 
 
