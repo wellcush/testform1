@@ -10,17 +10,26 @@
 
    <style>
     /* General Styles */
+       @media (max-width: 767px) {
+        .checkout-form {
+            padding: 0;
+        }
+    }
 body, h1, h2, h4, p, label {
-    font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
+        font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
 
 h1, h2 {
     color: #000;
     font-weight: 600;
 }
+       .checkout-form h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
 
 h4, p, label {
     color: #555;
