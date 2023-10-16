@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-        body {
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,236 +27,190 @@
 }
 
 .heading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-#exit {
-            display: none;
-        }
-
 h1 {
-  margin-left: 10px;
-  font-size: 2rem;
-  font-weight: 800;
+    margin-left: 10px;
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 label {
-  font-weight: 600;
+    font-weight: 600;
+    color: #333;  /* Added for enhanced readability */
 }
 
 input {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-top: 10px;
-  padding: 16px 24px;
-  width: 90%;
-  height: 15%;
-  left: 1048px;
-  top: 16px;
-  background: #FFFFFF;
-  border: 2px solid #1B1B1B;
-  box-sizing: border-box;
-  border-radius: 16px;
-  transition: 0.2s;
+    margin-top: 10px;
+    padding: 16px 24px;
+    width: 90%;
+    background: #FFFFFF;
+    border: 2px solid #1B1B1B;
+    border-radius: 16px;
+    transition: 0.2s;
+    color: #333;  /* Added for enhanced readability */
 }
 
-textarea:focus, input:focus{
-  outline: none;
-  background: #F9E450;
-  border: 3px solid #1B1B1B;
-  border-radius: 16px;
+input:focus, textarea:focus {
+    outline: none;
+    background: #F9E450;
+    border: 3px solid #1B1B1B;
 }
 
 .exp-cvc {
-  justify-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;  /* Adjusted for better alignment */
+    align-items: center;
+    width: 90%;
 }
 
-.expiration {
-  font-size: 0.75rem;
-  width: 50%;
-  margin-right: 20px;
-}
-
-.security {
-  font-size: 0.75rem;
-  width: 50%;
-  margin-left: 20px;
+.expiration, .security {
+    font-size: 0.75rem;
+    width: 50%;
 }
 
 span {
-  padding-left: 5px;
-  cursor: pointer;
+    padding-left: 5px;
+    cursor: pointer;
 }
 
 .btn {
-  background-color: #FD605B;
-  border: 2px solid #1B1B1B;
-  box-sizing: border-box;
-  border-radius: 16px;
-  padding: 16px 32px 16px 16px;
-  text-align: center;
-  font-weight: 800;
-  margin-top: 20px;
-  
-  width: 141px;
-  height: 56px;
-  left: 16px;
-  top: 88px;
-  
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-  cursor: pointer;
-  transition: 0.16s ease-out;
+    background-color: #FD605B;
+    border: 2px solid #1B1B1B;
+    border-radius: 16px;
+    padding: 16px 32px;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.16s ease-out;
 }
 
 .btn:hover {
-  background: #F13F39;
-  border: 4px solid #1B1B1B;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 0px 4px #C1BFFA;
-  border-radius: 16px;
+    background: #F13F39;
 }
 
-#exit {
-  cursor: pointer;
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .price-row > h4 {
-            margin-right: 15px; /* Adjusting the margin for alignment */
-        }
-        .product-details p, .price-details h4 {
-            margin: 0.5em 0;
-        }
 
-    .place-order {
+.price-row > h4 {
+    margin-right: 15px;
+}
+
+.product-details p, .price-details h4 {
+    margin: 0.5em 0;
+}
+
+.place-order {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #FD605B;  /* The vibrant color you wanted to keep */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.place-order:hover {
+    background-color: #F13F39;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.main > .container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        justify-content: space-between;
+    }
+
+    .main > .container {
+        width: calc(60% - 10px);
+    }
+
+    .main > .container.order-summary {
+        width: calc(40% - 10px);
+        order: 1;
         margin-top: 20px;
-        padding: 10px 15px;
-        background-color: #007BFF;  /* Blue color, you can adjust */
-        color: #FFFFFF;              /* White text */
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        display: block;
-        width: 100%;
     }
+}
 
-    .place-order:hover {
-        background-color: #0056b3;  /* Darker blue color on hover */
-    }
-        .main {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1000px;
-        }
-
-        .main > .container {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .main > .container.order-summary {
-            order: 3;
-        }
-        @media (min-width: 768px) {
-            .main {
-                justify-content: space-between;
-            }
-
-            .main > .container {
-                width: calc(60% - 10px);
-            }
-
-            .main > .container.order-summary {
-                width: calc(40% - 10px);
-                order: 1;
-                margin-top: 20px;
-            }
-        }
-        .image-banner {
+.image-banner {
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: 500px; /* Adjusted max height for desktop screens */
-    margin-bottom: 40px; /* Added margin to create space below */
+    max-height: 500px;
+    margin-bottom: 40px;
 }
-        }
-        input[type="radio"] {
-            display: none;
-        }
 
-        label.radio {
-            border: 2px solid #1B1B1B;
-            border-radius: 16px;
-            padding: 10px;
-            margin-top: 10px;
-            display: block;
-            position: relative;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        input[type="radio"]:checked + label.radio {
-            background: #F9E450;
-        }
-
-        label.radio:before {
-            content: "";
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #1B1B1B;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        input[type="radio"]:checked + label.radio:before {
-            opacity: 1;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.8rem;
-        }
-        .footer a {
-    margin-left: 5px; /* spacing between links */
-    margin-right: 5px;
+input[type="radio"] {
+    display: none;
 }
-        .footer p {
-    white-space: nowrap; /* this will ensure the content does not wrap to the next line */
-}
-        .image-banner {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
 
-        .place-order {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+label.radio {
+    border: 2px solid #1B1B1B;
+    border-radius: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + label.radio {
+    background: #F9E450;
+}
+
+label.radio:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1B1B1B;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+input[type="radio"]:checked + label.radio:before {
+    opacity: 1;
+}
+
+.footer {
     text-align: center;
-    padding: 10px 20px; /* Adjusted padding */
-    display: inline-block; /* Make sure the button width adjusts to its content */
+    margin-top: 20px;
+    font-size: 0.8rem;
 }
-        .credit-card-logos img {
+
+.footer a {
+    margin-left: 5px;
+    color: #1B1B1B;  /* Harmonized link color */
+    text-decoration: underline;  /* Underlined links for clarity */
+}
+
+.footer p {
+    white-space: nowrap;
+}
+
+.credit-card-logos img {
     width: 40px;
     margin-right: 10px;
 }
@@ -265,7 +219,8 @@ span {
     display: flex;
     justify-content: flex-end;
 }
-        
+
+
     </style>
 </head>
 <body> 
