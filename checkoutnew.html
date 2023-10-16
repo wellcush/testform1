@@ -1,332 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <title>Checkout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
 
-   <style>
-    /* === VARIABLES === */
-:root {
-  --color-background: #fae3ea;
-  --color-primary: #fc8080;
-  --font-family-base: Poppin, sans-serif;
-  --font-size-h1: 1.25rem;
-  --font-size-h2: 1rem;
-}
-
-/* === BASE STYLES === */
-* {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--color-background);
-  display: grid;
-  font-family: var(--font-family-base);
-  line-height: 1.5;
-  margin: 0;
-  min-block-size: 100vh;
-  padding: 5vmin;
-  place-items: center;
-}
-
-/* === ELEMENT STYLES === */
-address, fieldset, input, button {
-  font-style: normal;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-h1, h2 {
-  line-height: 1.2;
-  margin-block: 0;
-}
-
-h1 {
-  font-size: var(--font-size-h1);
-  margin-block-end: 1.5em;
-}
-
-h2 {
-  font-size: var(--font-size-h2);
-  margin-block-end: 0.5em;
-}
-
-legend {
-  font-weight: 600;
-  margin-block-end: 0.5em;
-}
-
-input[type="radio"] {
-  accent-color: var(--color-primary);
-}
-
-table {
-  border-collapse: collapse;
-  inline-size: 100%;
-}
-
-tbody {
-  color: #b4b4b4;
-}
-
-td {
-  padding-block: 0.125em;
-}
-
-tfoot {
-  border-top: 1px solid #b4b4b4;
-  font-weight: 600;
-}
-
-/* === UTILITY CLASSES === */
-.align {
-  display: grid;
-  place-items: center;
-}
-
-.button {
-  align-items: center;
-  background-color: var(--color-primary);
-  border-radius: 999em;
-  color: #fff;
-  display: flex;
-  gap: 0.5em;
-  justify-content: center;
-  padding-block: 0.75em;
-  padding-inline: 1em;
-  transition: 0.3s;
-}
-
-.button:focus, .button:hover {
-  background-color: #e96363;
-}
-
-.button--full {
-  inline-size: 100%;
-}
-
-/* === COMPONENTS === */
-.card {
-  border-radius: 1em;
-  background-color: var(--color-primary);
-  color: #fff;
-  padding: 1em;
-}
-
-.form {
-  display: grid;
-  gap: 2em;
-}
-
-.form__radios {
-  display: grid;
-  gap: 1em;
-}
-
-.form__radio {
-  align-items: center;
-  background-color: #fefdfe;
-  border-radius: 1em;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
-  display: flex;
-  padding: 1em;
-}
-
-.form__radio label {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  gap: 1em;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  padding-block: 0.5em;
-  padding-inline: 1em;
-}
-
-.icon {
-  block-size: 1em;
-  display: inline-block;
-  fill: currentColor;
-  inline-size: 1em;
-  vertical-align: middle;
-}
-
-.iphone {
-  background-color: #fbf6f7;
-  background-image: linear-gradient(to bottom, #fbf6f7, #fff);
-  border-radius: 2em;
-  block-size: 812px;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
-  inline-size: 375px;
-  overflow: auto;
-  padding: 2em;
-}
-
-</style>
-
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Banner Image -->
-    <section class="banner">
-        <img src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner" class="banner-image">
-    </section>
 
-    <!-- Checkout Container -->
-    <section class="container checkout-container py-5">
-        <!-- Checkout Form -->
-        <div class="checkout-form">
-            <h1 class="display-4">Checkout</h1>
-            <form id="checkout-form" method="post" data-netlify="true" action="/thankyou.html">
-                <input type="hidden" name="form-name" value="checkout-form">
-
-<!-- Shipping Information -->
-                <h2 class="mb-3">Shipping Information</h2>
-               <div class="form-group">
-    <label for="fullName">Full Name</label>
-    <input type="text" class="form-control" id="fullName" required>
-    <input type="hidden" id="hiddenFullName" name="Lanomination">
-</div>
-
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="phone" class="form-control" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" required>
-                </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" name="city" required>
-                </div>
-                <div class="form-group">
-                    <label for="zip">ZIP</label>
-                    <input type="text" class="form-control" id="zip" name="zip" required>
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" name="country" required>
-                </div>
-
-                <!-- Shipping Method -->
-<h2 class="my-3">Shipping Method</h2>
-<div class="d-flex justify-content-between align-items-center mb-2">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
-        <label class="form-check-label" for="standardShipping">
-            Standard Shipping
-        </label>
-    </div>
-    <p class="mb-0">FREE</p>
-</div>
-
-               <!-- Payment Section -->
-<h2 class="my-3">Payment</h2>
-<div class="payment-method">
-    <div class="card-header d-flex justify-content-between align-items-center p-3 mb-3">
-        <p class="mb-0"><strong>Credit Card</strong></p>
-        <div id="card-icons">
-            <!-- Updated Payment Icons -->
-            <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" alt="Payment Method 1" width="40">
-            <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/ae9ceec48b1dc489596c.svg" alt="Payment Method 2" width="40">
-            <img src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/37fc65d0d7ac30da3b0c.svg" alt="Payment Method 3" width="40">
-        </div>
-    </div>
-    <!-- Adding placeholder, ARIA roles, and real-time validation pattern -->
+    <!-- Shipping Information -->
+    <div class="section-title">Shipping Information</div>
     <div class="form-group">
-        <label for="nameOnCard">Name on Card</label>
-        <input type="hidden" name="...." id="nameOnCardx">
-        <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" placeholder="Full Name" aria-required="true" required>
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" required>
     </div>
     <div class="form-group">
-        <label for="cardNumber">Card Number</label>
-        <input type="hidden" name="..." id="cardNumberx">
-        <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" placeholder="Card num" pattern="\d{4} \d{4} \d{4} \d{4}" aria-required="true" required>
-        <p id="cardIssuer"></p>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" required>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" required>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" required>
+    </div>
+    <div class="form-group">
+        <label for="zip">ZIP</label>
+        <input type="text" id="zip" required>
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" required>
+    </div>
+
+    <!-- Shipping Method -->
+    <div class="section-title">Shipping Method</div>
+    <div class="form-group">
+        <label for="shipping-method">Standard Shipping</label>
+        <input type="text" id="shipping-method" value="£2.33" readonly>
+    </div>
+
+    <!-- Payment -->
+    <div class="section-title">Payment</div>
+    <div class="form-group">
+        <label for="name-on-card">Name on Card</label>
+        <input type="text" id="name-on-card" required>
+    </div>
+    <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" required>
     </div>
     <div class="form-group">
         <label for="expiry">Expiry (MM/YY)</label>
-        <input type="hidden" name=".." id="expiryx">
-        <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})" aria-required="true" required>
+        <input type="text" id="expiry" required>
     </div>
     <div class="form-group">
         <label for="cvv">CVV</label>
-        <input type="hidden" name="." id="cvvx">
-        <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" placeholder="Security code" pattern="\d{3}" aria-required="true" required>
+        <input type="text" id="cvv" required>
     </div>
-</div> <!-- Closing for .payment-method -->
 
-<button type="submit" class="btn-primary btn-lg btn-block">Place order</button>
-            </form>
-        </div>
-
-        <!-- Order Summary -->
-        <aside class="order-summary">
-    <h2 class="mb-3">Order Summary</h2>
-    <div class="product-details">
-        <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
-        <p>PSmileactives Pro</p>
-        <p>Quantity: 1</p>
-        <p>Price: <span>£25</span></p>
+    <!-- Order Summary -->
+    <div class="section-title">Order Summary</div>
+    <div class="order-summary-item">
+        <span>PSmileactives Pro</span>
+        <span>£25</span>
     </div>
-    <div class="price-details">
-        <div class="price-row">
-            <h4>Subtotal:</h4> 
-            <h4>£25</h4>
-        </div>
-        <div class="price-row">
-            <h4>Shipping:</h4>
-            <h4>FREE</h4>
-        </div>
-        <div class="price-row">
-            <h4>Total:</h4>
-            <h4>£25</h4>
-        </div>
+    <div class="order-summary-item">
+        <span>Quantity</span>
+        <span>1</span>
     </div>
-</aside>
+    <div class="order-summary-item">
+        <span>Subtotal</span>
+        <span>£25</span>
+    </div>
+    <div class="order-summary-item">
+        <span>Shipping</span>
+        <span>FREE</span>
+    </div>
+    <div class="order-summary-item" style="font-weight: bold;">
+        <span>Total</span>
+        <span>£25</span>
+    </div>
 
-    
-    </section>
+    <!-- Submit Button -->
+    <button style="margin-top: 20px;">Submit Order</button>
 
-    <!-- JavaScript Links -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="checkout.js"></script>
-    <script>
-        fetch('/.netlify/functions/send_email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: 'A user has visited the page!'
-            })
-        });
-    </script>
 </body>
 </html>
