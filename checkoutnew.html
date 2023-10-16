@@ -78,8 +78,7 @@
     }
 
     .checkout-form, .order-summary {
-        flex: 1;  /* Allow both sections to take up available space */
-        padding: 20px;  /* Add some padding to the form section */
+        padding: 20px;  
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -92,6 +91,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;  /* Set a specific width */
     }
 
     .product-details {
@@ -156,23 +156,23 @@
 }
 
 @media(min-width: 992px) {
-    .checkout-container {
-        flex-direction: row;
-    }
+        .checkout-container {
+            flex-direction: column;  /* Stack them vertically */
+        }
 
-    .checkout-form {
-        order: 2;
-        width: 70%;  /* Adjust the width for desktop */
-        padding-right: 20px;  /* Add some padding to separate from order summary */
-    }
+        .checkout-form {
+            order: 2;
+            width: 60%;  /* Adjust the width for desktop */
+            margin: 0 auto;  /* Center the checkout form */
+        }
 
-    .order-summary {
-        order: 1;
-        width: 30%;  /* Adjust the width for desktop */
+        .order-summary {
+            order: 1;
+            width: 60%;  /* Adjust the width for desktop to match the checkout form */
+            margin: 0 auto;  /* Center the order summary */
+        }
     }
-}
-       </style>
-
+</style>
 
 
 
