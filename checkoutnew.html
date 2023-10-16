@@ -30,6 +30,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
@@ -54,11 +55,19 @@ input {
     color: #333;  /* Added for enhanced readability */
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    background: #F9E450;
-    border: 3px solid #1B1B1B;
-}
+input:focus,
+        textarea:focus {
+            outline: none;
+            background: #F9E450;
+            border: 3px solid #1B1B1B;
+            color: #1B1B1B;
+        }
+        .product-details,
+        .price-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
 .exp-cvc {
     justify-self: center;
@@ -148,9 +157,9 @@ span {
         margin: 0;
     }
     .main {
-        justify-content: center;
-        max-width: 100%; /* Ensure it fills the available width */
-    }
+                flex-direction: row-reverse;
+                align-items: flex-start;
+            }
 
     .main > .container {
         width: calc(60% - 10px);
@@ -161,6 +170,14 @@ span {
         order: 1;
         margin-top: 20px;
     }
+    .container.order-summary {
+                width: 40%;
+                margin: 0;
+                margin-left: 2%;
+            }
+    .container:not(.order-summary) {
+                width: 58%;
+            }
 }
 
 .image-banner {
@@ -170,6 +187,7 @@ span {
     max-height: 500px;
     margin-bottom: 40px;
     display: block;
+    margin-left: calc(50% - 50vw);
 }
 
 input[type="radio"] {
@@ -209,10 +227,11 @@ input[type="radio"]:checked + label.radio:before {
 }
 
 .footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.8rem;
-}
+            border: none;
+            box-shadow: none;
+            text-align: center;
+            margin: 20px 0;
+        }
 
 .footer a {
     margin-left: 5px;
@@ -240,10 +259,9 @@ input[type="radio"]:checked + label.radio:before {
 <body> 
     <div class="main">
     <!-- Image banner at the top -->
-    <img class="image-banner" src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner">
-    
+        <img class="image-banner" src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner">    
         <!-- Order Summary -->
-<div class="container">
+        <div class="container order-summary">
     <aside class="order-summary">
         <div class="heading">
             <h1>Order Summary</h1>
@@ -324,12 +342,12 @@ input[type="radio"]:checked + label.radio:before {
     </div>
   </div>
 <div class="btn">
-    <span id="submit">Place order</span>
+            <button class="btn" id="submit">Place order</button>
 </div>
 </div>
 
 <!-- New footer section with copyright and legal links -->
-<div class="container footer">
+        <div class="footer">
     <p>
         &copy; 2023 Smile actives. All rights reserved.
     </p>
