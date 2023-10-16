@@ -182,6 +182,12 @@ span {
             .main > .container.order-summary {
                 width: calc(40% - 10px);
                 order: 1;
+                margin-top: 20px;
+            }
+        }
+        .image-banner {
+                height: 100vh; /* Occupies the entire viewport height */
+                object-fit: cover; /* Resizes the image to cover the container without losing its aspect ratio */
             }
         }
         input[type="radio"] {
@@ -237,14 +243,20 @@ span {
             max-width: 100%;
             height: auto;
         }
+
         .place-order {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 100%; /* Added to ensure button doesn't exceed container width */
         }
         .credit-card-logos img {
             width: 40px; /* Adjust size if needed */
             margin-right: 10px;
+        }
+        .credit-card-logos {
+            display: flex;
+            justify-content: flex-end;
         }
         
     </style>
