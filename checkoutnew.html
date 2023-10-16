@@ -228,27 +228,29 @@ span {
 </div>
 </div>
 <!-- Order Summary -->
-    <div class="container">
-        <div class="heading">
-            <h1>Order Summary</h1>
+        <aside class="order-summary">
+    <h2 class="mb-3">Order Summary</h2>
+    <div class="product-details">
+        <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
+        <p>PSmileactives Pro</p>
+        <p>Quantity: 1</p>
+        <p>Price: <span>£25</span></p>
+    </div>
+    <div class="price-details">
+        <div class="price-row">
+            <h4>Subtotal:</h4> 
+            <h4>£25</h4>
         </div>
-        <label for="brandname">Brand name</label>
-        <input type="text" id="brandname" name="brandname" placeholder="Brand Name" />
-        <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" name="quantity" placeholder="Quantity" />
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" placeholder="Price" />
-        <label for="subtotal">Subtotal</label>
-        <input type="text" id="subtotal" name="subtotal" placeholder="Subtotal" disabled />
-        <label for="shipping-cost">Shipping</label>
-        <input type="text" id="shipping-cost" name="shipping-cost" placeholder="Shipping" disabled />
-        <label for="total">Total</label>
-        <input type="text" id="total" name="total" placeholder="Total" disabled />
-        <br>
-        <div class="btn">
-            <span>Place Order</span>
+        <div class="price-row">
+            <h4>Shipping:</h4>
+            <h4>FREE</h4>
+        </div>
+        <div class="price-row">
+            <h4>Total:</h4>
+            <h4>£25</h4>
         </div>
     </div>
+</aside>
 </div>
 </body>
 </html>
