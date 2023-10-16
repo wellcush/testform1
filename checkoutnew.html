@@ -50,6 +50,9 @@
         width: 100%;
         box-sizing: border-box;
     }
+       .form-control, .btn-primary, .payment-method {
+        max-width: 100%; /* Ensuring elements take full width */
+    }
 
     /* Button Styles */
     .btn-primary {
@@ -81,7 +84,7 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Centering content within the form */
     }
 
     .order-summary {
@@ -90,7 +93,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        width: 100%; 
+        width: 100%;
+        padding: 20px;
     }
 
     .product-details {
@@ -145,41 +149,33 @@
 }
 
 @media(min-width: 768px) {
-    .checkout-form, .order-summary {
-        padding: 20px; /* Reset to original padding for larger screens */
+        .checkout-form {
+            padding: 0; /* No padding for checkout form on tablet view */
+        }
+
+        .banner .banner-image {
+            height: 50vh;
+        }
     }
 
-    .banner .banner-image {
-        height: 50vh;
-    }
-}
-       .checkout-form {
-        padding: 0;  /* Removing the padding as per the requirement */
-        width: 100%; 
-    }
-
-@media(min-width: 992px) {
+    @media(min-width: 992px) {
         .checkout-container {
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         .checkout-form {
             order: 2;
-            width: 70%;  /* Increase the width to make it look bigger */
-            margin: 0 auto; 
+            width: 85%; /* Increase the width for larger view */
+            margin: 0 auto;
         }
 
         .order-summary {
             order: 1;
-            width: 70%; 
-            margin: 0 auto; 
+            width: 85%; /* Matching the order summary width to checkout form */
+            margin: 0 auto;
         }
     }
 </style>
-
-
-
-
 
 </head>
 
