@@ -9,172 +9,178 @@
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 
    <style>
-    /* General Styles */
-    body, h1, h2, h4, p, label {
-        font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #333;
-    }
-
-    h1, h2 {
-        color: #000;
-        font-weight: 600;
-    }
-
-    h4, p, label {
-        color: #555;
-        font-weight: 400;
-    }
-
-    /* Header Styles */
-    header {
-        background-color: #fff;
-        padding: 10px 20px;
-        text-align: center;
-    }
-
-    /* Banner Image Style */
-    .banner .banner-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    /* Form Input Styles */
-    .form-control {
-        border-radius: 8px;
-        border: 2px solid #eee;
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Button Styles */
-    .btn-primary {
-        background-color: #000000;
-        color: #fff;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 100%;
-        margin-top: 20px;
-        order: 3;
-        transition: background-color 0.3s;
-    }
-
-    .btn-primary:hover {
-        background-color: #0051a8;
-    }
-
-    /* Checkout Container Styles */
-    .checkout-container {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 20px;
-    }
-
-    .checkout-form, .order-summary {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .order-summary {
-        background-color: #FAFAFA;
-        border: 1px solid #e0e0e0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%; 
-    }
-
-    .product-details {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .img-thumbnail {
-        width: 70px;
-        border: none;
-        padding: 0;
-    }
-
-    .price-details {
-        width: 100%;
-    }
-
-    .price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 5px;
-    }
-
-    .payment-method {
-        background-color: #F4F4F4;
-        padding: 15px;
-    }
-
-    .payment-method .form-control {
-        background-color: #FFF;
-    }
-
-    /* Responsive Text Sizes */
-    h1, h2 {
-        font-size: 1.5rem;
-}
-       p, label {
-    font-size: 0.9rem;
+    /* === VARIABLES === */
+:root {
+  --color-background: #fae3ea;
+  --color-primary: #fc8080;
+  --font-family-base: Poppin, sans-serif;
+  --font-size-h1: 1.25rem;
+  --font-size-h2: 1rem;
 }
 
-/* Media Queries */
-@media(min-width: 480px) {
-    h1, h2 {
-        font-size: 1.8rem;
-    }
-
-    p, label {
-        font-size: 1rem;
-    }
+/* === BASE STYLES === */
+* {
+  box-sizing: inherit;
 }
 
-@media(min-width: 768px) {
-    .checkout-form, .order-summary {
-        padding: 20px; /* Reset to original padding for larger screens */
-    }
-
-    .banner .banner-image {
-        height: 50vh;
-    }
+html {
+  box-sizing: border-box;
 }
-       .checkout-form {
-        padding: 0;  /* Removing the padding as per the requirement */
-        width: 100%; 
-    }
 
-@media(min-width: 992px) {
-        .checkout-container {
-            flex-direction: column; 
-        }
+body {
+  background-color: var(--color-background);
+  display: grid;
+  font-family: var(--font-family-base);
+  line-height: 1.5;
+  margin: 0;
+  min-block-size: 100vh;
+  padding: 5vmin;
+  place-items: center;
+}
 
-        .checkout-form {
-            order: 2;
-            width: 70%;  /* Increase the width to make it look bigger */
-            margin: 0 auto; 
-        }
+/* === ELEMENT STYLES === */
+address, fieldset, input, button {
+  font-style: normal;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
 
-        .order-summary {
-            order: 1;
-            width: 70%; 
-            margin: 0 auto; 
-        }
-    }
+button {
+  cursor: pointer;
+}
+
+h1, h2 {
+  line-height: 1.2;
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  margin-block-end: 1.5em;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  margin-block-end: 0.5em;
+}
+
+legend {
+  font-weight: 600;
+  margin-block-end: 0.5em;
+}
+
+input[type="radio"] {
+  accent-color: var(--color-primary);
+}
+
+table {
+  border-collapse: collapse;
+  inline-size: 100%;
+}
+
+tbody {
+  color: #b4b4b4;
+}
+
+td {
+  padding-block: 0.125em;
+}
+
+tfoot {
+  border-top: 1px solid #b4b4b4;
+  font-weight: 600;
+}
+
+/* === UTILITY CLASSES === */
+.align {
+  display: grid;
+  place-items: center;
+}
+
+.button {
+  align-items: center;
+  background-color: var(--color-primary);
+  border-radius: 999em;
+  color: #fff;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  padding-block: 0.75em;
+  padding-inline: 1em;
+  transition: 0.3s;
+}
+
+.button:focus, .button:hover {
+  background-color: #e96363;
+}
+
+.button--full {
+  inline-size: 100%;
+}
+
+/* === COMPONENTS === */
+.card {
+  border-radius: 1em;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1em;
+}
+
+.form {
+  display: grid;
+  gap: 2em;
+}
+
+.form__radios {
+  display: grid;
+  gap: 1em;
+}
+
+.form__radio {
+  align-items: center;
+  background-color: #fefdfe;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+  display: flex;
+  padding: 1em;
+}
+
+.form__radio label {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 1em;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+}
+
+.icon {
+  block-size: 1em;
+  display: inline-block;
+  fill: currentColor;
+  inline-size: 1em;
+  vertical-align: middle;
+}
+
+.iphone {
+  background-color: #fbf6f7;
+  background-image: linear-gradient(to bottom, #fbf6f7, #fff);
+  border-radius: 2em;
+  block-size: 812px;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+  inline-size: 375px;
+  overflow: auto;
+  padding: 2em;
+}
+
 </style>
 
 </head>
