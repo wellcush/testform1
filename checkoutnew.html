@@ -113,7 +113,7 @@ span {
   display: flex;
   flex-direction: row;
   align-items: center;
-  align-self: flex-end;
+  align-self: center;
   cursor: pointer;
   transition: 0.16s ease-out;
 }
@@ -219,6 +219,16 @@ span {
 
         input[type="radio"]:checked + label.radio:before {
             opacity: 1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        .footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #1B1B1B;
         }
 
     </style>
@@ -329,11 +339,14 @@ span {
 </svg>
     <span id="submit">Place order</span>
 </div>
-</div>
-</div>
-
-
-
+<!-- New footer section with copyright and legal links -->
+        <div class="container footer">
+            <p>&copy; 2023 Smile actives. All rights reserved.</p>
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Return Policy</a>
+        </div>
+    </div>
 </body>
 
 </html>
