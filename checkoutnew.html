@@ -10,113 +10,171 @@
 
    <style>
     /* General Styles */
-    * {
-    box-sizing: border-box;
-    font-family: 'San Francisco', Arial, sans-serif;
-}
+    body, h1, h2, h4, p, label {
+        font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
 
-body {
-    margin: 0;
-    background-color: #F7F7F7;
-}
+    h1, h2 {
+        color: #000;
+        font-weight: 600;
+    }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    h4, p, label {
+        color: #555;
+        font-weight: 400;
+    }
 
-/* Header */
-.header {
-    background-color: #FFFFFF;
-    padding: 10px 0;
-    text-align: center;
-}
+    /* Header Styles */
+    header {
+        background-color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
 
-/* Banner */
-.banner img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+    /* Banner Image Style */
+    .banner .banner-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 
-/* Form Styles */
-.form-group {
-    margin-bottom: 20px; /* Increased margin for better spacing */
-}
+    /* Form Input Styles */
+    .form-control {
+        border-radius: 8px;
+        border: 2px solid #eee;
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #BFC9CA; /* Updated color for subtle borders */
-    border-radius: 5px; /* Added rounded corners */
-}
+    /* Button Styles */
+    .btn-primary {
+        background-color: #000000;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 20px;
+        order: 3;
+        transition: background-color 0.3s;
+    }
 
-/* Button Styles */
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #000000;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px; /* Added rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Added transition for hover effect */
-}
+    .btn-primary:hover {
+        background-color: #0051a8;
+    }
 
-.btn:hover {
-    background-color: #007BFF;
-}
+    /* Checkout Container Styles */
+    .checkout-container {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
 
-/* Checkout Container */
-.checkout-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Added gap for consistent spacing between children */
-}
+    .checkout-form, .order-summary {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-/* Order Summary */
-.order-summary {
-    background-color: #EAEDED; /* Lightened background for contrast */
-    border: 1px solid #BFC9CA;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    .order-summary {
+        background-color: #FAFAFA;
+        border: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%; 
+    }
+
+    .product-details {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .img-thumbnail {
+        width: 70px;
+        border: none;
+        padding: 0;
+    }
+
+    .price-details {
+        width: 100%;
+    }
+
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .payment-method {
+        background-color: #F4F4F4;
+        padding: 15px;
+    }
+
+    .payment-method .form-control {
+        background-color: #FFF;
+    }
+
+    /* Responsive Text Sizes */
+    h1, h2 {
+        font-size: 1.5rem;
+}
+       p, label {
+    font-size: 0.9rem;
 }
 
 /* Media Queries */
-@media screen and (min-width: 768px) {
-    .checkout-container {
-        flex-direction: row;
-        justify-content: space-between;
+@media(min-width: 480px) {
+    h1, h2 {
+        font-size: 1.8rem;
     }
 
-    .form-container,
-    .order-summary {
-        flex: 1;
-        margin: 0 10px; /* Added side margins for spacing in larger screens */
+    p, label {
+        font-size: 1rem;
     }
 }
 
-/* Additional Styles for Recommendations */
-h2 {
-    font-weight: 600; /* Semi-bold for better visual hierarchy */
-}
+@media(min-width: 768px) {
+    .checkout-form, .order-summary {
+        padding: 20px; /* Reset to original padding for larger screens */
+    }
 
-/* Secondary Button */
-.btn-secondary {
-    background-color: #FFFFFF;
-    border: 1px solid #007BFF;
-    color: #007BFF;
+    .banner .banner-image {
+        height: 50vh;
+    }
 }
+       .checkout-form {
+        padding: 0;  /* Removing the padding as per the requirement */
+        width: 100%; 
+    }
 
-.btn-secondary:hover {
-    background-color: #007BFF;
-    color: #FFFFFF;
-}
+@media(min-width: 992px) {
+        .checkout-container {
+            flex-direction: column; 
+        }
 
+        .checkout-form {
+            order: 2;
+            width: 70%;  /* Increase the width to make it look bigger */
+            margin: 0 auto; 
+        }
+
+        .order-summary {
+            order: 1;
+            width: 70%; 
+            margin: 0 auto; 
+        }
+    }
 </style>
 
 </head>
