@@ -8,37 +8,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
         body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #C1BFFA;
-  font-family: inter, sans-serif;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #C1BFFA;
+            font-family: 'Inter', sans-serif;
+        }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  
-  margin-top: 50px;
-  margin-bottom: 80px;
-
-  position: relative;
-  width: 48vw;
-  height: auto;
-
-  border-radius: 16px;
-  background-color: white;
-  
-  border: 2px solid #1B1B1B;
-  box-sizing: border-box;
-  box-shadow: 6px 6px 0px #1B1B1B;
-  border-radius: 8px;
-}
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 30px 50px;
+            background-color: white;
+            border: 2px solid #1B1B1B;
+            box-shadow: 6px 6px 0px #1B1B1B;
+            border-radius: 8px;
+        }
 
 .heading {
   display: flex;
@@ -163,6 +149,70 @@ span {
     .place-order:hover {
         background-color: #0056b3;  /* Darker blue color on hover */
     }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+        }
+
+        .main > .container {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .main > .container.order-summary {
+            order: 3;
+        }
+        @media (min-width: 768px) {
+            .main {
+                justify-content: space-between;
+            }
+
+            .main > .container {
+                width: calc(60% - 10px);
+            }
+
+            .main > .container.order-summary {
+                width: calc(40% - 10px);
+                order: 1;
+            }
+        }
+        input[type="radio"] {
+            display: none;
+        }
+
+        label.radio {
+            border: 2px solid #1B1B1B;
+            border-radius: 16px;
+            padding: 10px;
+            margin-top: 10px;
+            display: block;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        input[type="radio"]:checked + label.radio {
+            background: #F9E450;
+        }
+
+        label.radio:before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #1B1B1B;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        input[type="radio"]:checked + label.radio:before {
+            opacity: 1;
+        }
 
     </style>
 </head>
@@ -190,18 +240,50 @@ span {
     </div>
 
     <!-- Shipping Method -->
-    <div class="container">
-        <div class="heading">
-            <h1>Shipping Method</h1>
+        <div class="container">
+            <!-- ... Shipping Method header ... -->
+            <label class="radio">
+                <input type="radio" name="shipping" value="free" checked>
+                FREE Standard Shipping - £0.00
+            </label>
+            <label class="radio">
+                <input type="radio" name="shipping" value="priority">
+                Priority Shipping and Handling - £10.00
+            </label>
         </div>
-        <label>
-            <input type="radio" name="shipping" value="free" checked> FREE Standard Shipping - £0.00
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="shipping" value="priority"> Priority Shipping and Handling - £10.00
-        </label>
-    </div>
+        <!-- Order Summary -->
+<div class="container">
+    <aside class="order-summary">
+        <div class="heading">
+            <h1>Order Summary</h1>
+        </div>
+
+        <div class="product-details">
+            <p>Smileactives Pro</p>
+            <p>Quantity: 1</p>
+            <div class="price-row">
+                <p>Price:</p> <span>£25</span>
+            </div>
+        </div>
+        
+        <div class="price-details">
+            <div class="price-row">
+                <h4>Subtotal:</h4> 
+                <h4>£25</h4>
+            </div>
+            <div class="price-row">
+                <h4>Shipping:</h4>
+                <h4>FREE</h4>
+            </div>
+            <div class="price-row">
+                <h4>Total:</h4>
+                <h4>£25</h4>
+            </div>
+        </div>
+
+        <button class="place-order">Place Your Order</button>
+    </aside>
+</div>
 <div class="container">
     <svg id="exit" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.35288 8.95043C4.00437 6.17301 6.17301 4.00437 8.95043 3.35288C10.9563 2.88237 13.0437 2.88237 15.0496 3.35288C17.827 4.00437 19.9956 6.17301 20.6471 8.95044C21.1176 10.9563 21.1176 13.0437 20.6471 15.0496C19.9956 17.827 17.827 19.9956 15.0496 20.6471C13.0437 21.1176 10.9563 21.1176 8.95044 20.6471C6.17301 19.9956 4.00437 17.827 3.35288 15.0496C2.88237 13.0437 2.88237 10.9563 3.35288 8.95043Z" stroke="#1B1B1B" stroke-width="1.5"/>
@@ -247,39 +329,7 @@ span {
 </div>
 </div>
 </div>
-<!-- Order Summary -->
-<div class="container">
-    <aside class="order-summary">
-        <div class="heading">
-            <h1>Order Summary</h1>
-        </div>
 
-        <div class="product-details">
-            <p>Smileactives Pro</p>
-            <p>Quantity: 1</p>
-            <div class="price-row">
-                <p>Price:</p> <span>£25</span>
-            </div>
-        </div>
-        
-        <div class="price-details">
-            <div class="price-row">
-                <h4>Subtotal:</h4> 
-                <h4>£25</h4>
-            </div>
-            <div class="price-row">
-                <h4>Shipping:</h4>
-                <h4>FREE</h4>
-            </div>
-            <div class="price-row">
-                <h4>Total:</h4>
-                <h4>£25</h4>
-            </div>
-        </div>
-
-        <button class="place-order">Place Your Order</button>
-    </aside>
-</div>
 
 
 </body>
