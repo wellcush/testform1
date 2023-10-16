@@ -143,6 +143,26 @@ span {
 #exit {
   cursor: pointer;
 }
+        .price-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .place-order {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007BFF;  /* Blue color, you can adjust */
+        color: #FFFFFF;              /* White text */
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+    }
+
+    .place-order:hover {
+        background-color: #0056b3;  /* Darker blue color on hover */
+    }
 
     </style>
 </head>
@@ -237,7 +257,9 @@ span {
         <div class="product-details">
             <p>Smileactives Pro</p>
             <p>Quantity: 1</p>
-            <p>Price: <span>£25</span></p>
+            <div class="price-row">
+                <p>Price:</p> <span>£25</span>
+            </div>
         </div>
         
         <div class="price-details">
@@ -254,8 +276,11 @@ span {
                 <h4>£25</h4>
             </div>
         </div>
+
+        <button class="place-order">Place Your Order</button>
     </aside>
 </div>
+
 
 </body>
 
