@@ -33,8 +33,8 @@
 }
 
 #exit {
-  align-self: flex-end;
-}
+            display: none;
+        }
 
 h1 {
   margin-left: 10px;
@@ -130,9 +130,16 @@ span {
   cursor: pointer;
 }
         .price-row {
-        display: flex;
-        justify-content: space-between;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-row > h4 {
+            margin-right: 15px; /* Adjusting the margin for alignment */
+        }
+        .product-details p, .price-details h4 {
+            margin: 0.5em 0;
+        }
 
     .place-order {
         margin-top: 20px;
@@ -245,10 +252,6 @@ span {
             <label class="radio">
                 <input type="radio" name="shipping" value="free" checked>
                 FREE Standard Shipping - £0.00
-            </label>
-            <label class="radio">
-                <input type="radio" name="shipping" value="priority">
-                Priority Shipping and Handling - £10.00
             </label>
         </div>
         <!-- Order Summary -->
