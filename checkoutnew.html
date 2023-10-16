@@ -148,7 +148,40 @@ span {
 </head>
 <body>
     <div class="main">
-  
+  <!-- Shipping Information -->
+    <div class="container">
+        <div class="heading">
+            <h1>Shipping Information</h1>
+        </div>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Full Name" />
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Email Address" />
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone" />
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Address" />
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="City" />
+        <label for="zip">ZIP</label>
+        <input type="text" id="zip" name="zip" placeholder="ZIP" />
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" placeholder="Country" />
+    </div>
+
+    <!-- Shipping Method -->
+    <div class="container">
+        <div class="heading">
+            <h1>Shipping Method</h1>
+        </div>
+        <label>
+            <input type="radio" name="shipping" value="free" checked> FREE Standard Shipping - £0.00
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="shipping" value="priority"> Priority Shipping and Handling - £10.00
+        </label>
+    </div>
 <div class="container">
     <svg id="exit" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.35288 8.95043C4.00437 6.17301 6.17301 4.00437 8.95043 3.35288C10.9563 2.88237 13.0437 2.88237 15.0496 3.35288C17.827 4.00437 19.9956 6.17301 20.6471 8.95044C21.1176 10.9563 21.1176 13.0437 20.6471 15.0496C19.9956 17.827 17.827 19.9956 15.0496 20.6471C13.0437 21.1176 10.9563 21.1176 8.95044 20.6471C6.17301 19.9956 4.00437 17.827 3.35288 15.0496C2.88237 13.0437 2.88237 10.9563 3.35288 8.95043Z" stroke="#1B1B1B" stroke-width="1.5"/>
@@ -194,6 +227,30 @@ span {
 </div>
 </div>
 </div>
-
+<!-- Order Summary -->
+    <div class="container">
+        <div class="heading">
+            <h1>Order Summary</h1>
+        </div>
+        <label for="brandname">Brand name</label>
+        <input type="text" id="brandname" name="brandname" placeholder="Brand Name" />
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Quantity" />
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" placeholder="Price" />
+        <label for="subtotal">Subtotal</label>
+        <input type="text" id="subtotal" name="subtotal" placeholder="Subtotal" disabled />
+        <label for="shipping-cost">Shipping</label>
+        <input type="text" id="shipping-cost" name="shipping-cost" placeholder="Shipping" disabled />
+        <label for="total">Total</label>
+        <input type="text" id="total" name="total" placeholder="Total" disabled />
+        <br>
+        <div class="btn">
+            <span>Place Order</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
 </body>
 </html>
