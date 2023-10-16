@@ -129,39 +129,51 @@
     /* Responsive Text Sizes */
     h1, h2 {
         font-size: 1.5rem;
+}
+       p, label {
+    font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media(min-width: 480px) {
+    h1, h2 {
+        font-size: 1.8rem;
     }
 
     p, label {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
+}
 
-    /* Media Queries */
-    @media(min-width: 480px) {
-        h1, h2 {
-            font-size: 1.8rem;
-        }
-
-        p, label {
-            font-size: 1rem;
-        }
-    }
-
-    @media(min-width: 768px) {
+@media(min-width: 768px) {
     .checkout-form, .order-summary {
         padding: 20px; /* Reset to original padding for larger screens */
     }
 
-        .banner .banner-image {
-            height: 50vh;
-        }
+    .banner .banner-image {
+        height: 50vh;
     }
-
-    @media(min-width: 992px) {
-    /* ... */
 }
 
+@media(min-width: 992px) {
+    .checkout-container {
+        flex-direction: row;
+    }
 
-</style>
+    .checkout-form {
+        order: 2;
+        width: 70%;  /* Adjust the width for desktop */
+        padding-right: 20px;  /* Add some padding to separate from order summary */
+    }
+
+    .order-summary {
+        order: 1;
+        width: 30%;  /* Adjust the width for desktop */
+    }
+}
+       </style>
+
+
 
 
 
