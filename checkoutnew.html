@@ -63,14 +63,20 @@ input:focus, textarea:focus {
 .exp-cvc {
     justify-self: center;
     display: flex;
-    justify-content: space-between;  /* Adjusted for better alignment */
+    justify-content: space-between; 
     align-items: center;
     width: 90%;
 }
 
-.expiration, .security {
+.expiration {
     font-size: 0.75rem;
-    width: 50%;
+    width: 48%;  /* Adjusted from 50% */
+    margin-right: 2%;  /* Added a small margin for spacing */
+}
+        .security {
+    font-size: 0.75rem;
+    width: 48%;  /* Adjusted from 50% */
+    margin-left: 2%;  /* Added a small margin for spacing */
 }
 
 span {
@@ -135,8 +141,15 @@ span {
 }
 
 @media (min-width: 768px) {
+    body {
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
     .main {
-        justify-content: space-between;
+        justify-content: center;
+        max-width: 100%; /* Ensure it fills the available width */
     }
 
     .main > .container {
@@ -151,11 +164,12 @@ span {
 }
 
 .image-banner {
-    width: 100%;
-    max-width: 100%;
+    width: 100vw;
+    max-width: 100vw;  /* Changed to viewport width */
     height: auto;
     max-height: 500px;
     margin-bottom: 40px;
+    display: block;
 }
 
 input[type="radio"] {
