@@ -26,6 +26,12 @@
         color: #555;
         font-weight: 400;
     }
+       label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 500;  /* Making labels slightly bolder */
+}
 
     /* Header Styles */
     header {
@@ -45,11 +51,13 @@
     .form-control {
         border-radius: 8px;
         border: 2px solid #eee;
-        padding: 10px;
+        padding: 15px 15px;
         font-size: 16px;
         width: 100%;
         box-sizing: border-box;
-    }
+        margin-bottom: 15px;  /* To separate them a bit more */
+}
+    
        .form-control, .btn-primary, .payment-method {
         max-width: 100%; /* Ensuring elements take full width */
     }
@@ -58,13 +66,13 @@
     .btn-primary {
         background-color: #000000;
         color: #fff;
-        padding: 12px 20px;
+        padding: 15px 25px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
         width: 100%;
-        margin-top: 20px;
+        margin-top: 25px;
         order: 3;
         transition: background-color 0.3s;
     }
@@ -123,7 +131,8 @@
     .payment-method {
         background-color: #F4F4F4;
         padding: 15px;
-    }
+        margin-bottom: 25px;  /* Spacing out each payment method for clarity */
+}
 
     .payment-method .form-control {
         background-color: #FFF;
@@ -135,6 +144,12 @@
 }
        p, label {
     font-size: 0.9rem;
+}
+       .input-container {
+    background-color: #F9F9F9;  /* A light grey to differentiate the section */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;  /* Spacing between sections */
 }
 
 /* Media Queries */
@@ -162,12 +177,23 @@
         .checkout-container {
             flex-direction: column;
         }
+        .form-control {
+        padding: 18px 18px;
+        margin-bottom: 18px;
+    }
+        .btn-primary {
+        padding: 18px 28px;
+        margin-top: 30px;
+    }
 
         .checkout-form {
             order: 2;
             width: 85%; /* Increase the width for larger view */
             margin: 0 auto;
         }
+        .input-container {
+        padding: 20px;
+    }
 
         .order-summary {
             order: 1;
@@ -252,7 +278,7 @@
         </div>
     </div>
     <!-- Adding placeholder, ARIA roles, and real-time validation pattern -->
-    <div class="form-group">
+    <div class="input-container">
         <label for="nameOnCard">Name on Card</label>
         <input type="hidden" name="...." id="nameOnCardx">
         <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" placeholder="Full Name" aria-required="true" required>
