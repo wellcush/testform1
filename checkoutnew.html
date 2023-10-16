@@ -3,185 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Styled Page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #C1BFFA;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #C1BFFA;
+  font-family: inter, sans-serif;
+}
 
-        main {
-            width: 100%;
-            max-width: 800px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
+  margin-top: 50px;
+  margin-bottom: 80px;
 
-        .section-title {
-            font-weight: bold;
-            margin-top: 30px;
-            font-size: 1.5rem;
-        }
+  position: relative;
+  width: 48vw;
+  height: auto;
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+  border-radius: 16px;
+  background-color: white;
+  
+  border: 2px solid #1B1B1B;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 0px #1B1B1B;
+  border-radius: 8px;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 8px;
-            border: 1px solid #aaa;
-        }
+#exit {
+  align-self: flex-end;
+}
 
-        .order-summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+h1 {
+  margin-left: 10px;
+  font-size: 2rem;
+  font-weight: 800;
+}
 
-        button {
-            background-color: #F9E450;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
+label {
+  font-weight: 600;
+}
 
-        button:hover {
-            background-color: #FFBB38;
-        }
+input {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 16px 24px;
+  width: 90%;
+  height: 15%;
+  left: 1048px;
+  top: 16px;
+  background: #FFFFFF;
+  border: 2px solid #1B1B1B;
+  box-sizing: border-box;
+  border-radius: 16px;
+  transition: 0.2s;
+}
 
-        @media only screen and (max-width: 600px) {
-            main {
-                padding: 10px;
-            }
+textarea:focus, input:focus{
+  outline: none;
+  background: #F9E450;
+  border: 3px solid #1B1B1B;
+  border-radius: 16px;
+}
 
-            .section-title {
-                font-size: 1.2rem;
-            }
+.exp-cvc {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
 
-            .form-group {
-                margin-bottom: 10px;
-            }
-        }
+.expiration {
+  font-size: 0.75rem;
+  width: 50%;
+  margin-right: 20px;
+}
+
+.security {
+  font-size: 0.75rem;
+  width: 50%;
+  margin-left: 20px;
+}
+
+span {
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #F9E450;
+  border: 2px solid #1B1B1B;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 16px 32px 16px 16px;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 20px;
+  
+  width: 141px;
+  height: 56px;
+  left: 16px;
+  top: 88px;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 0.16s ease-out;
+}
+
+.btn:hover {
+  background: #FFBB38;
+  border: 4px solid #1B1B1B;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px 4px #C1BFFA;
+  border-radius: 16px;
+}
+
+#exit {
+  cursor: pointer;
+}
+
     </style>
 </head>
 <body>
-    <main>
-        <!-- Shipping Information -->
-        <section>
-            <div class="section-title">Shipping Information</div>
-            <fieldset>
-                <div class="form-group">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" required>
-                </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" id="city" required>
-                </div>
-                <div class="form-group">
-                    <label for="zip">ZIP</label>
-                    <input type="text" id="zip" required pattern="\d{5}" title="Enter a 5-digit ZIP code">
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <input type="text" id="country" required>
-                </div>
-            </fieldset>
-        </section>
-
-        <!-- Shipping Method -->
-        <section>
-            <div class="section-title">Shipping Method</div>
-            <fieldset>
-                <div class="form-group">
-                    <label for="shipping-method">Standard Shipping</label>
-                    <input type="text" id="shipping-method" value="£2.33" readonly>
-                </div>
-            </fieldset>
-        </section>
-
-        <!-- Payment -->
-        <section>
-            <div class="section-title">Payment</div>
-            <fieldset>
-                <div class="form-group">
-                    <label for="name-on-card">Name on Card</label>
-                    <input type="text" id="name-on-card" required>
-                </div>
-                <div class="form-group">
-                    <label for="card-number">Card Number</label>
-                    <input type="text" id="card-number" required pattern="\d{16}" title="Enter a 16-digit card number">
-                </div>
-                <div class="form-group">
-                    <label for="expiry">Expiry (MM/YY)</label>
-                    <input type="text" id="expiry" required pattern="(0[1-9]|1[0-2])\/\d{2}" title="Enter in MM/YY format">
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" required pattern="\d{3,4}" title="Enter a 3 or 4 digit CVV">
-                </div>
-            </fieldset>
-        </section>
-
-        <!-- Order Summary -->
-        <section>
-            <div class="section-title">Order Summary</div>
-            <fieldset>
-                <div class="order-summary-item">
-                    <span>PSmileactives Pro</span>
-                    <span>£25</span>
-                </div>
-                <div class="order-summary-item">
-                    <span>Quantity</span>
-                    <span>1</span>
-                </div>
-                <div class="order-summary-item">
-                    <span>Subtotal</span>
-                    <span>£25</span>
-                </div>
-                <div class="order-summary-item">
-                    <span>Shipping</span>
-                    <span>FREE</span>
-                </div>
-                <div class="order-summary-item" style="font-weight: bold;">
-                    <span>Total</span>
-                    <span>£25</span>
-                </div>
-            </fieldset>
-        </section>
-
-        <!-- Submit Button -->
-        <button type="submit" style="margin-top: 20px;">Submit Order</button>
-    </main>
+    <!-- Placeholder content for demonstration. You can replace it with your actual HTML content. -->
+    <div class="container">
+        <div class="heading">
+            <span id="exit">X</span>
+            <h1>Heading</h1>
+        </div>
+        <label for="inputField">Label:</label>
+        <input id="inputField" type="text" placeholder="Enter something...">
+        <div class="exp-cvc">
+            <div class="expiration">
+                <label for="expDate">Expiration Date:</label>
+                <input id="expDate" type="text" placeholder="MM/YY">
+            </div>
+            <div class="security">
+                <label for="cvc">CVC:</label>
+                <input id="cvc" type="text" placeholder="123">
+            </div>
+        </div>
+        <button class="btn">Submit</button>
+    </div>
 </body>
 </html>
