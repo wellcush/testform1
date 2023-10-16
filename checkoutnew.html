@@ -26,12 +26,6 @@
         color: #555;
         font-weight: 400;
     }
-       label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1rem;
-    font-weight: 500;  /* Making labels slightly bolder */
-}
 
     /* Header Styles */
     header {
@@ -51,28 +45,23 @@
     .form-control {
         border-radius: 8px;
         border: 2px solid #eee;
-        padding: 15px 15px;
+        padding: 10px;
         font-size: 16px;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 15px;  /* To separate them a bit more */
-}
-    
-       .form-control, .btn-primary, .payment-method {
-        max-width: 100%; /* Ensuring elements take full width */
     }
 
     /* Button Styles */
     .btn-primary {
         background-color: #000000;
         color: #fff;
-        padding: 15px 25px;
+        padding: 12px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
         width: 100%;
-        margin-top: 25px;
+        margin-top: 20px;
         order: 3;
         transition: background-color 0.3s;
     }
@@ -92,7 +81,7 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centering content within the form */
+        align-items: flex-start;
     }
 
     .order-summary {
@@ -101,8 +90,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        width: 100%;
-        padding: 20px;
+        width: 100%; 
     }
 
     .product-details {
@@ -131,8 +119,7 @@
     .payment-method {
         background-color: #F4F4F4;
         padding: 15px;
-        margin-bottom: 25px;  /* Spacing out each payment method for clarity */
-}
+    }
 
     .payment-method .form-control {
         background-color: #FFF;
@@ -144,12 +131,6 @@
 }
        p, label {
     font-size: 0.9rem;
-}
-       .input-container {
-    background-color: #F9F9F9;  /* A light grey to differentiate the section */
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;  /* Spacing between sections */
 }
 
 /* Media Queries */
@@ -164,41 +145,34 @@
 }
 
 @media(min-width: 768px) {
-        .checkout-form {
-            padding: 0; /* No padding for checkout form on tablet view */
-        }
-
-        .banner .banner-image {
-            height: 50vh;
-        }
+    .checkout-form, .order-summary {
+        padding: 20px; /* Reset to original padding for larger screens */
     }
 
-    @media(min-width: 992px) {
+    .banner .banner-image {
+        height: 50vh;
+    }
+}
+       .checkout-form {
+        padding: 0;  /* Removing the padding as per the requirement */
+        width: 100%; 
+    }
+
+@media(min-width: 992px) {
         .checkout-container {
-            flex-direction: column;
+            flex-direction: column; 
         }
-        .form-control {
-        padding: 18px 18px;
-        margin-bottom: 18px;
-    }
-        .btn-primary {
-        padding: 18px 28px;
-        margin-top: 30px;
-    }
 
         .checkout-form {
             order: 2;
-            width: 85%; /* Increase the width for larger view */
-            margin: 0 auto;
+            width: 70%;  /* Increase the width to make it look bigger */
+            margin: 0 auto; 
         }
-        .input-container {
-        padding: 20px;
-    }
 
         .order-summary {
             order: 1;
-            width: 85%; /* Matching the order summary width to checkout form */
-            margin: 0 auto;
+            width: 70%; 
+            margin: 0 auto; 
         }
     }
 </style>
@@ -278,7 +252,7 @@
         </div>
     </div>
     <!-- Adding placeholder, ARIA roles, and real-time validation pattern -->
-    <div class="input-container">
+    <div class="form-group">
         <label for="nameOnCard">Name on Card</label>
         <input type="hidden" name="...." id="nameOnCardx">
         <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" placeholder="Full Name" aria-required="true" required>
