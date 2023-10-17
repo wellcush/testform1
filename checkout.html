@@ -56,13 +56,13 @@ label {
     }
 
     .payment-method {
-        background-color: #F4F4F4;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 2px;
-        border-color: #111111;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-    }
+    background-color: #F4F4F4;
+    padding: 2px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    border-color: #111111;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
     .form-control:hover, .form-control:focus {
         border-color: #1B1B1B;
@@ -96,7 +96,7 @@ label {
     .checkout-form {
     padding: 2rem;
     margin-bottom: 2rem;
-    background-color: #ffffff; /* White background for checkout form */
+    background-color: #ffffff;
     border-radius: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
@@ -131,12 +131,21 @@ label {
     }
 
     #card-icons img {
-        transition: transform 0.3s ease-in-out;
-    }
+    transition: transform 0.3s ease-in-out;
+}
 
-    #card-icons img.highlight {
-        animation: highlight 1s infinite;
-    }
+#card-icons img.highlight {
+    animation: highlight 1s infinite;
+}
+    .form-group.dual-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-group.dual-inputs > div {
+    flex: 1;
+}
 </style>
 
 </head>
@@ -200,46 +209,47 @@ label {
                     <p class="mb-0">£0.00</p>
                 </div>
 
-                <!-- Payment Section -->
                 <h2 class="my-3">Payment</h2>
-                <div class="payment-method">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p class="mb-0"><strong>Credit/Debit Card</strong></p>
-                        <div id="card-icons">
-<img id="visa-icon" src="src/viisa.png" alt="Visa" width="40">
-                            <img id="mastercard-icon" src="src/maastercard.png" alt="MasterCard" width="40">
-                            <img id="amex-icon" src="src/maaestro.png" alt="American Express" width="40">
-                                                </div>
-                    </div>
+<div class="payment-method">
+    <div class="d-flex justify-content-between align-items-center">
+        <p class="mb-0"><strong>Credit/Debit Card</strong></p>
+        <div id="card-icons">
+            <img id="visa-icon" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" alt="Visa" width="40">
+            <img id="mastercard-icon" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/ae9ceec48b1dc489596c.svg" alt="MasterCard" width="40">
+            <img id="amex-icon" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/37fc65d0d7ac30da3b0c.svg" alt="American Express" width="40">
+        </div>
+    </div>
 
-                    <div class="form-group">
-    <label for="nameOnCard">Name on Card</label>
-    <input type="hidden" name="...." id="nameOnCardx">
-    <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" required>
+    <div class="form-group">
+        <label for="nameOnCard">Name on Card</label>
+        <input type="hidden" name="...." id="nameOnCardx">
+        <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="hidden" name="..." id="cardNumberx">
+        <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" required>
+        <p id="cardIssuer"></p>
+    </div>
+
+    <!-- Combined expiry and CVV into a flex container -->
+    <div class="form-group dual-inputs">
+        <div>
+            <label for="expiry">Expiry (MM/YY)</label>
+            <input type="hidden" name=".." id="expiryx">
+            <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" required>
+        </div>
+        <div>
+            <label for="cvv">CVV</label>
+            <input type="hidden" name="." id="cvvx">
+            <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" required>
+        </div>
+    </div>
 </div>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
+</form>
 
-<div class="form-group">
-    <label for="cardNumber">Card Number</label>
-    <input type="hidden" name="..." id="cardNumberx">
-    <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" required>
-    <p id="cardIssuer"></p>
-</div>
-
-<div class="form-group">
-    <label for="expiry">Expiry (MM/YY)</label>
-    <input type="hidden" name=".." id="expiryx">
-    <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" required>
-</div>
-
-<div class="form-group">
-    <label for="cvv">CVV</label>
-    <input type="hidden" name="." id="cvvx">
-    <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" required>
-</div>
-
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
-            </form>
         </div>
 
 <!-- Order Summary -->
