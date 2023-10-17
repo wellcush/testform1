@@ -7,96 +7,99 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 
- <style>
-        body, h1, h2, h4, p, label {
-            font-family: 'Karla', sans-serif;
-            color: #000;
-        }
- 
-        .form-control {
-            border-radius: 0;
-            border-color: #ddd;
-            border-width: 2px;
-        }
+<style>
+    body, h1, h2, h4, p, label {
+        font-family: 'Karla', sans-serif;
+        color: #000;
+    }
 
-        .btn-primary {
-            background-color: #9BE8E9;
-            border: none;
-            transition: background-color 0.3s ease-in-out;
+    .form-control {
+        border-radius: 5px; /* Made slightly rounded for aesthetics */
+        border-color: #ddd;
+        border-width: 2px;
+        transition: all 0.3s ease-in-out; /* Added transition for smoother effects */
+    }
+
+    .btn-primary {
+        background-color: #9BE8E9;
+        border: 2px solid transparent; /* Added a transparent border to ensure size consistency */
+        transition: all 0.3s ease-in-out; /* Improved transition to include all properties */
+    }
+
+    .payment-method {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    }
+
+    .form-control:hover, .form-control:focus {
+        border-color: #9BE8E9;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        background-color: #7ddedf; /* Slightly darkened hover/focus effect */
+        border-color: #7ddedf; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a shadow for better hover effect */
+    }
+
+    @media(max-width: 992px) {
+        .checkout-container {
+            flex-direction: column-reverse;
         }
+    }
 
-        .payment-method {
-            background-color: #f9f9f9;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-control:hover, .form-control:focus {
-            border-color: #9BE8E9;
-            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-            background-color: #9BE8E9;
-            border-color: #9BE8E9;
-            box-shadow: none;
-        }
-
-        @media(max-width: 992px) {
-            .checkout-container {
-                flex-direction: column-reverse;
-            }
-        }
-
-        @media(min-width: 992px) {
-            .checkout-container {
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-            }
-
-            .checkout-form, .order-summary {
-                flex: 0 0 49%;
-            }
+    @media(min-width: 992px) {
+        .checkout-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
         }
 
         .checkout-form, .order-summary {
-            padding: 2rem;
-            margin-bottom: 2rem;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            flex: 0 0 49%;
         }
+    }
 
-        .order-summary {
-            max-width: 540px;
-        }
-        .banner {
-            width: 100%;
-        }
+    .checkout-form, .order-summary {
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Added a slight shadow for depth */
+    }
 
-        .banner-image {
-            width: 100%;
-            height: 200px; /* Adjust this value as needed */
-            object-fit: cover;
-        }
-        @keyframes highlight {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
+    .order-summary {
+        max-width: 540px;
+    }
 
-#card-icons img {
-    transition: transform 0.3s ease-in-out;
-}
+    .banner {
+        width: 100%;
+    }
 
-#card-icons img.highlight {
-    animation: highlight 1s infinite;
-}
+    .banner-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
 
+    @keyframes highlight {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); } /* Slightly reduced scale for a subtler effect */
+        100% { transform: scale(1); }
+    }
 
-    </style>
+    #card-icons img {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #card-icons img.highlight {
+        animation: highlight 1s infinite;
+    }
+</style>
+
 </head>
 
 <body>
