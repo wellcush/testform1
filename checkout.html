@@ -151,28 +151,33 @@ label {
     content: "";
     display: inline-block;
     position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid #FD605A;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px; /* Shape like form control */
+    border: 2px solid #DEDEDE;
+    top: 0;
+    left: 0;
+    background-color: #F6F6F6; /* Highlight color */
 }
 
-/* Style for the radio button when checked */
 .form-check-input[type="radio"]:checked::after {
     content: "";
     display: inline-block;
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: #FD605A;
+    background-color: #111111; /* Radio button color when checked */
     top: 50%;
     transform: translateY(-50%);
-    left: 6px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+    .form-check-label {
+    font-size: 1rem;
+    line-height: 2.25rem; /* Adjust this for vertical alignment */
+}
+
 
 .form-check-input[type="radio"] {
     appearance: none;
@@ -184,6 +189,11 @@ label {
     height: 20px;
     margin-right: 10px;
     vertical-align: middle;
+}
+    .form-check {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 0;
 }
 
 </style>
@@ -237,8 +247,7 @@ label {
                     <input type="text" class="form-control" id="country" name="country" required>
                 </div>
 
-                <!-- Shipping Method -->
-<h2 class="my-3">Shipping Method</h2>
+                <h2 class="my-3">Shipping Method</h2>
 <div class="d-flex justify-content-between align-items-center mb-2">
     <div class="form-check">
         <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
@@ -246,8 +255,9 @@ label {
             FREE Standard Shipping
         </label>
     </div>
-    <p class="mb-0">£0.00</p>
+    <p class="mb-0" style="background-color: #F6F6F6; color: #111111; padding: 5px 10px; border-radius: 16px;">£0.00</p>
 </div>
+
 
 
                 <h2 class="my-3">Payment</h2>
