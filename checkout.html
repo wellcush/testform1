@@ -100,12 +100,12 @@ label {
     }
 
     .checkout-form {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    background-color: #ffffff;
-    border-radius: 0px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
+        padding: 1.5rem;  /* Reduced the padding to increase the width of the form */
+        margin-bottom: 2rem;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
 
 .order-summary {
     padding: 2rem;
@@ -325,7 +325,8 @@ body, html {
 
 
                 <h2 class="my-3">Payment</h2>
-<p class="secure-transaction-text">All transactions are secure and encrypted.</p>
+    <!-- Add secure transactions text below Payment label -->
+    <p style="color: #707070; margin-top: -10px; margin-bottom: 20px;">All transactions are secure and encrypted.</p>
 <div class="payment-method">
     <div class="d-flex justify-content-between align-items-center">
         <p class="mb-0"><strong>Credit/Debit Card</strong></p>
