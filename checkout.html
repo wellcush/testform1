@@ -221,6 +221,30 @@ label {
 .form-check-label {
     margin-bottom: 0;
 }
+    .footer {
+    background-color: #F4F4F4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: #2C2C2C; /* Dark Gray */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+    color: #FD605A; /* Coral */
+}
+body, html {
+    height: 100%;
+}
+
+.container.checkout-container {
+    min-height: calc(100% - 220px); /* 200px is for banner and 20px is for footer padding */
+}
+
 
 
 </style>
@@ -382,6 +406,14 @@ label {
     });
 </script>
 
+<!-- Footer -->
+<div class="footer">
+    <p>© 2023 Smile actives. All rights reserved.</p>
+    <a href="#" id="refund-policy">Refund policy</a> |
+    <a href="#" id="shipping-policy">Shipping policy</a> |
+    <a href="#" id="privacy-policy">Privacy policy</a> |
+    <a href="#" id="terms-of-service">Terms of service</a>
+</div>
 
 </body>
 </html>
