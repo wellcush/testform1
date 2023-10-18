@@ -185,6 +185,33 @@ label {
     margin-right: 10px;
     vertical-align: middle;
 }
+    .shipping-method-box {
+    background-color: #F6F6F6;
+    border-radius: 16px;
+    border: 2px solid #DEDEDE;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.shipping-method-box:hover {
+    border-color: #111111;
+}
+
+.form-check-input[type="radio"]::before {
+    border-color: #111111;
+}
+
+.form-check-input[type="radio"]:checked::after {
+    background-color: #F8A09D;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
 
 </style>
 
@@ -238,8 +265,7 @@ label {
                 </div>
 
                 <!-- Shipping Method -->
-<h2 class="my-3">Shipping Method</h2>
-<div class="d-flex justify-content-between align-items-center mb-2">
+<div class="shipping-method-box">
     <div class="form-check">
         <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
         <label class="form-check-label" for="standardShipping">
@@ -288,7 +314,7 @@ label {
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-primary btn-lg btn-block">Complete Purchase</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Place Order - £25</button>
 </form>
 
         </div>
