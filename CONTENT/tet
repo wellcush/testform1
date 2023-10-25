@@ -83,3 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+Kortnummer
+Förfallodatum (MM/ÅÅ)
+Namn på kort
+Säkerhetskod
