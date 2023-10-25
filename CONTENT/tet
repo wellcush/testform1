@@ -52,4 +52,21 @@ Betala nu
 FDCC5E
 button color: 121212
 
+let shippingInfo = {
+    // ... other fields
+    country: 'Sverige',
+    // ... other fields
+};
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // ... existing code ...
+
+    // Set default value for country field
+    const countryInput = document.getElementById('country');
+    if (countryInput) {
+        countryInput.value = 'Sverige';
+    }
+});
+
 
