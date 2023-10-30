@@ -108,3 +108,166 @@ src="https://www.facebook.com/tr?id=890116009198511&ev=PageView&noscript=1"
 https://video.frak2-1.fna.fbcdn.net/v/t42.1790-2/393123209_2390291267822219_3073030578755442864_n.?_nc_cat=111&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=4hAuZ2hP_ssAX_e56MM&_nc_ht=video.frak2-1.fna&oh=00_AfBEWjth0b9gmZT1awEg4g3VedRgsBn4F23dca8DC8xRDg&oe=653D5241
 https://video.frak2-2.fna.fbcdn.net/v/t42.1790-2/388887099_1920389215028757_4127717954169681709_n.?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=ggCApNQyTJkAX-bjSnr&_nc_ht=video.frak2-2.fna&oh=00_AfBN6j3ZZUz8SB9B0OnpqaXjxelmyEtEZSaw3KpWJS1HIA&oe=653E1C1E
 https://video.frak2-2.fna.fbcdn.net/v/t42.1790-2/388885909_1033022754713729_6930948935273022440_n.?_nc_cat=108&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=XGJo3xuITcAAX8yRuJ9&_nc_ht=video.frak2-2.fna&oh=00_AfD5MutWDs9UmmV01ReZMIB3OCPFgYJg-9d0Fevkr0Yylg&oe=653D13D2
+
+Stripe inspired checkout styles:
+body {
+    font-family: 'Karla', sans-serif;
+    background-color: #f6f9fc;
+    color: #2C2C2C;
+}
+
+h1, h2, h4 {
+    font-family: 'Karla', sans-serif;
+    color: #32325d;
+}
+
+p, label {
+    font-family: 'Karla', sans-serif;
+    color: #8898aa;
+}
+
+.form-control {
+    border-radius: 8px;
+    border-color: #cfd7df;
+    border-width: 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #32325d;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    transition: all 0.25s ease-in-out;
+}
+
+.payment-method {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #e3e8ee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:hover, .form-control:focus {
+    border-color: #32325d;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.1);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #525f7f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+@media(min-width: 992px) {
+    .checkout-container {
+        flex-direction: row;
+    }
+
+    .checkout-formal, .order-summary {
+        flex: 1;
+    }
+}
+
+.checkout-formal, .order-summary {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.banner, .banner-image {
+    width: 100%;
+}
+
+.banner-image {
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#card-icons img {
+    transition: transform 0.25s ease-in-out;
+}
+
+#card-icons img.highlight {
+    animation: highlight 1s infinite;
+}
+
+.form-group.dual-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.form-group.dual-inputs > div {
+    flex: 1;
+}
+
+.form-check-input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.form-check-input[type="radio"]::before {
+    border-color: #525f7f;
+}
+
+.form-check-input[type="radio"]:checked::after {
+    background-color: #525f7f;
+}
+
+.shipping-method-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 2px solid #cfd7df;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.25s ease-in-out;
+}
+
+.shipping-method-box:hover {
+    border-color: #32325d;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.footer {
+    background-color: #f6f9fc;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: #8898aa;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.25s ease-in-out;
+}
+
+.footer a:hover {
+    color: #32325d;
+}
