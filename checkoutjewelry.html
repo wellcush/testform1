@@ -255,37 +255,63 @@ label {
 }
 
   .variant-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Karla', sans-serif;
+    color: #2C2C2C; /* Dark Gray */
 }
 
 .variant-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-right: 10px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid #DEDEDE;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.variant-box:hover {
+    border-color: #FD605A; /* Coral */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a shadow for better hover effect */
 }
 
 .variant-box img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.variant-box img:hover {
+    transform: scale(1.05);
 }
 
 .photo-section {
-  border: 1px solid #ccc;
-  padding: 10px;
+    border: 2px solid #DEDEDE;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.photo-section:hover {
+    border-color: #FD605A; /* Coral */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a shadow for better hover effect */
 }
 
 .photo-section input[type="file"] {
-  display: none;
+    display: none;
 }
 
 .photo-section label {
-  cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    color: #2C2C2C; /* Mint */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.photo-section label:hover {
+    color: #FD605A; /* Coral */
 }
 
 
