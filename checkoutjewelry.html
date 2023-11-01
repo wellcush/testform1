@@ -260,6 +260,9 @@ label {
     margin-bottom: 20px;
     font-family: 'Karla', sans-serif;
     color: #2C2C2C; /* Dark Gray */
+    justify-content: center;
+    max-width: 30%;
+    margin: 0 auto; /* centers the section */
 }
 
 .variant-box {
@@ -282,6 +285,8 @@ label {
     height: 30px;
     margin-right: 10px;
     transition: transform 0.3s ease-in-out;
+    width: 50px; /* or any other suitable thumbnail size */
+    height: 50px;
 }
 
 .variant-box img:hover {
@@ -292,6 +297,8 @@ label {
     border: 2px solid #DEDEDE;
     padding: 10px;
     transition: all 0.3s ease-in-out;
+    max-width: 30%;
+    margin: 0 auto; /* centers the section */
 }
 
 .photo-section:hover {
@@ -313,6 +320,17 @@ label {
 .photo-section label:hover {
     color: #FD605A; /* Coral */
 }
+@media (max-width: 768px) {
+    .variant-section, .photo-section {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .variant-box {
+        margin-bottom: 10px;
+    }
+}
 
 
 
@@ -329,15 +347,15 @@ label {
 <div class="variant-section">
   <label>Color:</label>
   <div class="variant-box">
-    <img src="path/to/silver-thumbnail.jpg" alt="Silver">
+    <img src="CONTENT/heartnecklace-silver_1080x.jpg" alt="Silver">
     <span>Silver</span>
   </div>
   <div class="variant-box">
-    <img src="path/to/gold-thumbnail.jpg" alt="Gold">
+    <img src="CONTENT/heartnecklace-gold_1800x1800.jpg" alt="Gold">
     <span>Gold</span>
   </div>
   <div class="variant-box">
-    <img src="path/to/rose-gold-thumbnail.jpg" alt="Rose Gold">
+    <img src="CONTENT/heartnecklace-rosegold_1800x1800.jpg" alt="Rose Gold">
     <span>Rose Gold</span>
   </div>
 </div>
