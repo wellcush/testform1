@@ -254,15 +254,28 @@ label {
     color: #5DDD95; /* Coral */
 }
 .confirmation-message {
-    color: green;
-    font-size: 18px;
+    background-color: #5DDD95;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    border: none;
+    border-radius: 2px;
+    margin: auto;
+    width: 100%; /* Adjust this to fit the width of your checkout container */
+    max-width: 400px; /* Adjust this based on your layout */
+    box-sizing: border-box;
   }
 
   .confirmation-icon {
-    color: green;
     margin-right: 8px;
+  }
+
+  /* Assuming you are using FontAwesome for icons */
+  .fa-check {
+    color: white;
   }
 
 
@@ -277,7 +290,7 @@ label {
     </div>
 	<!-- Static confirmation message -->
 <div class="confirmation-message">
-  <span class="confirmation-icon">✔️</span>
+  <i class="fa fa-check confirmation-icon"></i>
   Your image has been successfully uploaded.
 </div>
     <!-- Checkout Container -->
