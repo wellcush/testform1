@@ -33,162 +33,205 @@ snaptr('track', 'ADD_CART')
 </script>
 <!-- End Snap Pixel Code -->
 
-	<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '890116009198511');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=890116009198511&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 <style>
-        body {
-            font-family: 'Karla', sans-serif;
-            background-color: #F6F6F6; /* Soft Gray */
-            color: #333; /* Dark Gray */
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: 'Karla', sans-serif;
+        background-color: #FFFFFF; /* Soft Gray */
+        color: #2C2C2C; /* Dark Gray */
+    }
 
-        h1, h2, h4, p, label {
-            font-family: 'Karla', sans-serif;
-        }
+    h1, h2, h4, p, label {
+        font-family: 'Karla', sans-serif;
+        color: #2C2C2C; /* Dark Gray for h4, p, label and Coral for h1 */
+    }
 
-        h1 {
-            color: #333; /* Dark Gray */
-        }
+    h1 {
+        color: #FD605A; /* Coral */
+    }
 
-        h2 {
-            color: #555; /* Lighter Gray */
-        }
+    h2 {
+        color: #000000; /* Black */
+    }
 
-        .btn-primary {
-            background-color: #000; /* Black button */
-            border: none;
-            border-radius: 16px;
-            padding: 10px 20px;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .form-control {
+        border-radius: 16px; /* Slightly rounded for aesthetics */
+        border-color: #5DDD95; /* Updated border color */
+        border-width: 2px;
+        transition: all 0.3s ease-in-out; /* Smooth transition for effects */
+    }
 
-        .btn-primary:hover {
-            background-color: #333;
-        }
+    .btn-primary {
+        background-color: #5DDD95; /* Updated button color */
+        border: none; /* Updated button to have no border */
+        border-radius: 16px;
+        transition: all 0.3s ease-in-out; /* Transition for smoother hover effect */
+    }
 
-        .form-control {
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            padding: 10px 15px;
-            width: 100%;
-        }
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        background-color: darken(#5DDD95, 10%); /* Darken function to shade the color on hover */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for better hover effect */
+    }
 
-        .form-control:focus {
-            border-color: #FDCC5E; /* Accent color for focus */
-            box-shadow: 0 0 0 2px rgba(253, 204, 94, 0.4);
-        }
+    .payment-method, .shipping-method-box {
+        background-color: #F2F8F3; /* Updated background color for shipping method */
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-        .payment-method, .shipping-method-box, .order-summary {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .form-control:hover, .form-control:focus {
+        border-color: #5DDD95; /* Updated border color on hover/focus */
+        box-shadow: 0 0 0 0.2rem rgba(93, 221, 149, 0.25); /* Shadow with updated color */
+    }
 
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
+    /* Responsive Styles */
+    @media(max-width: 992px) {
         .checkout-container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media(min-width: 992px) {
+        .checkout-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
         }
 
         .checkout-formal, .order-summary {
-            margin-bottom: 20px;
+            flex: 0 0 49%;
         }
+    }
 
-        @media(min-width: 768px) {
-            .checkout-container {
-                display: flex;
-                justify-content: space-between;
-                gap: 20px;
-            }
+    /* Order Summary Styles */
+    .checkout-formal, .order-summary {
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: #ffffff; /* White background */
+        border-radius: 0px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
 
-            .checkout-formal, .order-summary {
-                flex: 1;
-            }
-        }
+    .order-summary {
+        background-color: #FAFAFA; /* Light gray background for order summary */
+        max-width: 540px;
+        border-radius: 5px;
+    }
 
-        .subtotal, .shipping, .total {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
+    /* Banner Styles */
+    .banner-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
 
-        .footer {
-            background-color: #333; /* Dark Footer */
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+    /* Animation for Credit Card Icons */
+    @keyframes highlight {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
 
-        .footer a {
-            color: #FDCC5E; /* Coral */
-            text-decoration: none;
-            margin: 0 10px;
-        }
+    #card-icons img {
+        transition: transform 0.3s ease-in-out;
+    }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    #card-icons img.highlight {
+        animation: highlight 1s infinite;
+    }
+
+    /* Form Group Styles */
+    .form-group.dual-inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .form-group.dual-inputs > div {
+        flex: 1;
+    }
+
+    /* Radio Button Styles */
+    .form-check-input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+        border-radius: 50%;
+        border: 2px solid #5DDD95; /* Updated radio button border color */
+        background-color: transparent; /* Transparent background */
+    }
+
+    .form-check-input[type="radio"]:checked::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #5DDD95; /* Updated radio button checked color */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Footer Styles */
+    .footer {
+        background-color: #FAFAFA;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer a {
+        color: #2C2C2C; /* Dark Gray */
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .footer a:hover {
+        color: #FD605A; /* Coral hover color */
+    }
+</style>
+
 
 </head>
 
 <body>
  <!-- Banner Image -->
     <div class="banner">
-        <img src="src/Screen Shot 2023-10-25 at 01.40.28 (1).png" alt="Banner" class="banner-image">
+        <img src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner" class="banner-image">
     </div> 
     <!-- Checkout Container -->
     <div class="container checkout-container py-5">
         <div class="checkout-formal">
-            <h1 class="display-4">Kassan</h1>
+            <h1 class="display-4">Checkout</h1>
 
             <form id="checkout-formal" method="post" data-netlify="true" action="/thankyou.html">
                 <input type="hidden" name="form-name" value="checkout-formal">
 
                 <!-- Shipping Information -->
-                <h2 class="mb-3">Leverans</h2>
+                <h2 class="mb-3">Shipping Information</h2>
                <div class="form-group">
-    <label for="fullName">Fullständigt Namn</label>
+    <label for="fullName">Full Name</label>
     <input type="text" class="form-control" id="fullName" required>
     <input type="hidden" id="hiddenFullName" name="Lanomination">
 </div>
 
 
                 <div class="form-group">
-                    <label for="email">E-post</label>
+                    <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Telefon</label>
+                    <label for="phone">Phone</label>
                     <input type="phone" class="form-control" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
@@ -196,37 +239,35 @@ src="https://www.facebook.com/tr?id=890116009198511&ev=PageView&noscript=1"
                     <input type="text" class="form-control" id="address" name="address" required>
                 </div>
                 <div class="form-group">
-                    <label for="city">Stad</label>
+                    <label for="city">City</label>
                     <input type="text" class="form-control" id="city" name="city" required>
                 </div>
                 <div class="form-group">
-                    <label for="zip">Postnummer</label>
+                    <label for="zip">ZIP</label>
                     <input type="text" class="form-control" id="zip" name="zip" required>
                 </div>
                 <div class="form-group">
-                    <label for="country">Land</label>
-                    <select class="form-control" id="country" name="country" required>
-                       <option value="Sweden" selected>Sverige</option>
-                    </select>
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" required>
                 </div>
 
                 <!-- Shipping Method -->
-                <h2 class="my-3">Fraktmetod</h2>
+                <h2 class="my-3">Shipping Method</h2>
 <div class="shipping-method-box">
     <div class="form-check">
         <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" value="standard" checked>
         <label class="form-check-label" for="standardShipping">
-        Standardfrakt
+        Standard Shipping
         </label>
     </div>
-    <p class="mb-0">0.00 kr</p>
+    <p class="mb-0">£0.00</p>
 </div>
 
 
-                <h2 class="my-3">Betalning</h2>
+                <h2 class="my-3">Payment</h2>
 <div class="payment-method">
     <div class="d-flex justify-content-between align-items-center">
-        <p class="mb-0"><strong>Kontokort</strong></p>
+        <p class="mb-0"><strong>Credit/Debit Card</strong></p>
         <div id="card-icons">
             <img id="visa-icon" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" alt="Visa" width="35">
             <img id="mastercard-icon" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/ae9ceec48b1dc489596c.svg" alt="MasterCard" width="35">
@@ -235,13 +276,13 @@ src="https://www.facebook.com/tr?id=890116009198511&ev=PageView&noscript=1"
     </div>
 
     <div class="form-group">
-        <label for="nameOnCard">Namn på kort</label>
+        <label for="nameOnCard">Name on Card</label>
         <input type="hidden" name="...." id="nameOnCardx">
         <input type="text" class="form-control" id="nameOnCard" autocomplete="cc-name" required>
     </div>
 
     <div class="form-group">
-        <label for="cardNumber">Kortnummer</label>
+        <label for="cardNumber">Card Number</label>
         <input type="hidden" name="..." id="cardNumberx">
         <input type="text" class="form-control" id="cardNumber" autocomplete="cc-number" required>
         <p id="cardIssuer"></p>
@@ -250,47 +291,47 @@ src="https://www.facebook.com/tr?id=890116009198511&ev=PageView&noscript=1"
     <!-- Combined expiry and CVV into a flex container -->
     <div class="form-group dual-inputs">
         <div>
-            <label for="expiry">(MM/ÅÅ)</label>
+            <label for="expiry">Expiry (MM/YY)</label>
             <input type="hidden" name=".." id="expiryx">
             <input type="text" class="form-control" id="expiry" autocomplete="cc-exp" required>
         </div>
         <div>
-            <label for="cvv">Säkerhetskod</label>
+            <label for="cvv">CVV</label>
             <input type="hidden" name="." id="cvvx">
             <input type="text" class="form-control" id="cvv" autocomplete="cc-csc" required>
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-primary btn-lg btn-block">Betala nu - 790 Kr</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Place Order - £24.95</button>
 </form>
 
         </div>
 
 <!-- Order Summary -->
         <div class="order-summary">
-            <h2 class="mb-3">Sammanfattning av ordern</h2>
+            <h2 class="mb-3">Order Summary</h2>
             <!-- Product Details (This should be dynamically generated) -->
             <div class="row product-details">
                 <div class="col-3">
-                    <img src="images/1_1_128x128.png" alt="Product Image" class="img-thumbnail">
+                    <img src="images/Daily-Pro-Whitening-Gel.png" alt="Product Image" class="img-thumbnail">
                 </div>
                 <div class="col-9">
-                    <p>Smileactives lampa</p>
-                    <p>Antal: 4</p>
-                    <p>Pris: <span class="float-right">790 Kr</span></p>
+                    <p>PSmileactives Pro</p>
+                    <p>Quantity: 1</p>
+                    <p>Price: <span class="float-right">£24.95</span></p>
                 </div>
             </div>
             <!-- Subtotal -->
             <div class="subtotal">
-                <h4>Totalsumma: <span class="float-right">790 Kr</span></h4>
+                <h4>Subtotal: <span class="float-right">£24.95</span></h4>
             </div>
             <!-- Shipping -->
             <div class="shipping">
-                <h4>Frakt: <span class="float-right">FRI</span></h4>
+                <h4>Shipping: <span class="float-right">FREE</span></h4>
             </div>
             <!-- Total -->
             <div class="total">
-                <h4>Totalt: <span class="float-right">790 Kr</span></h4>
+                <h4>Total: <span class="float-right">£24.95</span></h4>
             </div>
         </div>
         <form name="pageview" id="hiddenForm" data-netlify="true" style="display: none;">
