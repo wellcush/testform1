@@ -9,226 +9,138 @@
 
 
 <style>
-    body {
+    /* Global Styles */
+body {
     font-family: 'Karla', sans-serif;
-    background-color: #FFFFFF; /* Soft Gray */
-    color: #2C2C2C; /* Dark Gray */
+    background-color: #f8f9fa; /* Slightly off-white background for the whole page */
+    color: #333; /* Ensuring text is sufficiently contrasted */
+    line-height: 1.6; /* Improves readability */
 }
 
+/* Section differentiation */
+#form-section,
+#payment-section,
+#order-summary-section {
+    padding: 20px;
+    margin-bottom: 2rem; /* Adds space between sections */
+}
+
+#form-section {
+    background-color: #ffffff; /* Keeping the form section white for cleanliness */
+}
+
+#payment-section {
+    background-color: #e9f5ff; /* Light blue background for payment section */
+}
+
+#order-summary-section {
+    background-color: #f5f5f5; /* Light grey background for order summary */
+}
+
+/* Headers */
 h1 {
-    font-family: 'Karla', sans-serif;
-    color: #FD605A; /* Coral */
+    color: #FF6B6B; /* Coral color for main headers */
+    margin-bottom: 1rem; /* Space after headers */
 }
 
 h2 {
-    font-family: 'Karla', sans-serif;
-    color: #000000; /* Cool Blue */
+    color: #3498db; /* Blue color for secondary headers */
+    margin-bottom: 0.75rem;
 }
 
 h4 {
-    font-family: 'Karla', sans-serif;
-    color: #2C2C2C; /* Dark Gray */
+    color: #95a5a6; /* Grey color for tertiary headers */
+    margin-bottom: 0.5rem;
 }
 
-p {
-    font-family: 'Karla', sans-serif;
-    color: #2C2C2C; /* Dark Gray */
+/* Form Controls */
+.form-control {
+    border-radius: 0.5em; /* Increased border-radius */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+    border: 1px solid #ced4da; /* Default border color */
+    padding: 0.375rem 0.75rem; /* Padding inside inputs */
 }
 
-label {
-    font-family: 'Karla', sans-serif;
-    color: #2C2C2C; /* Mint */
+.form-control:focus {
+    border-color: #3498db; /* Highlight focus with a different color */
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }
 
-
-    .form-control {
-        border-radius: 16px; /* Made slightly rounded for aesthetics */
-        border-color: #DEDEDE;
-        border-width: 2px;
-        transition: all 0.3s ease-in-out; /* Added transition for smoother effects */
-    }
-
-    .btn-primary {
-        background-color: #FD605B;
-        border: 2px solid #FD605A; /* Added a transparent border to ensure size consistency */
-        border-radius: 16px;
-        transition: all 0.3s ease-in-out; /* Improved transition to include all properties */
-    }
-
-    .payment-method {
-    background-color: #F4F4F4;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    border-color: #111111;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Buttons */
+.btn-primary {
+    background-color: #3498db; /* Ensuring good contrast */
+    color: #ffffff; /* White text for readability */
+    border-radius: 0.5em; /* Consistency with form-control border-radius */
+    padding: 0.5rem 1rem; /* Padding inside buttons */
+    border: none; /* Removing border */
+    transition: background-color 0.2s; /* Transition for hover effect */
 }
 
-    .form-control:hover, .form-control:focus {
-        border-color: #1B1B1B;
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-        background-color: #F13F39; /* Slightly darkened hover/focus effect */
-        border-color: #7ddedf; 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a shadow for better hover effect */
-    }
-
-    @media(max-width: 992px) {
-        .checkout-container {
-            flex-direction: column-reverse;
-        }
-    }
-
-    @media(min-width: 992px) {
-        .checkout-container {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-        }
-
-        .checkout-form, .order-summary {
-            flex: 0 0 49%;
-        }
-    }
-
-    .checkout-form {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    background-color: #ffffff;
-    border-radius: 0px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #2878a9; /* Darker shade on hover/focus */
 }
 
-.order-summary {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    background-color: #FAFAFA; /* Light gray background for order summary */
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* Payment and Shipping Methods */
+.payment-method,
+.shipping-method-box {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #e9f5ff; /* Standout background color */
+    border-radius: 0.3em;
+    padding: 15px; /* Internal padding */
+    margin-bottom: 20px; /* Spacing between sections */
 }
 
-
-    .order-summary {
-        max-width: 540px;
-    }
-
-    .banner {
-        width: 100%;
-    }
-
-    .banner-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    @keyframes highlight {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); } /* Slightly reduced scale for a subtler effect */
-        100% { transform: scale(1); }
-    }
-
-    #card-icons img {
-    transition: transform 0.3s ease-in-out;
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Adjust styles for tablets */
 }
 
-#card-icons img.highlight {
-    animation: highlight 1s infinite;
+@media (max-width: 576px) {
+    /* Adjust styles for phones */
 }
-    .form-group.dual-inputs {
+
+/* Animations */
+@keyframes cardIconAnimation {
+    /* Define keyframes for the animation, ensuring it's subtle */
+}
+
+.card-icon {
+    animation: cardIconAnimation 1s infinite;
+}
+
+/* Miscellaneous */
+footer a:hover {
+    text-decoration: underline; /* Interactive feature on hover */
+}
+
+.form-group.dual-inputs {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 10px; /* Adding space between dual inputs */
 }
 
-.form-group.dual-inputs > div {
-    flex: 1;
-}
-    /* Style for the radio button when not checked */
-.form-check-input[type="radio"]::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid #FD605A;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 2px;
-}
-
-/* Style for the radio button when checked */
-.form-check-input[type="radio"]:checked::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #FD605A;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 6px;
-}
-
-.form-check-input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-    .shipping-method-box {
-    background-color: #F4F4F4;
-    border-radius: 16px;
-    border: 2px solid #DEDEDE;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.shipping-method-box:hover {
-    border-color: #111111;
-}
-
-.form-check-input[type="radio"]::before {
-    border-color: #FD605A;
-}
-
-.form-check-input[type="radio"]:checked::after {
-    background-color: #FD605A;
-}
-
-.form-check-label {
-    margin-bottom: 0;
-}
-    .footer {
-    background-color: #FAFAFA;
+footer {
+    background-color: #233143; /* Differentiating the footer */
+    color: #ffffff;
     padding: 20px 0;
-    text-align: center;
+    border-top: 5px solid #3498db; /* A touch of brand color */
 }
 
-.footer a {
-    color: #2C2C2C; /* Dark Gray */
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease-in-out;
+/* Whitespace and structure */
+.section-title {
+    margin-top: 0;
+    margin-bottom: 2rem; /* Space before section content */
 }
 
-.footer a:hover {
-    color: #FD605A; /* Coral */
+.section {
+    padding: 2rem 0; /* Space around sections for better readability */
 }
 
+/* HTML and Accessibility */
+/* Make sure input fields have aria-label attributes where necessary */
+/* Make sure images have alt attributes that are descriptive */
 
+/* Ensure all elements follow the WCAG guidelines for color contrast */
 
 </style>
 
