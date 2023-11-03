@@ -36,7 +36,7 @@ snaptr('track', 'ADD_CART')
 
 h1 {
     font-family: 'Karla', sans-serif;
-    color: #031208; /* Coral */
+    color: #5CDC94; /* Coral */
 }
 
 h2 {
@@ -247,29 +247,15 @@ label {
     color: #5DDD95; /* Coral */
 }
 .confirmation-message {
-    background-color: #5DDD95;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
+    color: #5DDD95;
+    font-size: 18px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: none;
-    border-radius: 2px;
-    margin: auto;
-    margin-top: 15px;
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
   }
 
   .confirmation-icon {
+    color: green;
     margin-right: 8px;
-  }
-
-  /* FontAwesome icon color overridden to be white */
-  .fa-check {
-    color: white !important;
   }
 
 </style>
@@ -281,11 +267,7 @@ label {
     <div class="banner">
         <img src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner" class="banner-image">
     </div>
-	<!-- Static confirmation message -->
-<div class="confirmation-message">
-  <i class="fas fa-check confirmation-icon" aria-hidden="true"></i>
-  Your image has been successfully uploaded.
-</div>
+	
     <!-- Checkout Container -->
     <div class="container checkout-container py-5">
         <div class="checkout-formal">
@@ -394,6 +376,10 @@ label {
                 </div>
                 <div class="col-9">
                     <p>PSmileactives Pro</p>
+			<div class="confirmation-message">
+  <span class="confirmation-icon">✔️</span>
+  Your image has been successfully uploaded.
+</div>
                     <p>Quantity: 1</p>
                     <p>Price: <span class="float-right">£24.95</span></p>
                 </div>
