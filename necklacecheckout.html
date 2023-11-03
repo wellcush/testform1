@@ -253,7 +253,17 @@ label {
 .footer a:hover {
     color: #5DDD95; /* Coral */
 }
+.confirmation-message {
+    color: green;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
 
+  .confirmation-icon {
+    color: green;
+    margin-right: 8px;
+  }
 
 
 </style>
@@ -264,7 +274,12 @@ label {
  <!-- Banner Image -->
     <div class="banner">
         <img src="src/bogo3-bottom-cta-section-desktop.jpg" alt="Banner" class="banner-image">
-    </div> 
+    </div>
+	<!-- Static confirmation message -->
+<div class="confirmation-message">
+  <span class="confirmation-icon">✔️</span>
+  Your image has been successfully uploaded.
+</div>
     <!-- Checkout Container -->
     <div class="container checkout-container py-5">
         <div class="checkout-formal">
