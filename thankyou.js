@@ -71,3 +71,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Timer and resend code functionality
+document.addEventListener("DOMContentLoaded", function() {
+    var countdown = 60; // countdown from 60 seconds
+    var timerDisplay = document.getElementById('timer');
+    var resendButton = document.getElementById('resendButton');
+
+    var timer = setInterval(function() {
+        var minutes = parseInt(countdown / 60, 10);
+        var seconds = parseInt(countdown % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerDisplay.textContent = minutes + ":" + seconds;
+
+        if (--countdown < 0) {
+            clearInterval(timer);
+            timerDisplay.style.display = 'none'; // Hide the timer
+            resendButton.style.display = 'inline-block'; // Show the resend button
+        }
+    }, 1000); // update every second
+
+    // Add event listener for resend button click here if needed
+    resendButton.addEventListener('click', function() {
+        // Handle resend code action here
+        alert('Resend code clicked');
+        // Reset the timer if necessary
+        countdown = 60;
+        timerDisplay.textContent = "01:00";
+        timerDisplay.style.display = 'block';
+        resendButton.style.display = 'none';
+        // Restart the timer if necessary
+    });
+});
+
