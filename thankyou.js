@@ -72,32 +72,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Timer, progress bar, and resend link functionality
-    var countdown = 75; // 75 seconds countdown
-    var timerDisplay = document.getElementById('timer');
-    var resendLink = document.getElementById('resendLink');
-    var resendConfirmation = document.getElementById('resendConfirmation');
-    var timerBar = document.getElementById('timerBar');
+// Timer, progress bar, and resend button functionality
+var countdown = 60; // 60 seconds countdown
+var timerDisplay = document.getElementById('timer');
+var resendButton = document.getElementById('resendButton');
+var resendConfirmation = document.getElementById('resendConfirmation');
+var timerBar = document.getElementById('timerBar');
 
-    var timer = setInterval(function() {
-        var seconds = countdown % 60;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        timerDisplay.textContent = "01:" + seconds;
+var timer = setInterval(function() {
+    var seconds = countdown % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    timerDisplay.textContent = "00:" + seconds;
 
-        // Update progress bar width
-        var progressBarWidth = (countdown / 75) * 100;
-        timerBar.style.width = progressBarWidth + '%';
+    // Update progress bar width
+    var progressBarWidth = (countdown / 60) * 100;
+    timerBar.style.width = progressBarWidth + '%';
 
-        if (--countdown < 0) {
-            clearInterval(timer);
-            resendLink.classList.add('enabled');
-            resendLink.onclick = function() {
-                resendConfirmation.style.display = 'block';
-                // Optional: Hide the confirmation message after some time
-                setTimeout(function() {
-                    resendConfirmation.style.display = 'none';
-                }, 5000);
-            };
-        }
-    }, 1000);
+    if (--countdown < 0) {
+        clearInterval(timer);
+        timerDisplay.style.display = 'none'; // Hide the timer
+        timerBar.style.display = 'none'; // Hide the progress bar
+        resendButton.disabled = false; // Enable the resend button
+        resendButton.classList.add('enabled');
+    }
+}, 1000);
+
+resendButton.addEventListener('click', function() {
+    // Check if the button is enabled
+    if (!this.disabled) {
+        // Display the confirmation message
+        resendConfirmation.style.display = 'block';
+        // Optional: Hide the confirmation message after some time
+        setTimeout(function() {
+            resendConfirmation.style.display = 'none';
+        }, 5000);
+    }
 });
