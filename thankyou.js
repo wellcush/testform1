@@ -72,38 +72,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Timer and resend code functionality
-document.addEventListener("DOMContentLoaded", function() {
-    var countdown = 60; // countdown from 60 seconds
-    var timerDisplay = document.getElementById('timer');
-    var resendButton = document.getElementById('resendButton');
+// Timer, progress bar, and resend button functionality
+var countdown = 60; // 60 seconds countdown
+var timerDisplay = document.getElementById('timer');
+var resendButton = document.getElementById('resendButton');
+var resendConfirmation = document.getElementById('resendConfirmation');
+var timerBar = document.getElementById('timerBar');
 
-    var timer = setInterval(function() {
-        var minutes = parseInt(countdown / 60, 10);
-        var seconds = parseInt(countdown % 60, 10);
+var timer = setInterval(function() {
+    var seconds = countdown % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    timerDisplay.textContent = "00:" + seconds;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+    // Update progress bar width
+    var progressBarWidth = (countdown / 60) * 100;
+    timerBar.style.width = progressBarWidth + '%';
 
-        timerDisplay.textContent = minutes + ":" + seconds;
+    if (--countdown < 0) {
+        clearInterval(timer);
+        timerDisplay.style.display = 'none'; // Hide the timer
+        timerBar.style.display = 'none'; // Hide the progress bar
+        resendButton.disabled = false; // Enable the resend button
+        resendButton.classList.add('enabled');
+    }
+}, 1000);
 
-        if (--countdown < 0) {
-            clearInterval(timer);
-            timerDisplay.style.display = 'none'; // Hide the timer
-            resendButton.style.display = 'inline-block'; // Show the resend button
-        }
-    }, 1000); // update every second
-
-    // Add event listener for resend button click here if needed
-    resendButton.addEventListener('click', function() {
-        // Handle resend code action here
-        alert('Resend code clicked');
-        // Reset the timer if necessary
-        countdown = 60;
-        timerDisplay.textContent = "01:00";
-        timerDisplay.style.display = 'block';
-        resendButton.style.display = 'none';
-        // Restart the timer if necessary
-    });
+resendButton.addEventListener('click', function() {
+    // Check if the button is enabled
+    if (!this.disabled) {
+        // Display the confirmation message
+        resendConfirmation.style.display = 'block';
+        // Optional: Hide the confirmation message after some time
+        setTimeout(function() {
+            resendConfirmation.style.display = 'none';
+        }, 5000);
+    }
 });
-
