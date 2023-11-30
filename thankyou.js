@@ -72,16 +72,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Timer, progress bar, and resend button functionality
 document.addEventListener("DOMContentLoaded", function() {
     // ... existing JavaScript ...
 
-    // Timer, progress bar, and resend link functionality
+    // Timer, progress bar, and resend form functionality
     var countdown = 75; // 75 seconds countdown
     var timerDisplay = document.getElementById('timer');
     var resendLink = document.getElementById('resendLink');
     var resendConfirmation = document.getElementById('resendConfirmation');
     var timerBar = document.getElementById('timerBar');
+    var resendForm = document.getElementById('resendForm');
 
     function updateTimerDisplay(seconds) {
         var minutes = Math.floor(seconds / 60);
@@ -100,10 +100,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (--countdown < 0) {
             clearInterval(timer);
+            timerBar.style.display = 'none'; // Hide the progress bar
             resendLink.classList.add('enabled');
-            resendLink.removeAttribute('onclick'); // Remove the placeholder onclick handler
             resendLink.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
+                resendForm.submit(); // Submit the hidden form
                 resendConfirmation.style.display = 'block';
                 // Optional: Hide the confirmation message after some time
                 setTimeout(function() {
@@ -115,4 +116,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Initialize the timer display
     updateTimerDisplay(countdown);
+
+    // Prevent Netlify form from showing its default confirmation
+    resendForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // This will prevent the default form submission
+        var formData = new FormData(resendForm);
+
+        fetch("/", {
+            method: "POST",
+            body: formData
+        }).then(response => {
+            // Handle the response from Netlify here if needed
+            console.log('Form successfully submitted to Netlify');
+        }).catch(error => {
+            console.error('Error submitting form:', error);
+        });
+    });
 });
