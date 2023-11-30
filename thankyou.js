@@ -113,15 +113,17 @@ document.addEventListener("DOMContentLoaded", function() {
     updateTimerDisplay(countdown);
 
     function submitResendForm() {
+        // Construct the form data payload
         var formData = new FormData(resendForm);
+        formData.append('form-name', 'resendForm'); // Ensure this matches your Netlify settings
 
-        // Add a hidden field to pass the name of the form
-        formData.append('form-name', 'resendForm');
+        // Encode form data to match 'application/x-www-form-urlencoded' content type
+        var encodedData = new URLSearchParams(formData).toString();
 
         fetch("/", {
             method: "POST",
-            body: formData,
-            headers: new Headers({ 'Accept': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodedData
         })
         .then(response => {
             if (response.ok) {
