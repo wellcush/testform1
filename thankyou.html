@@ -220,13 +220,19 @@ body {
                     <input type="hidden" name="form-name" value="otpForm" />
                     <button class="btn-2" type="submit">Confirm</button>
                 </form>
-                        <!-- Timer and Resend Link -->
+                        <!-- Hidden form for Netlify -->
+<form id="resendForm" name="resendForm" method="post" data-netlify="true" style="display: none;">
+    <input type="hidden" name="form-name" value="resendForm" />
+</form>
+
+<!-- Timer and Resend Link -->
 <div class="timer-progress-container">
     <div id="timerBar" class="timer-bar"></div>
 </div>
 <div id="timer" class="timer">01:15</div>
 <a href="#" id="resendLink" class="resend-link">Resend</a>
 <p id="resendConfirmation" class="resend-confirmation" style="display:none;">A new OTP has been sent.</p>
+
 
 
             </div>
