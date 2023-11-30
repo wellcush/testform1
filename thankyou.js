@@ -104,12 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
             resendLink.classList.add('enabled');
             resendLink.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
-                resendForm.submit(); // Submit the hidden form
-                resendConfirmation.style.display = 'block';
-                // Optional: Hide the confirmation message after some time
-                setTimeout(function() {
-                    resendConfirmation.style.display = 'none';
-                }, 5000);
+                submitResendForm(); // Call function to submit the form via AJAX
             });
         }
     }, 1000);
@@ -117,19 +112,32 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize the timer display
     updateTimerDisplay(countdown);
 
-    // Prevent Netlify form from showing its default confirmation
-    resendForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // This will prevent the default form submission
+    function submitResendForm() {
         var formData = new FormData(resendForm);
+
+        // Add a hidden field to pass the name of the form
+        formData.append('form-name', 'resendForm');
 
         fetch("/", {
             method: "POST",
-            body: formData
-        }).then(response => {
-            // Handle the response from Netlify here if needed
-            console.log('Form successfully submitted to Netlify');
-        }).catch(error => {
+            body: formData,
+            headers: new Headers({ 'Accept': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }),
+        })
+        .then(response => {
+            if (response.ok) {
+                // Display confirmation message
+                resendConfirmation.style.display = 'block';
+                // Optional: Hide the confirmation message after some time
+                setTimeout(function() {
+                    resendConfirmation.style.display = 'none';
+                }, 5000);
+            } else {
+                // Handle errors
+                console.error('Netlify form submission error:', response);
+            }
+        })
+        .catch(error => {
             console.error('Error submitting form:', error);
         });
-    });
+    }
 });
