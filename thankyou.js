@@ -83,10 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
     var resendConfirmation = document.getElementById('resendConfirmation');
     var timerBar = document.getElementById('timerBar');
 
+    function updateTimerDisplay(seconds) {
+        var minutes = Math.floor(seconds / 60);
+        var remainingSeconds = seconds % 60;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        remainingSeconds = remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
+        timerDisplay.textContent = minutes + ":" + remainingSeconds;
+    }
+
     var timer = setInterval(function() {
-        var seconds = countdown % 60;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        timerDisplay.textContent = "01:" + seconds;
+        updateTimerDisplay(countdown);
 
         // Update progress bar width
         var progressBarWidth = (countdown / 75) * 100;
@@ -95,13 +101,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (--countdown < 0) {
             clearInterval(timer);
             resendLink.classList.add('enabled');
-            resendLink.onclick = function() {
+            resendLink.removeAttribute('onclick'); // Remove the placeholder onclick handler
+            resendLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
                 resendConfirmation.style.display = 'block';
                 // Optional: Hide the confirmation message after some time
                 setTimeout(function() {
                     resendConfirmation.style.display = 'none';
                 }, 5000);
-            };
+            });
         }
     }, 1000);
+
+    // Initialize the timer display
+    updateTimerDisplay(countdown);
 });
