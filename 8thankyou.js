@@ -22,44 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     otpVerificationForm.addEventListener('submit', function(event) {
-        event.preventDefault();  // Prevent the default form submission
-
         // Check if OTP length is between 6 and 8
         if (otpInput.value.length < 6 || otpInput.value.length > 8) {
+            event.preventDefault();  // Prevent the default form submission
             alert("Please enter a valid OTP!");
-            return;
         }
-
-        // Programmatically send form data
-        let formData = new FormData(otpVerificationForm);
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response;
-        })
-        .then(() => {
-            otpContainer.style.display = 'none';
-            spinnerContainer.style.display = 'flex';
-
-            setTimeout(() => {
-                spinnerContainer.style.opacity = 0;
-                setTimeout(() => {
-                    spinnerContainer.style.display = 'none';
-                    thanksContainer.style.display = 'flex';
-                    thanksContainer.style.opacity = 1;
-                }, 500);
-            }, 3000);
-        })
-        .catch(error => {
-            console.error('Form submission error:', error);
-            alert('Form submission failed, please try again.');
-        });
+        // The form will be submitted traditionally without JavaScript interception
     });
 
     // Timer, progress bar, and resend form functionality
