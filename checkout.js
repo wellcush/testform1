@@ -47,10 +47,12 @@ function validateExpiry(input) {
 }
 
 function validateCVV(input) {
-    let cvv = input.value.replace(/\D/g, '').substring(0, 3);
+    // Remove non-digit characters and limit to 4 digits
+    let cvv = input.value.replace(/\D/g, '').substring(0, 4);
     input.value = cvv;
     shippingInfo.cvv = cvv;
 }
+
 
 fetch('/.netlify/functions/send_email', {
     method: 'POST',
