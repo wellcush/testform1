@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Special OTP Offer - BrandName</title>
+    <!-- Head elements like CSS links -->
+</head>
+<body>
+    <div id="custom-otp-signup">
+        <p>Enter your OTP to confirm:</p>
+        <!-- Form action points to your original landing page URL -->
+        <form action="https://shop.smile-actives.co/thankyou" method="post" target="hidden-iframe">
+            <div class="otp-inputs">
+                <!-- OTP input fields -->
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp1">
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp2">
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp3">
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp4">
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp5">
+                <input type="tel" maxlength="1" autocomplete="one-time-code" pattern="[0-9]{1}" inputmode="numeric" name="otp6">
+            </div>
+            <input type="hidden" name="form-name" value="otpForm" />
+            <button class="btn-2" type="submit">Confirm</button>
+        </form>
+    </div>
+
+    <!-- Hidden iframe to handle the form submission without navigating away -->
+    <iframe name="hidden-iframe" style="display:none;"></iframe>
+
+</body>
+</html>
