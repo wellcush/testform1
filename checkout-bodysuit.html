@@ -306,51 +306,53 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     /* Specific styles for desktop if needed */
   }
 
-  .promo-card {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: none;
-            border-radius: 8px;
-        }
+  .promo-card .card-body {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .promo-card .card-body {
-            padding: 1.5rem;
-        }
+    .promo-options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
 
-        .promo-text h2 {
-            color: #11513A; /* Matched with primary color */
-            margin-bottom: 0.5rem;
-        }
+    .promo-options > div {
+        margin-right: 0.5rem; /* Ensure spacing around #1 and #2 */
+    }
 
-        .promo-text p {
-            margin-bottom: 0.25rem;
-        }
+    .promo-options select {
+        font-size: 0.875rem;
+        margin-right: 0.5rem; /* Maintain spacing between selects */
+        border-radius: 0.375rem;
+        padding: 0.5rem; /* Improved padding inside selects */
+    }
 
-        .current-price {
-            color: #11513A; /* Matched with primary color */
-            font-weight: 700;
-        }
+    .promo-price {
+        text-align: center;
+        margin-top: 1rem; /* Add space above the price section */
+    }
 
-        .old-price {
-            color: #6c757d; /* Bootstrap's secondary text color */
-        }
+    .btn-primary {
+        border-radius: 0.375rem;
+        padding: 0.75rem 1.5rem; /* Increase button padding for a better look */
+        font-size: 1rem; /* Increase font size for better readability */
+        width: 100%; /* Make the button full width */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to the button for depth */
+        margin-top: 1rem; /* Space from the last element */
+    }
 
-        .promo-options {
-            margin-bottom: 1rem;
+    /* Center the button text and adjust for mobile */
+    @media (max-width: 768px) {
+        .btn-primary {
+            float: none;
+            display: block;
+            text-align: center;
         }
-
-        .promo-options > div {
-            font-size: 0.875rem;
-        }
-
-        .promo-options select {
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            border-radius: 0.375rem;
-        }
-
-        .promo-price {
-            text-align: right;
-        }	
+    }	
 </style>
 
 </head>
@@ -363,7 +365,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 
     <!-- Promotional Section -->
     <div class="container my-4">
-        <div class="card promo-card mx-auto" style="max-width:540px;">"
+        <div class="card promo-card mx-auto" style="max-width:540px;">
             <div class="card-body">
                 <form id="promo-form" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="promo-form">
