@@ -307,74 +307,98 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
   }
 
   .promo-card {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: none;
+        background: #FFFFFF;
         border-radius: 8px;
-        max-width: 540px;
-        margin: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1.5rem;
-        position: relative;
-        display: flex;
-        flex-direction: column;
+        font-family: 'Inter', sans-serif; /* Assuming Inter is the desired font */
     }
 
-    .promo-header {
+    .promo-card .card-body {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        margin-bottom: 1.5rem;
     }
 
     .promo-title {
-        font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 2rem; /* Large font size for the title */
+        color: #11513A; /* Dark green color */
+        font-weight: 800; /* Bold font weight */
+        text-align: center;
+        margin-bottom: 0.5rem;
     }
 
     .promo-discount {
         font-size: 1.25rem;
-        text-decoration: line-through;
-        color: #666;
-    }
-
-    .promo-price {
-        font-weight: bold;
-        font-size: 2rem;
-        color: #11513A;
+        color: #11513A; /* Dark green color */
+        font-weight: 600; /* Semi-bold font weight */
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     .promo-options {
+        width: 100%;
         display: grid;
-        grid-template-columns: auto 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
-        align-items: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
-    .promo-options div,
-    .promo-options select {
+    .promo-options div {
+        font-size: 1rem;
         text-align: center;
+        font-weight: 600; /* Semi-bold for readability */
+    }
+
+    .promo-options select {
+        font-size: 1rem;
+        border: 1px solid #DEDEDE; /* Light grey border */
+        border-radius: 0.375rem;
         padding: 0.5rem;
     }
 
-    .claim-offer-btn {
-        position: absolute;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        padding: 0.75rem 1.5rem;
+    .promo-price {
+        font-size: 2.5rem; /* Larger font size for price */
+        color: #11513A; /* Dark green color */
+        font-weight: 700; /* Bold font weight */
+        text-align: center;
+        margin-bottom: 0.5rem;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .promo-card {
-            padding: 1rem;
-        }
+    .old-price {
+        font-size: 1.5rem; /* Slightly smaller than the current price /
+color: #6c757d; / Bootstrap's secondary text color /
+font-weight: 400; / Regular font weight */
+text-align: center;
+text-decoration: line-through;
+margin-bottom: 1rem;
+}
+	.claim-offer-btn {
+    background-color: #11513A; /* Dark green background */
+    color: #FFFFFF; /* White text color */
+    font-size: 1.25rem; /* Larger font size for better visibility */
+    font-weight: 700; /* Bold font weight */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    align-self: flex-end; /* Align button to the right */
+    margin-top: auto; /* Push button to the bottom */
+}
 
-        .claim-offer-btn {
-            position: static;
-            width: 100%;
-            margin-top: 1rem;
-        }
-    }	
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .promo-card {
+        padding: 1rem;
+    }
+
+    .claim-offer-btn {
+        width: 100%; /* Full width on smaller screens */
+        align-self: center; /* Center align on mobile */
+        margin-top: 1rem;
+    }
+}
 </style>
 
 </head>
