@@ -305,6 +305,52 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
   @media (min-width: 768px) {
     /* Specific styles for desktop if needed */
   }
+
+  .promo-card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+        }
+
+        .promo-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .promo-text h2 {
+            color: #11513A; /* Matched with primary color */
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-text p {
+            margin-bottom: 0.25rem;
+        }
+
+        .current-price {
+            color: #11513A; /* Matched with primary color */
+            font-weight: 700;
+        }
+
+        .old-price {
+            color: #6c757d; /* Bootstrap's secondary text color */
+        }
+
+        .promo-options {
+            margin-bottom: 1rem;
+        }
+
+        .promo-options > div {
+            font-size: 0.875rem;
+        }
+
+        .promo-options select {
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            border-radius: 0.375rem;
+        }
+
+        .promo-price {
+            text-align: right;
+        }	
 </style>
 
 </head>
@@ -317,52 +363,53 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 
     <!-- Promotional Section -->
     <div class="container my-4">
-        <div class="card mx-auto" style="max-width: 540px;">
+        <div class="card promo-card mx-auto" style="max-width:540px;">"
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="promo-text">
-                        <h2 class="text-dark">Buy 1 Get 1 FREE!</h2>
-                        <p class="text-secondary">Save $40!</p>
-                        <p><strong>Color, Size, Style</strong></p>
-                        <div class="d-flex">
-                            <div class="mr-2">#1</div>
-                            <select class="form-control mr-2">
-                                <option>Black</option>
-				<option>Mocha</option>
-				<option>Bomb Beige</option>    
-                            </select>
-                            <select class="form-control mr-2">
-                                <option>XS/S</option>
-				<option>M/L</option>
-				<option>XL/2XL</option>
-				<option>3XL/4XL</option>
-				<option>5XL</option>    
-                            </select>
-                            
-                        </div>
-                        <div class="d-flex mt-2">
-                            <div class="mr-2">#2</div>
-                            <select class="form-control mr-2">
-                                <option>Black</option>
-				<option>Mocha</option>
+                <form id="promo-form" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="promo-form">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="promo-text">
+                            <h2>Buy 1 Get 1 FREE!</h2>
+                            <p>Save $40!</p>
+                            <p><strong>Color, Size, Style</strong></p>
+                            <div class="promo-options d-flex">
+                                <div>#1</div>
+                                <select class="form-control" name="color1">
+                                    <option>Black</option>
+                                    <option>Mocha</option>
+                                    <option>Bomb Beige</option>
+                                </select>
+                                <select class="form-control" name="size1">
+                                    <option>XS/S</option>
+                                    <option>M/L</option>
+                                    <option>XL/2XL</option>
+                                    <option>3XL/4XL</option>
+                                    <option>5XL</option>
+                                </select>
+                            </div>
+                            <div class="promo-options d-flex mt-2">
+                                <div>#2</div>
+                                <select class="form-control" name="color2">
+                                    <option>Black</option>
+                                    <option>Mocha</option>
 				<option>Bomb Beige</option>
                             </select>
-                            <select class="form-control mr-2">
-                                <option>XS/S</option>
-				<option>M/L</option>
-				<option>XL/2XL</option>
-				<option>3XL/4XL</option>
-				<option>5XL</option>
-                            </select>
-                            
+                                <select class="form-control" name="size2">
+                                    <option>XS/S</option>
+                                    <option>M/L</option>
+                                    <option>XL/2XL</option>
+                                    <option>3XL/4XL</option>
+                                    <option>5XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="promo-price">
+                            <span class="current-price">AUD$29.97</span><br>
+                            <span class="old-price">AUD$69.97</span>
                         </div>
                     </div>
-                    <div class="promo-price text-right">
-                        <span class="current-price" style="font-size: 1.5rem;">397.99 dh</span>
-                        <br>
-                        <span class="old-price text-secondary" style="text-decoration: line-through;">795.99 dh</span>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-primary float-right mt-3">Claim Offer</button>
+                </form>
             </div>
         </div>
     </div>
