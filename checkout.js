@@ -140,28 +140,29 @@ document.getElementById('priorityShipping').addEventListener('change', handleRad
 document.addEventListener('DOMContentLoaded', function() {
     var promoForm = document.getElementById('promo-form');
     promoForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default form submission
 
-        var formData = new FormData(promoForm);
-        // If no action is specified, the form will submit to the current URL
-        var action = promoForm.getAttribute('action') || window.location.pathname;
-        var method = promoForm.getAttribute('method') || 'POST';
-
-        fetch(action, {
-            method: method,
-            body: formData
-            // Do not set 'Accept' or 'Content-Type' headers here to let the browser set them automatically
+        var formData = new FormData(this);
+        
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: new URLSearchParams(formData).toString()
         }).then(response => {
             if (response.ok) {
-                // Handle the success here, e.g., display a success message or redirect
+                // Form submitted successfully. Stay on the page or handle as needed.
+                // For example, reset the form or display a success message.
+                promoForm.reset();
                 console.log('Form successfully submitted');
             } else {
-                // Handle errors here
-                console.log('Error submitting form');
+                // Handle errors here.
+                console.error('Error submitting form');
             }
         }).catch(error => {
-            // Handle network errors here
-            console.log('Network error');
+            // Handle network errors here.
+            console.error('Network error');
         });
     });
 });
