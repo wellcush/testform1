@@ -112,3 +112,22 @@ countryInput.value = 'United States';
 });
 
 // Additional code, if any, goes here
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Assuming your claim offer button has the class 'claim-offer-btn'
+  var claimButton = document.querySelector('.claim-offer-btn');
+  var promoCard = document.querySelector('.promo-card'); // Select the promo card
+  
+  // Adding a click event listener to the button
+  claimButton.addEventListener('click', function() {
+    // Change the button text to 'Claimed!'
+    claimButton.textContent = 'Claimed!';
+    // Optional: Disable the button after clicking to prevent multiple claims
+    claimButton.disabled = true;
+    // Add a class to the button to change its style to indicate it has been claimed
+    claimButton.classList.add('claimed');
+    // Add a class to the promo card to change the border color
+    promoCard.classList.add('promo-claimed');
+  });
+});
+
