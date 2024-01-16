@@ -143,30 +143,25 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         var formData = new FormData(promoForm);
-        var action = promoForm.getAttribute('action');
-        var method = promoForm.getAttribute('method');
+        // If no action is specified, the form will submit to the current URL
+        var action = promoForm.getAttribute('action') || window.location.pathname;
+        var method = promoForm.getAttribute('method') || 'POST';
 
         fetch(action, {
             method: method,
-            body: formData,
-            headers: {
-                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            }
+            body: formData
+            // Do not set 'Accept' or 'Content-Type' headers here to let the browser set them automatically
         }).then(response => {
             if (response.ok) {
-                // Here you can handle the success (e.g., display a custom success message)
+                // Handle the success here, e.g., display a success message or redirect
                 console.log('Form successfully submitted');
-                // Replace the log with your own success handling code, like redirecting to a thank you page or displaying a success modal.
             } else {
-                // Here you can handle errors
+                // Handle errors here
                 console.log('Error submitting form');
-                // Replace the log with your own error handling code.
             }
         }).catch(error => {
-            // Here you can handle network errors
+            // Handle network errors here
             console.log('Network error');
-            // Replace the log with your own error handling code.
         });
     });
 });
