@@ -411,15 +411,15 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 <body>
  <!-- Banner Image -->
     <div class="banner">
-        <img src="CONTENT/Design sans titre (4).png" alt="Banner" class="banner-image">
+        <img src="CONTENT/Design sans titre (5).png" alt="Banner" class="banner-image">
     </div>
 
     <!-- Promotional Section -->
     <div class="container my-4">
-        <div class="card promo-card mx-auto" style="max-width:540px;">
-            <div class="card-body">
-                <form id="promo-form" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="promo-form">
+    <div class="card promo-card mx-auto" style="max-width:540px;">
+        <div class="card-body">
+            <form id="promo-form" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="promo-form">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="promo-text">
                             <h2>Buy 1 Get 1 FREE!</h2>
@@ -462,7 +462,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right mt-3">Claim Offer</button>
-                </form>
+            </form>
             </div>
         </div>
     </div>
@@ -622,6 +622,39 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     });
 </script>
 
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var promoForm = document.getElementById('promo-form');
+        promoForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var formData = new FormData(promoForm);
+            var action = promoForm.getAttribute('action');
+            var method = promoForm.getAttribute('method');
+            
+            fetch(action, {
+                method: method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Here you can handle the success (e.g., display a custom success message)
+                    console.log('Form successfully submitted');
+                } else {
+                    // Here you can handle errors
+                    console.log('Error submitting form');
+                }
+            }).catch(error => {
+                // Here you can handle network errors
+                console.log('Network error');
+            });
+        });
+    });
+</script>
+	
 <!-- Footer -->
 <div class="footer">
     <p>© 2023 Smile actives. All rights reserved.</p>
