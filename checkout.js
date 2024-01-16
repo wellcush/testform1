@@ -142,30 +142,28 @@ document.addEventListener('DOMContentLoaded', function() {
     promoForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Stop the form from submitting the standard way
 
-        var formData = new FormData(promoForm);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', promoForm.getAttribute('action') || '/', true);
-        xhr.setRequestHeader('Accept', 'application/x-www-form-urlencoded;charset=UTF-8');
-
-        // Set up a handler for when the request finishes.
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                // Request was successful, handle the response.
+        var formData = new FormData(this);
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (response.ok) {
+                // Form submitted successfully. Handle as needed.
                 promoForm.reset();
                 console.log('Form successfully submitted');
             } else {
-                // Request failed with status code other than 2xx.
+                // Handle errors here.
                 console.error('Error submitting form');
             }
-        };
-
-        // Set up a handler for when the request fails.
-        xhr.onerror = function () {
-            // Request failed due to a network error.
+        })
+        .catch(error => {
+            // Handle network errors here.
             console.error('Network error');
-        };
-
-        // Send the form data.
-        xhr.send(new URLSearchParams(formData).toString());
+        });
     });
 });
