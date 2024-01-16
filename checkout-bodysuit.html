@@ -307,101 +307,94 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
   }
 
   .promo-card {
-        background: #FFFFFF;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin: auto;
+}
+
+.promo-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promo-title {
+    font-size: 1.75rem;
+    color: #F8978A;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.promo-discount {
+    font-size: 1rem;
+    color: #F8978A;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.promo-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.promo-options div,
+.promo-options select {
+    width: 100%;
+    text-align: left;
+}
+
+.promo-options select {
+    font-size: 0.9rem;
+    border: 1px solid #DEDEDE;
+    border-radius: 0.375rem;
+    padding: 0.6rem;
+}
+
+.promo-price {
+    font-size: 2rem;
+    color: #F8978A;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.old-price {
+    font-size: 1.25rem;
+    color: #6c757d;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-bottom: 1rem;
+}
+
+.claim-offer-btn {
+    background-color: #F8978A;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    align-self: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .promo-card {
         padding: 1rem;
-        font-family: 'Inter', sans-serif; /* Assuming Inter is the desired font */
-        max-width: 500px; /* Smaller width for the card */
     }
+}
 
-    .promo-card .card-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .promo-title {
-        font-size: 1.75rem; /* Smaller font size for the title */
-        color: #F8978A; /* Dark green color */
-        font-weight: 700; /* Bold font weight */
-        text-align: center;
-        margin-bottom: 0.25rem;
-    }
-
-    .promo-discount {
-        font-size: 1rem;
-        color: #F8978A; /* Dark green color */
-        font-weight: 500; /* Medium font weight */
-        text-align: center;
-        margin-bottom: 0.75rem;
-    }
-
-    .promo-options {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.25rem;
-        margin-bottom: 0.75rem;
-    }
-    .promo-options div {
-        font-size: 0.9rem;
-        text-align: center;
-        font-weight: 500; /* Medium font weight */
-    }
-
-    .promo-options select {
-        font-size: 0.9rem;
-        border: 1px solid #DEDEDE; /* Light grey border */
-        border-radius: 0.375rem;
-        padding: 0.4rem;
-    }
-
-    .promo-price {
-        font-size: 2rem; /* Slightly smaller font size for price */
-        color: #F8978A; /* Dark green color */
-        font-weight: 600; /* Semi-bold font weight */
-        text-align: center;
-        margin-bottom: 0.25rem;
-    }
-
-    .old-price {
-        font-size: 1.25rem; /* Smaller font size for the old price */
-        color: #6c757d; /* Bootstrap's secondary text color */
-        font-weight: 400; /* Regular font weight */
-        text-align: center;
-        text-decoration: line-through;
-        margin-bottom: 0.75rem;
-    }
-
-    .claim-offer-btn {
-        background-color: #F8978A; /* Dark green background */
-        color: #FFFFFF; /* White text color */
-        font-size: 1rem; /* Smaller font size for the button */
-        font-weight: 600; /* Semi-bold font weight */
-        padding: 0.6rem 1.2rem;
-        border: none;
-        border-radius: 0.375rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        align-self: flex-end; /* Align button to the right */
-        margin-top: auto; /* Push button to the bottom */
-        margin-right: 1rem; /* Right margin for alignment */
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-        .promo-card {
-            padding: 0.75rem;
-        }
-
-        .claim-offer-btn {
-            width: 100%; /* Full width on smaller screens */
-            align-self: center; /* Center align on mobile */
-            margin-top: 0.5rem; /* Reduced margin top */
-            margin-right: 0; /* No right margin on mobile */
-        }
-    }
 	
 </style>	
 </style>
