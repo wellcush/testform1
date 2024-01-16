@@ -310,76 +310,81 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     background: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 1rem 2rem; /* Increased horizontal padding for a more rectangular look */
     font-family: 'Inter', sans-serif;
-    max-width: 500px;
-    margin: auto;
-    border: 1px solid #000; /* Adding border as per screenshot */
+    width: 100%; /* Set width to 100% of the container for a full-width rectangle */
+    max-width: 800px; /* Increase max-width for a wider card
+/
+margin: auto;
+border: 1px solid #000; / Adding border as per screenshot */
 }
 
 .promo-card .card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start of the flex container */
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .promo-title {
-    font-size: 1.75rem;
-    color: #000; /* Changing color to black */
-    font-weight: 700;
-    margin-bottom: 0.25rem;
+font-size: 1.75rem;
+color: #000; /* Black color for the title */
+font-weight: 700;
+text-align: center;
+margin-bottom: 0.5rem;
 }
 
 .promo-discount {
-    font-size: 1rem;
-    color: #000; /* Changing color to black */
-    font-weight: 500;
-    margin-bottom: 0.75rem;
+font-size: 1rem;
+color: #000; /* Black color for the
+
+discount text */
+font-weight: 500;
+text-align: center;
+margin-bottom: 1rem;
 }
 
 .promo-options {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three columns as per screenshot */
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
+width: 100%;
+display: flex;
+justify-content: space-between; /* Distribute options evenly */
+margin-bottom: 1rem;
 }
 
 .promo-options div {
-    font-size: 0.9rem;
-    color: #000; /* Changing color to black */
-    font-weight: 500;
+font-size: 0.9rem;
+color: #000; /* Black color for option labels */
+font-weight: 500;
 }
 
 .promo-options select {
-    font-size: 0.9rem;
-    border: 1px solid #DEDEDE; /* Light grey border */
-    border-radius: 0.375rem;
-    padding: 0.4rem;
-    background: #FFF; /* White background */
-    color: #000; /* Changing text color to black */
-    -webkit-appearance: none; /* Removes default style of select in WebKit browsers */
-    -moz-appearance: none; /* Removes default style of select in Firefox */
-    appearance: none; /* Removes default style of select */
+font-size: 0.9rem;
+border: 1px solid #DEDEDE;
+border-radius: 0.375rem;
+padding: 0.5rem;
+background: #FFF;
+color: #000;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
 }
 
 .promo-price {
-    font-size: 2.5rem; /* Larger font size for price */
-    color: #000; /* Changing color to black */
-    font-weight: 600;
-    text-align: right; /* Aligning price to the right */
-    margin-bottom: 0.25rem;
-    flex-grow: 1; /* Allows price to take up remaining space */
+font-size: 2.5rem;
+color: #000; /* Black color for the price */
+font-weight: 600;
+text-align: right;
+margin-bottom: 0.5rem;
+flex-grow: 1;
 }
 
 .old-price {
-    font-size: 1.5rem; /* Larger font size for the old price */
-    color: #6c757d; /* Bootstrap's secondary text color */
+font-size: 1.5rem;
+color: #6c757d
+ /* ... */
     font-weight: 400;
-    text-align: right; /* Aligning old price to the right */
+    text-align: right;
     text-decoration: line-through;
-    margin-bottom: 0.75rem;
-    flex-grow: 1; /* Allows old price to take up remaining space */
+    margin-bottom: 0.5rem;
 }
 
 .claim-offer-btn {
@@ -387,30 +392,40 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     color: #FFFFFF; /* White text color */
     font-size: 1rem;
     font-weight: 600;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.2rem; /* Slightly larger padding for a more prominent button */
     border: none;
     border-radius: 0.375rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-cursor: pointer;
-width: 100%; /* Button width as per screenshot /
-margin-top: auto; / Pushes the button to the bottom of the container /
-margin-bottom: 1rem; / Adds margin at the bottom /
-text-transform: uppercase; / Uppercase button text */
+    cursor: pointer;
+    width: auto; /* Adjust width to content */
+    margin-top: 1rem; /* Adds margin at the top */
+    margin-bottom: 1rem; /*
+Adds margin at the bottom for spacing /
+align-self: center; / Ensure the button is centered in the card body /
+text-transform: uppercase; / Uppercase button text for emphasis */
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments for smaller screens /
 @media (max-width: 768px) {
 .promo-card {
-padding: 1rem;
+padding: 1rem; / Adjust padding on smaller screens */
 }
 .promo-title, .promo-discount, .promo-price, .old-price {
     text-align: center; /* Centers text for smaller screens */
 }
 
 .promo-options {
-    grid-template-columns: 1fr; /* Stacks options vertically on smaller screens */
+    flex-direction: column; /* Stack options vertically on smaller screens */
+    align-items: center; /* Align options to the center on smaller screens */
+}
+
+.claim-offer-btn {
+    width: 100%; /* Full width button on smaller screens */
+    margin-top: 0.5rem; /* Reduced margin top on smaller screens */
 }
 }
+
+
 
 	
 </style>
