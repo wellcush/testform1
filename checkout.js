@@ -135,35 +135,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var promoForm = document.getElementById('promo-form');
-    promoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Prepare the form data for submission
-        var formData = new FormData(this);
-
-        // Submit the form using the fetch API
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(response => {
-            if (response.ok) {
-                // Form submitted successfully
-                promoForm.reset();
-                console.log('Form successfully submitted');
-            } else {
-                // Handle submission errors
-                console.error('Error submitting form');
-            }
-        })
-        .catch(error => {
-            // Handle network errors
-            console.error('Network error');
-        });
-    });
-});
