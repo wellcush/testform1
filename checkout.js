@@ -135,3 +135,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+var promoForm = document.getElementById('promo-form');
+
+// Add an event listener for the 'submit' event
+promoForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Construct the form data payload
+    var formData = new FormData(promoForm);
+    formData.append('form-name', 'promo-form'); // Ensure this matches your Netlify settings
+
+    // Encode form data to match 'application/x-www-form-urlencoded' content type
+    var encodedData = new URLSearchParams(formData).toString();
+
+    fetch("/", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodedData
+    })
+    .then(response => {
+        if (response.ok) {
+            // Here you can handle the successful submission
+            // For example, resetting the form or displaying a success message
+            promoForm.reset();
+            console.log('Promo form successfully submitted');
+        } else {
+            // Handle errors here if the submission was not successful
+            console.error('Error submitting promo form', response);
+        }
+    })
+    .catch(error => {
+        // Handle network errors here
+        console.error('Network error while submitting promo form', error);
+    });
+});
+});
