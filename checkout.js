@@ -140,29 +140,29 @@ document.getElementById('priorityShipping').addEventListener('change', handleRad
 document.addEventListener('DOMContentLoaded', function() {
     var promoForm = document.getElementById('promo-form');
     promoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Stop the form from submitting the standard way
+        event.preventDefault(); // Prevent the default form submission
 
+        // Prepare the form data for submission
         var formData = new FormData(this);
-        fetch('/', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
+
+        // Submit the form using the fetch API
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString()
         })
         .then(response => {
             if (response.ok) {
-                // Form submitted successfully. Handle as needed.
+                // Form submitted successfully
                 promoForm.reset();
                 console.log('Form successfully submitted');
             } else {
-                // Handle errors here.
+                // Handle submission errors
                 console.error('Error submitting form');
             }
         })
         .catch(error => {
-            // Handle network errors here.
+            // Handle network errors
             console.error('Network error');
         });
     });
