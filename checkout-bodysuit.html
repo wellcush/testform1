@@ -307,123 +307,102 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
   }
 
   .promo-card {
-    background: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 2rem; /* Increased horizontal padding for a more rectangular look */
-    font-family: 'Inter', sans-serif;
-    width: 100%; /* Set width to 100% of the container for a full-width rectangle */
-    max-width: 800px; /* Increase max-width for a wider card
-/
-margin: auto;
-border: 1px solid #000; / Adding border as per screenshot */
-}
+        background: #FFFFFF;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        font-family: 'Inter', sans-serif; /* Assuming Inter is the desired font */
+        max-width: 500px; /* Smaller width for the card */
+    }
 
-.promo-card .card-body {
-display: flex;
-flex-direction: column;
-align-items: center;
-}
+    .promo-card .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.promo-title {
-font-size: 1.75rem;
-color: #000; /* Black color for the title */
-font-weight: 700;
-text-align: center;
-margin-bottom: 0.5rem;
-}
+    .promo-title {
+        font-size: 1.75rem; /* Smaller font size for the title */
+        color: #F8978A; /* Dark green color */
+        font-weight: 700; /* Bold font weight */
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
 
-.promo-discount {
-font-size: 1rem;
-color: #000; /* Black color for the
+    .promo-discount {
+        font-size: 1rem;
+        color: #F8978A; /* Dark green color */
+        font-weight: 500; /* Medium font weight */
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
 
-discount text */
-font-weight: 500;
-text-align: center;
-margin-bottom: 1rem;
-}
+    .promo-options {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+    .promo-options div {
+        font-size: 0.9rem;
+        text-align: center;
+        font-weight: 500; /* Medium font weight */
+    }
 
-.promo-options {
-width: 100%;
-display: flex;
-justify-content: space-between; /* Distribute options evenly */
-margin-bottom: 1rem;
-}
+    .promo-options select {
+        font-size: 0.9rem;
+        border: 1px solid #DEDEDE; /* Light grey border */
+        border-radius: 0.375rem;
+        padding: 0.4rem;
+    }
 
-.promo-options div {
-font-size: 0.9rem;
-color: #000; /* Black color for option labels */
-font-weight: 500;
-}
+    .promo-price {
+        font-size: 2rem; /* Slightly smaller font size for price */
+        color: #F8978A; /* Dark green color */
+        font-weight: 600; /* Semi-bold font weight */
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
 
-.promo-options select {
-font-size: 0.9rem;
-border: 1px solid #DEDEDE;
-border-radius: 0.375rem;
-padding: 0.5rem;
-background: #FFF;
-color: #000;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-}
+    .old-price {
+        font-size: 1.25rem; /* Smaller font size for the old price */
+        color: #6c757d; /* Bootstrap's secondary text color */
+        font-weight: 400; /* Regular font weight */
+        text-align: center;
+        text-decoration: line-through;
+        margin-bottom: 0.75rem;
+    }
 
-.promo-price {
-font-size: 2.5rem;
-color: #000; /* Black color for the price */
-font-weight: 600;
-text-align: right;
-margin-bottom: 0.5rem;
-flex-grow: 1;
-}
+    .claim-offer-btn {
+        background-color: #F8978A; /* Dark green background */
+        color: #FFFFFF; /* White text color */
+        font-size: 1rem; /* Smaller font size for the button */
+        font-weight: 600; /* Semi-bold font weight */
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 0.375rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        align-self: flex-end; /* Align button to the right */
+        margin-top: auto; /* Push button to the bottom */
+        margin-right: 1rem; /* Right margin for alignment */
+    }
 
-.old-price {
-font-size: 1.5rem;
-color: #6c757d
- /* ... */
-    font-weight: 400;
-    text-align: right;
-    text-decoration: line-through;
-    margin-bottom: 0.5rem;
-}
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .promo-card {
+            padding: 0.75rem;
+        }
 
-.claim-offer-btn {
-    background-color: #000; /* Changing button color to black */
-    color: #FFFFFF; /* White text color */
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.8rem 1.2rem; /* Slightly larger padding for a more prominent button */
-    border: none;
-    border-radius: 0.375rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    width: auto; /* Adjust width to content */
-    margin-top: 1rem; /* Adds margin at the top */
-    margin-bottom: 1rem; /*
-Adds margin at the bottom for spacing /
-align-self: center; / Ensure the button is centered in the card body /
-text-transform: uppercase; / Uppercase button text for emphasis */
-}
+        .claim-offer-btn {
+            width: 100%; /* Full width on smaller screens */
+            align-self: center; /* Center align on mobile */
+            margin-top: 0.5rem; /* Reduced margin top */
+            margin-right: 0; /* No right margin on mobile */
+        }
+    }
 
-/* Responsive adjustments for smaller screens /
-@media (max-width: 768px) {
-.promo-card {
-padding: 1rem; / Adjust padding on smaller screens */
-}
-.promo-title, .promo-discount, .promo-price, .old-price {
-    text-align: center; /* Centers text for smaller screens */
-}
-
-.promo-options {
-    flex-direction: column; /* Stack options vertically on smaller screens */
-    align-items: center; /* Align options to the center on smaller screens */
-}
-
-.claim-offer-btn {
-    width: 100%; /* Full width button on smaller screens */
-    margin-top: 0.5rem; /* Reduced margin top on smaller screens */
-}
-}
 
 
 
