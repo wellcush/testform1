@@ -137,33 +137,36 @@ document.getElementById('standardShipping').addEventListener('change', handleRad
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
 
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var promoForm = document.getElementById('promo-form');
-        promoForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(promoForm);
-            var action = promoForm.getAttribute('action');
-            var method = promoForm.getAttribute('method');
-            
-            fetch(action, {
-                method: method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Here you can handle the success (e.g., display a custom success message)
-                    console.log('Form successfully submitted');
-                } else {
-                    // Here you can handle errors
-                    console.log('Error submitting form');
-                }
-            }).catch(error => {
-                // Here you can handle network errors
-                console.log('Network error');
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    var promoForm = document.getElementById('promo-form');
+    promoForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var formData = new FormData(promoForm);
+        var action = promoForm.getAttribute('action');
+        var method = promoForm.getAttribute('method');
+
+        fetch(action, {
+            method: method,
+            body: formData,
+            headers: {
+                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Here you can handle the success (e.g., display a custom success message)
+                console.log('Form successfully submitted');
+                // Replace the log with your own success handling code, like redirecting to a thank you page or displaying a success modal.
+            } else {
+                // Here you can handle errors
+                console.log('Error submitting form');
+                // Replace the log with your own error handling code.
+            }
+        }).catch(error => {
+            // Here you can handle network errors
+            console.log('Network error');
+            // Replace the log with your own error handling code.
         });
     });
+});
