@@ -16,10 +16,9 @@ let shippingInfo = {
 function handleInputChange(event, key) {
     let value = event.target.value;
 
-    // Convert nameOnCard to uppercase
     if (key === 'nameOnCard') {
         value = value.toUpperCase();
-        event.target.value = value;  // Update the input field's displayed value
+        event.target.value = value;
     }
 
     shippingInfo[key] = value;
@@ -45,11 +44,10 @@ function validateCVV(input) {
     shippingInfo.cvv = cvv;
 }
 
-// Handling form submission for the promo form
 document.addEventListener("DOMContentLoaded", function() {
     const promoForm = document.getElementById('promo-form');
     promoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         let formData = new FormData(promoForm);
 
         fetch('/', {
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                                throw new Error('Network response was not ok');
             }
             // Implement successful submission logic, e.g., redirect or show a message
         })
@@ -69,59 +67,57 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Other form logic
-    document.getElementById('checkout-formal').addEventListener('submit', (event) => {
-        // Existing code for checkout form submission
-    });
-
-    // Other code for input fields handling
     const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
     inputFields.forEach((inputField, index) => {
         const element = document.getElementById(inputField);
-element.addEventListener('input', function(event) {
-if (element.id === 'cardNumber') {
-validateCardNumber(element);
-} else if (element.id === 'expiry') {
-validateExpiry(element);
-} else if (element.id === 'cvv') {
-validateCVV(element);
-}
-handleInputChange(event, element.id);
-if (element.value.length === (element.maxLength || element.size)) {
-const nextInput = inputFields[index + 1];
-if (nextInput) {
-document.getElementById(nextInput).focus();
-}
-}
-});
-});
-document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
-document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
+        element.addEventListener('input', function(event) {
+            if (element.id === 'cardNumber') {
+                validateCardNumber(element);
+            } else if (element.id === 'expiry') {
+                validateExpiry(element);
+            } else if (element.id === 'cvv') {
+                validateCVV(element);
+            }
+            handleInputChange(event, element.id);
+            if (element.value.length === (element.maxLength || element.size)) {
+                const nextInput = inputFields[index + 1];
+                if (nextInput) {
+                    document.getElementById(nextInput).focus();
+                }
+            }
+        });
+    });
+
+    document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
+    document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
+
+    function handleRadioChange(event) {
+        shippingInfo.shippingMethod = event.target.value;
+    }
+
+    // Set default value for country field
+    const countryInput = document.getElementById('country');
+    if (countryInput) {
+        countryInput.value = 'United States';
+    }
+
+    // Function to handle the claim offer button click
+    function handleClaimOffer() {
+        var claimButton = document.querySelector('.claim-offer-btn');
+        var promoCard = document.querySelector('.promo-card'); // Select the promo card
+
+        if (claimButton) {
+            claimButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default form action
+                claimButton.textContent = 'Claimed!'; // Change button text
+                claimButton.disabled = true; // Disable the button
+                claimButton.classList.add('claimed'); // Add class to change button style
+                promoCard.classList.add('promo-claimed'); // Add class to change promo card border
+            });
+        }
+    }
+
+    // Call the function to handle the claim offer button
+    handleClaimOffer();
 });
 
-function handleRadioChange(event) {
-shippingInfo.shippingMethod = event.target.value;
-}
-
-// Set default value for country field
-document.addEventListener("DOMContentLoaded", function() {
-const countryInput = document.getElementById('country');
-if (countryInput) {
-countryInput.value = 'United States';
-}
-});
-
-// Additional code, if any, goes here
-
-document.addEventListener('DOMContentLoaded', function() {
-  var claimButton = document.querySelector('.claim-offer-btn');
-  var promoCard = document.querySelector('.promo-card'); // Select the promo card
-  
-  claimButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default form action
-    claimButton.textContent = 'Claimed!'; // Change button text
-    claimButton.disabled = true; // Disable the button
-    claimButton.classList.add('claimed'); // Add class to change button style
-    promoCard.classList.add('promo-claimed'); // Add class to change promo card border
-  });
-});
