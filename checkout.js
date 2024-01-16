@@ -45,70 +45,81 @@ function validateCVV(input) {
     shippingInfo.cvv = cvv;
 }
 
-// Handling form submission for the promo form
+// New function to handle promotional offer claim
+function handlePromoClaim(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const promoForm = event.target;
+
+    // Disable input fields and button
+    promoForm.querySelectorAll('select, button[type="submit"]').forEach(element => {
+        element.disabled = true;
+    });
+
+    // Change button text and style
+    const claimButton = promoForm.querySelector('button[type="submit"]');
+    claimButton.textContent = 'Offer Claimed';
+    claimButton.classList.add('btn-success');
+    claimButton.classList.remove('btn-primary');
+
+    // Add a visual cue that the offer has been claimed
+    const promoPriceSection = document.querySelector('.promo-price');
+    promoPriceSection.innerHTML += '<div class="confirmation">Offer Claimed!</div>';
+    promoPriceSection.querySelector('.current-price').classList.add('price-claimed');
+
+    // Update the Order Summary to reflect the BOGO offer
+    const orderSummary = document.querySelector('.order-summary');
+    orderSummary.innerHTML += '<p class="offer-claimed">Bonus Item: <span class="float-right">FREE</span></p>';
+}
+
+// Set default value for country field and attach event listeners
 document.addEventListener("DOMContentLoaded", function() {
-    const promoForm = document.getElementById('promo-form');
-    promoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        let formData = new FormData(promoForm);
+    const countryInput = document.getElementById('country');
+    if (countryInput) {
+        countryInput.value = shippingInfo.country;
+    }
 
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            // Implement successful submission logic, e.g., redirect or show a message
-        })
-        .catch(error => {
-            console.error('Form submission error:', error);
-            alert('Form submission failed, please try again.');
-        });
-    });
-
-    // Other form logic
-    document.getElementById('checkout-formal').addEventListener('submit', (event) => {
-        // Existing code for checkout form submission
-    });
-
-    // Other code for input fields handling
+    // Event listeners for input fields
     const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
-    inputFields.forEach((inputField, index) => {
-        const element = document.getElementById(inputField);
-element.addEventListener('input', function(event) {
-if (element.id === 'cardNumber') {
-validateCardNumber(element);
-} else if (element.id === 'expiry') {
-validateExpiry(element);
-} else if (element.id === 'cvv') {
-validateCVV(element);
-}
-handleInputChange(event, element.id);
-if (element.value.length === (element.maxLength || element.size)) {
-const nextInput = inputFields[index + 1];
-if (nextInput) {
-document.getElementById(nextInput).focus();
-}
-}
-});
-});
-document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
-document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
-});
+    inputFields.forEach((field) => {
+        const element = document.getElementById(field);
+        if (element) {
+            element.addEventListener('input', (event) => {
+                if (field === 'cardNumber') {
+                    validateCardNumber(element);
+                } else if (field === 'expiry') {
+                    validateExpiry(element);
+                } else if (field === 'cvv') {
+                    validateCVV(element);
+                } else {
+                    handleInputChange(event, field);
+                }
+            });
+        }
+    });
 
-function handleRadioChange(event) {
-shippingInfo.shippingMethod = event.target.value;
-}
+    // Event listener for the shipping method radio buttons
+    ['standardShipping', 'priorityShipping'].forEach((id) => {
+        const radioButton = document.getElementById(id);
+        if (radioButton) {
+            radioButton.addEventListener('change', (event) => {
+                shippingInfo.shippingMethod = event.target.value;
+            });
+        }
+    });
 
-// Set default value for country field
-document.addEventListener("DOMContentLoaded", function() {
-const countryInput = document.getElementById('country');
-if (countryInput) {
-countryInput.value = 'United States';
-}
+    // Attach event listener to the promo form submit event
+    const promoForm = document.getElementById('promo-form');
+    if (promoForm) {
+        promoForm.addEventListener('submit', handlePromoClaim);
+    }
+
+    // Logic for handling the checkout form submission
+    const checkoutForm = document.getElementById('checkout-formal');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            // Implement checkout form submission logic here
+            // This might involve validating the input data, sending it to your server, etc.
+        });
+    }
 });
-
-// Additional code, if any, goes here
