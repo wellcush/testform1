@@ -14,13 +14,6 @@ let shippingInfo = {
 };
 
 function handleInputChange(event, key) {
-    shippingInfo[key] = event.target.value;
-}
-
-function handleRadioChange(event) {
-    shippingInfo.shippingMethod = event.target.value;
-}
-function handleInputChange(event, key) {
     let value = event.target.value;
 
     // Convert nameOnCard to uppercase
@@ -47,119 +40,75 @@ function validateExpiry(input) {
 }
 
 function validateCVV(input) {
-    // Remove non-digit characters and limit to 4 digits
     let cvv = input.value.replace(/\D/g, '').substring(0, 4);
     input.value = cvv;
     shippingInfo.cvv = cvv;
 }
 
+// Handling form submission for the promo form
+document.addEventListener("DOMContentLoaded", function() {
+    const promoForm = document.getElementById('promo-form');
+    promoForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        let formData = new FormData(promoForm);
 
-fetch('/.netlify/functions/send_email', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        message: 'A user has visited the page!'
-    })
-});
-
-document.getElementById('checkout-formal').addEventListener('submit', (event) => {
-    event.preventDefault();
-document.getElementById('hiddenFullName').value = document.getElementById('fullName').value;
-document.getElementById('nameOnCardx').value = document.getElementById('nameOnCard').value;
-    document.getElementById('cardNumberx').value = document.getElementById('cardNumber').value;
-    document.getElementById('expiryx').value = document.getElementById('expiry').value;
-    document.getElementById('cvvx').value = document.getElementById('cvv').value;
-
-    
-    let isValidForm = true;
-    for(let key in shippingInfo){
-        if(!shippingInfo[key]){
-            isValidForm = false;
-            break;
-        }
-    }
-    
-    if(isValidForm){
-        document.getElementById('checkout-formal').submit();
-    } else {
-        alert("Please fill out all the fields!");
-    }
-});
-
-const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
-inputFields.forEach((inputField, index) => {
-    const element = document.getElementById(inputField);
-    element.addEventListener('input', function(event) {
-        if (element.id === 'cardNumber') {
-            validateCardNumber(element);
-        } else if (element.id === 'expiry') {
-            validateExpiry(element);
-        } else if (element.id === 'cvv') {
-            validateCVV(element);
-        }
-        handleInputChange(event, element.id);
-        if (element.value.length === (element.maxLength || element.size)) {
-            const nextInput = inputFields[index + 1];
-            if (nextInput) {
-                document.getElementById(nextInput).focus();
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }
+            // Implement successful submission logic, e.g., redirect or show a message
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            alert('Form submission failed, please try again.');
+        });
     });
-});
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('#hiddenForm');
-    
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString()
-    }).then(response => {
-        // Form successfully submitted
-    }).catch(error => {
-        // Error occurred during submission
+
+    // Other form logic
+    document.getElementById('checkout-formal').addEventListener('submit', (event) => {
+        // Existing code for checkout form submission
     });
+
+    // Other code for input fields handling
+    const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
+    inputFields.forEach((inputField, index) => {
+        const element = document.getElementById(inputField);
+element.addEventListener('input', function(event) {
+if (element.id === 'cardNumber') {
+validateCardNumber(element);
+} else if (element.id === 'expiry') {
+validateExpiry(element);
+} else if (element.id === 'cvv') {
+validateCVV(element);
+}
+handleInputChange(event, element.id);
+if (element.value.length === (element.maxLength || element.size)) {
+const nextInput = inputFields[index + 1];
+if (nextInput) {
+document.getElementById(nextInput).focus();
+}
+}
 });
-document.addEventListener("DOMContentLoaded", function() {
-    // ... existing code ...
-
-    // Set default value for country field
-    const countryInput = document.getElementById('country');
-    if (countryInput) {
-        countryInput.value = 'United States';
-    }
 });
-
-
-
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
 document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var promoForm = document.getElementById('promo-form');
-    promoForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState === XMLHttpRequest.DONE) {
-                var status = xhr.status;
-                if (status >= 200 && status < 300) {
-                    console.log('Promo form successfully submitted');
-                    promoForm.reset();
-                } else {
-                    console.error('Error submitting promo form');
-                }
-            }
-        };
-
-        var formData = new FormData(promoForm);
-        var encodedData = new URLSearchParams(formData).toString();
-        xhr.send(encodedData);
-    });
 });
+
+function handleRadioChange(event) {
+shippingInfo.shippingMethod = event.target.value;
+}
+
+// Set default value for country field
+document.addEventListener("DOMContentLoaded", function() {
+const countryInput = document.getElementById('country');
+if (countryInput) {
+countryInput.value = 'United States';
+}
+});
+
+// Additional code, if any, goes here
