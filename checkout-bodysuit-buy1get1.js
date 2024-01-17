@@ -102,23 +102,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Function to handle the claim offer button click
-function handleClaimOffer() {
-    var claimButton = document.querySelector('.claim-offer-btn');
-    var promoCard = document.querySelector('.promo-card'); // Select the promo card
+    function handleClaimOffer() {
+        var claimButton = document.querySelector('.claim-offer-btn');
+        var promoCard = document.querySelector('.promo-card'); // Select the promo card
 
-    if (claimButton) {
-        claimButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default form action
-            claimButton.textContent = 'Claimed!'; // Change button text
-            claimButton.disabled = true; // Disable the button
-            claimButton.classList.add('claimed'); // Add class to change button style
-            promoCard.style.borderColor = '#FFABA8'; // Change border color
-            promoCard.style.boxShadow = '0 0 10px #FFABA8'; // Change shadow color
-        });
+        if (claimButton) {
+            claimButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default form action
+                claimButton.textContent = 'Claimed!'; // Change button text
+                claimButton.disabled = true; // Disable the button
+                claimButton.classList.add('claimed'); // Add class to change button style
+                promoCard.classList.add('promo-claimed'); // Add class to change promo card border
+            });
+        }
     }
-}
 
-// Call the function to handle the claim offer button
-handleClaimOffer();
-
-
+    // Call the function to handle the claim offer button
+    handleClaimOffer();
+});
