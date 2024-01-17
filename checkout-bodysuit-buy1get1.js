@@ -50,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         let formData = new FormData(promoForm);
 
+        // Disable the button immediately after form submission
+        claimButton.textContent = 'Processing...';
+        claimButton.disabled = true;
+
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -59,14 +63,17 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            // Successful submission logic
             claimButton.textContent = 'Claimed!';
-            claimButton.disabled = true;
             claimButton.classList.add('claimed');
             promoCard.classList.add('promo-claimed');
         })
         .catch(error => {
             console.error('Form submission error:', error);
             alert('Form submission failed, please try again.');
+            // Re-enable the button in case of error
+            claimButton.textContent = 'Claim Offer!';
+            claimButton.disabled = false;
         });
     });
 
