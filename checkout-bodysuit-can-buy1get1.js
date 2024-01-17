@@ -45,7 +45,7 @@ function validateCVV(input) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const promoForm = document.getElementById('CADpromo-form');
+    const promoForm = document.getElementById('promo-form');
     promoForm.addEventListener('submit', function(event) {
         event.preventDefault();
         let formData = new FormData(promoForm);
