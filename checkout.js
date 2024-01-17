@@ -5,7 +5,7 @@ let shippingInfo = {
     address: '',
     city: '',
     zip: '',
-    country: 'United States',
+    country: 'Australia',
     shippingMethod: 'standard',
     nameOnCard: '',
     cardNumber: '',
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set default value for country field
     const countryInput = document.getElementById('country');
     if (countryInput) {
-        countryInput.value = 'United States';
+        countryInput.value = 'Australia';
     }
 
     // Function to handle the claim offer button click
