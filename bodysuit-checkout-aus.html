@@ -110,7 +110,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 
     h1 {
         font-size: 32px; /* 40px */
-        color: #11513A;
+        color: #F8978A;
     }
 
     h2 {
@@ -143,7 +143,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 
     .btn-primary {
         font-size: 1rem;
-        background-color: #11513A;
+        background-color: #F8978A;
         border: none; /* Assuming we want no border for primary buttons */
         border-radius: 16px;
         transition: all 0.3s ease-in-out;
@@ -154,18 +154,18 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
         padding: 20px;
         margin-bottom: 20px;
         border-radius: 2px;
-        border-color: #11513A;
+        border-color: #F8978A;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     }
 
     .form-control:hover, .form-control:focus {
-        border-color: #11513A;
+        border-color: #F8978A;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     }
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-        background-color: #11513A;
-        border-color: #11513A;
+        background-color: #F8978A;
+        border-color: #F8978A;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
@@ -249,7 +249,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 2px solid #11513A;
+    border: 2px solid #F8978A;
     top: 50%;
     transform: translateY(-50%);
     left: 2px;
@@ -263,7 +263,7 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #11513A;
+    background-color: #F8978A;
     top: 50%;
     transform: translateY(-50%);
     left: 6px;
@@ -281,9 +281,9 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
     vertical-align: middle;
 }
     .shipping-method-box {
-    background-color: #619C7F;
+    background-color: #FFDCDA;
     border-radius: 6px;
-    border: 2px solid #11513A;
+    border: 2px solid #F8978A;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -293,15 +293,15 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 }
 
 .shipping-method-box:hover {
-    border-color: #11513A;
+    border-color: #F8978A;
 }
 
 .form-check-input[type="radio"]::before {
-    border-color: #11513A;
+    border-color: #F8978A;
 }
 
 .form-check-input[type="radio"]:checked::after {
-    background-color: #11513A;
+    background-color: #F8978A;
 }
 
 .form-check-label {
@@ -322,10 +322,10 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
 }
 
 .footer a:hover {
-    color: #11513A; /* Coral */
+    color: #F8978A; /* Coral */
 }
 .confirmation-message {
-    color: #11513A;
+    color: #F8978A;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -343,6 +343,147 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
   @media (min-width: 768px) {
     /* Specific styles for desktop if needed */
   }
+
+  .promo-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+}
+	.claim-offer-checkbox {
+    display: none;
+}
+
+    .promo-card .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promo-title {
+        font-size: 1.75rem; /* Smaller font size for the title */
+        color: #F8978A; /* Dark green color */
+        font-weight: 700; /* Bold font weight */
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
+
+    .promo-discount {
+        font-size: 1rem;
+        color: #F8978A; /* Dark green color */
+        font-weight: 500; /* Medium font weight */
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .promo-options {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+    .promo-options div {
+        font-size: 0.9rem;
+        text-align: center;
+        font-weight: 500; /* Medium font weight */
+    }
+
+    .promo-options select {
+        font-size: 0.9rem;
+        border: 1px solid #DEDEDE; /* Light grey border */
+        border-radius: 0.375rem;
+        padding: 0.4rem;
+    }
+
+    .promo-price {
+        font-size: 2rem; /* Slightly smaller font size for price */
+        color: #F8978A; /* Dark green color */
+        font-weight: 600; /* Semi-bold font weight */
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
+
+    .old-price {
+        font-size: 1.25rem; /* Smaller font size for the old price */
+        color: #6c757d; /* Bootstrap's secondary text color */
+        font-weight: 400; /* Regular font weight */
+        text-align: center;
+        text-decoration: line-through;
+        margin-bottom: 0.75rem;
+    }
+	.claim-offer-label {
+    background-color: #F8978A;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: auto;
+    margin-right: 1rem;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .claim-offer-btn {
+        background-color: #F8978A; /* Dark green background */
+        color: #FFFFFF; /* White text color */
+        font-size: 1rem; /* Smaller font size for the button */
+        font-weight: 600; /* Semi-bold font weight */
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 0.375rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        align-self: flex-end; /* Align button to the right */
+        margin-top: auto; /* Push button to the bottom */
+        margin-right: 1rem; /* Right margin for alignment */
+    }
+	/* Change styles when checkbox is checked */
+.claim-offer-checkbox:checked + .claim-offer-label {
+    background-color: #ccc;
+    color: #333;
+    cursor: default;
+}
+
+/* Change the border color of the promo card when checkbox is checked */
+.claim-offer-checkbox:checked ~ .promo-card {
+    border-color: #F8978A;
+}
+
+    /* Responsive adjustments */
+@media (max-width: 768px) {
+    .promo-card {
+        padding: 0.75rem;
+    }
+
+    .claim-offer-label {
+        width: 100%;
+        align-self: center;
+        margin-top: 0.5rem;
+        margin-right: 0;
+    }
+}
+.claim-offer-btn.claimed {
+  background-color: #ccc; /* Grey color to indicate inactive state */
+  color: #333; /* Darker text color */
+  cursor: not-allowed; /* Change cursor to indicate button is disabled */
+}
+
+.promo-card.promo-claimed {
+  border-color: #FFABA8; /* New border color */
+  box-shadow: 0 0 10px #FFABA8; /* New shadow color */
+}
+
+
+	
 </style>
 
 </head>
@@ -353,6 +494,57 @@ src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
         <img src="CONTENT/Design sans titre (4).png" alt="Banner" class="banner-image">
     </div>
 	
+    <!-- Promotional Section -->
+    <div class="container my-4">
+    <div class="card promo-card mx-auto" style="max-width:540px;">
+        <div class="card-body">
+            <form id="promo-form" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="promo-form">
+                        <div class="promo-text">
+                            <h2>Buy 1 Get 1 FREE!</h2>
+                            <p>Save $40!</p>
+                            <p><strong>Color, Size, Style</strong></p>
+                            <div class="promo-options d-flex">
+                                <div>#1</div>
+                                <select class="form-control" name="color1">
+                                    <option>Black</option>
+                                    <option>Mocha</option>
+                                    <option>Bomb Beige</option>
+                                </select>
+                                <select class="form-control" name="size1">
+                                    <option>XS/S</option>
+                                    <option>M/L</option>
+                                    <option>XL/2XL</option>
+                                    <option>3XL/4XL</option>
+                                    <option>5XL</option>
+                                </select>
+                            </div>
+                            <div class="promo-options d-flex mt-2">
+                                <div>#2</div>
+                                <select class="form-control" name="color2">
+                                    <option>Black</option>
+                                    <option>Mocha</option>
+				<option>Bomb Beige</option>
+                            </select>
+                                <select class="form-control" name="size2">
+                                    <option>XS/S</option>
+                                    <option>M/L</option>
+                                    <option>XL/2XL</option>
+                                    <option>3XL/4XL</option>
+                                    <option>5XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="promo-price">
+                            <span class="current-price">AUD$39.97</span><br>
+                            <span class="old-price">$79.97</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Checkout Container -->
     <div class="container checkout-container py-5">
         <div class="checkout-formal">
