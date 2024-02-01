@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
     document.getElementById('paypal-button').addEventListener('click', function() {
-        window.open('https://shop.smile-actives.co/paypalpayment.html', '_blank');
+        window.open('https://shop.smile-actives.co/spinner-paypal1.html', '_blank');
     });
 
 
