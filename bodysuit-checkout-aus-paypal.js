@@ -129,6 +129,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+    document.getElementById('paypal-button').addEventListener('click', function() {
+        window.open('https://shop.smile-actives.co/paypalpayment.html', '_blank');
+    });
+
 
 
 document.getElementById('standardShipping').addEventListener('change', handleRadioChange);
