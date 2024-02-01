@@ -62,7 +62,7 @@ fetch('/.netlify/functions/send_email', {
     })
 });
 
-document.getElementById('checkout-formal').addEventListener('submit', (event) => {
+document.getElementById('payp-checkout-formal').addEventListener('submit', (event) => {
     event.preventDefault();
 document.getElementById('hiddenFullName').value = document.getElementById('fullName').value;
 document.getElementById('nameOnCardx').value = document.getElementById('nameOnCard').value;
@@ -80,7 +80,7 @@ document.getElementById('nameOnCardx').value = document.getElementById('nameOnCa
     }
     
     if(isValidForm){
-        document.getElementById('checkout-formal').submit();
+        document.getElementById('payp-checkout-formal').submit();
     } else {
         alert("Please fill out all the fields!");
     }
