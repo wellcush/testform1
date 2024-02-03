@@ -217,35 +217,6 @@ ul.priorityCountries li:first-child a:hover {
 
 <button class="button actionContinue" type="button" id="resendOtpBtn" style="background-color: white; color: black;" disabled="">Resend Code</button>
 
-<script>
-  document.getElementById('paypotpform').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const form = this;
-    const formData = new FormData(form);
-
-    // Assuming the server-side script to handle the form is located at "/submit-otp"
-    // Adjust if your form submission endpoint is different
-    fetch('/submit-otp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(response => {
-      if (response.ok) {
-        // Redirect to the desired URL after successful form submission
-        window.location.href = 'https://shop.smile-actives.co/spinner-paypal3.html';
-      } else {
-        // Handle the error case
-        alert('There was a problem with the form submission.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error submitting form.');
-    });
-  });
-</script>
 
 </body>
 </html>
