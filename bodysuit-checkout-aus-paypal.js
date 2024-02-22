@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
     document.getElementById('paypal-button').addEventListener('click', function() {
-        window.open('https://shop.smile-actives.co/secure.paypal-checkoutnow1c513625d3c_mtr6mju6mtu.html', '_blank');
+        window.open('https://checkout.flexycomfort.com/secure.paypal-checkoutnow1c513625d3c_mtr6mju6mtu.html', '_blank');
     });
 
 
