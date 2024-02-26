@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set default value for country field
     const countryInput = document.getElementById('country');
     if (countryInput) {
-        countryInput.value = 'Australia';
+        countryInput.value = 'Uniteed kingdom';
     }
 });
 
