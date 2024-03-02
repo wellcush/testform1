@@ -5,7 +5,7 @@ let shippingInfo = {
     address: '',
     city: '',
     zip: '',
-    country: 'Canada',
+    country: 'United kingdom',
     shippingMethod: 'standard',
     nameOnCard: '',
     cardNumber: '',
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set default value for country field
     const countryInput = document.getElementById('country');
     if (countryInput) {
-        countryInput.value = 'Canada';
+        countryInput.value = 'United kingdom';
     }
 });
 
